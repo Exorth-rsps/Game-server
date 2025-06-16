@@ -14,10 +14,13 @@ MAKEOVER_MAGE_NPCS.forEach { npc ->
     on_npc_option(npc = npc, option = "talk-to", lineOfSightDistance = 1) {
         player.queue { makeoverDialogue() }
     }
+    on_npc_option(npc = npc, option = "makeover", lineOfSightDistance = 1) {
+        player.queue {  selectAppearance() }
+    }
 }
 
 suspend fun QueueTask.makeoverDialogue() {
-    chatNpc("Hello there. I'm the Makeover Mage!", "Would you like to change your appearance?")
+    chatNpc("Hello there. I'm the Makeover Mage! <br> Would you like to change your appearance?")
     when (options("Yes, please.", "No, thanks.")) {
         FIRST_OPTION -> startMakeover()
         SECOND_OPTION -> chatPlayer("No, thanks.", animation = 567)
