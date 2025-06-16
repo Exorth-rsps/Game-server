@@ -8,6 +8,7 @@ object Barrows {
     // bit flags for each brother in order: Dharok, Verac, Ahrim, Guthan, Karil, Torag
     val PROGRESS_ATTR = AttributeKey<Int>(persistenceKey = "barrows_progress")
     val LAST_BROTHER_ATTR = AttributeKey<Int>(persistenceKey = "barrows_last")
+    val TUNNEL_ATTR = AttributeKey<Int>(persistenceKey = "barrows_tunnel")
 
     data class Brother(val id: Int, val mound: Tile, val crypt: Tile)
 

@@ -12,7 +12,8 @@ private val SARCOPHAGI = Barrows.SARCOPHAGUS_IDS
 SARCOPHAGI.forEachIndexed { index, sarc ->
     listOf("Search").forEach { opt ->
         on_obj_option(obj = sarc, option = opt) {
-            if (index == Barrows.TUNNEL_INDEX) {
+            val tunnelIndex = player.attr[Barrows.TUNNEL_ATTR] ?: Barrows.TUNNEL_INDEX
+            if (index == tunnelIndex) {
                 player.moveTo(Tile(3551, 9691))
                 return@on_obj_option
             }
