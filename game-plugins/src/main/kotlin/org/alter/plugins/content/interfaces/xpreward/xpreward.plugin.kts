@@ -17,8 +17,7 @@ on_button(interfaceId = XpReward.INTERFACE_ID, component = 1) {
     player.closeInterface(XpReward.INTERFACE_ID)
 }
 
-arrayOf(XpReward.CONFIRM_BUTTON, XpReward.CONFIRM_TEXT).forEach { confirm ->
-    on_button(interfaceId = XpReward.INTERFACE_ID, component = confirm) {
+on_button(interfaceId = XpReward.INTERFACE_ID, component = XpReward.CONFIRM_COMPONENT) {
         val item = player.attr[XP_REWARD_ITEM] ?: return@on_button
         val skill = player.attr[XP_REWARD_SKILL]
         if (skill == null || skill == -1) {
@@ -29,7 +28,6 @@ arrayOf(XpReward.CONFIRM_BUTTON, XpReward.CONFIRM_TEXT).forEach { confirm ->
         player.inventory.remove(item)
         player.message("You feel more experienced.")
         player.closeInterface(XpReward.INTERFACE_ID)
-    }
 }
 
 on_interface_close(XpReward.INTERFACE_ID) {

@@ -13,8 +13,11 @@ import org.alter.game.model.attr.XP_REWARD_SKILL
 
 object XpReward {
     const val INTERFACE_ID = 240
-    const val CONFIRM_TEXT = 26
-    const val CONFIRM_BUTTON = 27
+    /**
+     * The component used as the "Confirm" button. The widget only contains
+     * text, so we treat the label itself as the clickable component.
+     */
+    const val CONFIRM_COMPONENT = 26
 
     /**
      * Mapping of interface component ids to the skill they represent.
@@ -54,16 +57,15 @@ object XpReward {
         p.setInterfaceUnderlay(-1, -1)
         p.openInterface(INTERFACE_ID, InterfaceDestination.MAIN_SCREEN)
         p.setComponentText(INTERFACE_ID, 0, "Choose the stat you wish to be advanced!")
-        p.setComponentText(INTERFACE_ID, CONFIRM_TEXT, "Confirm")
+        p.setComponentText(INTERFACE_ID, CONFIRM_COMPONENT, "Confirm")
         // Initialize client-side script to handle button interactions and highlighting
         val containerHash = (INTERFACE_ID shl 16) or 1
-        val confirmHash = (INTERFACE_ID shl 16) or CONFIRM_TEXT
+        val confirmHash = (INTERFACE_ID shl 16) or CONFIRM_COMPONENT
         p.runClientScript(3806, -1, containerHash, confirmHash)
         COMPONENT_TO_SKILL.keys.forEach { comp ->
             p.setInterfaceEvents(INTERFACE_ID, comp, 1..1, InterfaceEvent.ClickOp1)
         }
         p.setInterfaceEvents(INTERFACE_ID, 1, 1..1, InterfaceEvent.ClickOp1)
-        p.setInterfaceEvents(INTERFACE_ID, CONFIRM_BUTTON, 1..1, InterfaceEvent.ClickOp1)
-        p.setInterfaceEvents(INTERFACE_ID, CONFIRM_TEXT, 1..1, InterfaceEvent.ClickOp1)
+        p.setInterfaceEvents(INTERFACE_ID, CONFIRM_COMPONENT, 1..1, InterfaceEvent.ClickOp1)
     }
 }
