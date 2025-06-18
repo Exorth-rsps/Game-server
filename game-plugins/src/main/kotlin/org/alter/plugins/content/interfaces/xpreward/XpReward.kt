@@ -57,7 +57,7 @@ object XpReward {
         p.setComponentText(INTERFACE_ID, CONFIRM_TEXT, "Confirm")
         // Initialize client-side script to handle button interactions and highlighting
         val containerHash = (INTERFACE_ID shl 16) or 1
-        val confirmHash = (INTERFACE_ID shl 16) or CONFIRM_TEXT
+        val confirmHash = (INTERFACE_ID shl 16) or CONFIRM_BUTTON
         p.runClientScript(3804, containerHash, confirmHash)
         COMPONENT_TO_SKILL.keys.forEach { comp ->
             p.setInterfaceEvents(INTERFACE_ID, comp, 1..1, InterfaceEvent.ClickOp1)
