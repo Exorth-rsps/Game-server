@@ -20,6 +20,7 @@ object XpReward {
      * The "Confirm" button component.
      */
     const val CONFIRM_COMPONENT = 26
+    const val CONFIRM_BUTTON = 27
 
     /**
      * Mapping of interface component ids to the skill they represent.
@@ -77,6 +78,7 @@ object XpReward {
             p.setInterfaceEvents(INTERFACE_ID, comp, 1..1, InterfaceEvent.ClickOp1)
         }
         p.setInterfaceEvents(INTERFACE_ID, 1, 1..1, InterfaceEvent.ClickOp1)
+        p.setInterfaceEvents(INTERFACE_ID, CONFIRM_BUTTON, 1..1, InterfaceEvent.ClickOp1)
         p.setInterfaceEvents(INTERFACE_ID, CONFIRM_COMPONENT, 1..1, InterfaceEvent.ClickOp1)
     }
 }
