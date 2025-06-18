@@ -7,9 +7,12 @@ import org.alter.api.ext.openInterface
 import org.alter.api.ext.setInterfaceEvents
 import org.alter.api.ext.setInterfaceUnderlay
 import org.alter.api.ext.runClientScript
+import org.alter.api.cfg.Varp
 import org.alter.game.model.entity.Player
 import org.alter.game.model.attr.XP_REWARD_ITEM
 import org.alter.game.model.attr.XP_REWARD_SKILL
+import org.alter.game.model.attr.XP_REWARD_MIN_LEVEL
+import org.alter.game.model.attr.XP_REWARD_EXPERIENCE
 
 object XpReward {
     const val INTERFACE_ID = 240
@@ -50,9 +53,18 @@ object XpReward {
         24 to Skills.HUNTER
     )
 
+    private val ITEM_TO_REWARD = mapOf(
+        org.alter.api.cfg.Items.LAMP to Pair(1, 150.0),
+        org.alter.api.cfg.Items.BOOK_OF_KNOWLEDGE to Pair(1, 150.0)
+    )
+
     fun open(p: Player, item: Int) {
+        val (minLevel, xp) = ITEM_TO_REWARD[item] ?: (1 to 150.0)
         p.attr[XP_REWARD_ITEM] = item
         p.attr[XP_REWARD_SKILL] = -1
+        p.attr[XP_REWARD_MIN_LEVEL] = minLevel
+        p.attr[XP_REWARD_EXPERIENCE] = xp
+        p.setVarp(Varp.GENERIC_VARP_261, minLevel)
         p.setInterfaceUnderlay(-1, -1)
         p.openInterface(INTERFACE_ID, InterfaceDestination.MAIN_SCREEN)
         p.setComponentText(INTERFACE_ID, 0, "Choose the stat you wish to be advanced!")

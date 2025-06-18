@@ -261,3 +261,13 @@ val XP_REWARD_ITEM = AttributeKey<Int>()
  * The skill selected on the XP reward interface.
  */
 val XP_REWARD_SKILL = AttributeKey<Int>()
+
+/**
+ * Minimum skill level required for the active XP reward.
+ */
+val XP_REWARD_MIN_LEVEL = AttributeKey<Int>()
+
+/**
+ * Amount of experience granted by the active XP reward.
+ */
+val XP_REWARD_EXPERIENCE = AttributeKey<Double>()
