@@ -9,8 +9,8 @@ import org.alter.plugins.content.mechanics.random_events.spawnRandomEvent
 
 private val RANDOM_EVENT_TIMER = TimerKey()
 
-private const val MIN_DELAY = 3000
-private const val MAX_DELAY = 6000
+private val MIN_DELAY = 3000
+private val MAX_DELAY = 6000
 
 on_login {
     player.timers[RANDOM_EVENT_TIMER] = world.random(MIN_DELAY..MAX_DELAY)
