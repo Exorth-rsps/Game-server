@@ -4,6 +4,8 @@ import org.alter.api.cfg.Items
 import org.alter.api.cfg.Npcs
 import org.alter.game.model.entity.Npc
 import org.alter.game.model.queue.QueueTask
+import org.alter.plugins.content.interfaces.sandwich.SandwichTray
+import org.alter.game.fs.def.ItemDef
 
 private val SANDWICH_REWARDS = intArrayOf(
     Items.SANDWICH_LADY_HAT,
@@ -23,9 +25,16 @@ on_npc_option(npc = Npcs.SANDWICH_LADY, option = "talk-to") {
 }
 
 suspend fun QueueTask.sandwichDialog(eventNpc: Npc) {
-    chatNpc("Fancy a snack? Here you go!", npc = eventNpc.id)
-    val reward = SANDWICH_REWARDS.random()
-    player.inventory.add(reward)
-    chatNpc("Enjoy your treat.", npc = eventNpc.id)
+    val request = SandwichTray.items.random()
+    val name = world.definitions.get(ItemDef::class.java, request).name.lowercase()
+    chatNpc("Please choose the $name from my tray.", npc = eventNpc.id)
+    val correct = SandwichTray.chooseItem(this, request)
+    if (correct) {
+        val reward = SANDWICH_REWARDS.random()
+        player.inventory.add(reward)
+        chatNpc("Enjoy your treat.", npc = eventNpc.id)
+    } else {
+        chatNpc("That's not what I asked for!", npc = eventNpc.id)
+    }
     world.remove(eventNpc)
 }
