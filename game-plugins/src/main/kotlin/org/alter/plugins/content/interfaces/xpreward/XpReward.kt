@@ -1,84 +1,64 @@
 package org.alter.plugins.content.interfaces.xpreward
 
+import org.alter.game.message.impl.ResumePauseButtonMessage
+import org.alter.game.model.entity.Player
 import org.alter.api.InterfaceDestination
 import org.alter.api.Skills
-import org.alter.api.ext.InterfaceEvent
-import org.alter.api.ext.openInterface
-import org.alter.api.ext.setInterfaceEvents
-import org.alter.api.ext.setInterfaceUnderlay
-import org.alter.api.ext.runClientScript
-import org.alter.api.cfg.Varp
-import org.alter.game.model.entity.Player
-import org.alter.game.model.attr.XP_REWARD_ITEM
-import org.alter.game.model.attr.XP_REWARD_SKILL
-import org.alter.game.model.attr.XP_REWARD_MIN_LEVEL
-import org.alter.game.model.attr.XP_REWARD_EXPERIENCE
+import org.alter.api.ext.*
+import org.alter.game.model.queue.TaskPriority
 
 object XpReward {
-    const val INTERFACE_ID = 240
-    /**
-     * The "Confirm" button component.
-     */
-    const val CONFIRM_COMPONENT = 26
-    const val CONFIRM_BUTTON = 27
+    private const val INTERFACE_ID = 240
+    private const val VARP_ID = 261
 
-    /**
-     * Mapping of interface component ids to the skill they represent.
-     * Annotated with [JvmField] so scripts can access the map directly
-     * without going through the generated getter.
-     */
-    @JvmField
-    val COMPONENT_TO_SKILL = mapOf(
-        2 to Skills.ATTACK,
-        3 to Skills.STRENGTH,
-        4 to Skills.RANGED,
-        5 to Skills.MAGIC,
-        6 to Skills.DEFENCE,
-        7 to Skills.HITPOINTS,
-        8 to Skills.PRAYER,
-        9 to Skills.AGILITY,
-        10 to Skills.HERBLORE,
-        11 to Skills.THIEVING,
-        12 to Skills.CRAFTING,
-        13 to Skills.RUNECRAFTING,
-        14 to Skills.SLAYER,
-        15 to Skills.FARMING,
-        16 to Skills.MINING,
-        17 to Skills.SMITHING,
-        18 to Skills.FISHING,
-        19 to Skills.COOKING,
-        20 to Skills.FIREMAKING,
-        21 to Skills.WOODCUTTING,
-        22 to Skills.FLETCHING,
-        23 to Skills.CONSTRUCTION,
-        24 to Skills.HUNTER
-    )
+    fun open(player: Player) {
+        player.setInterfaceUnderlay(-1, -1)
+        player.openInterface(INTERFACE_ID, InterfaceDestination.MAIN_SCREEN)
+        player.setComponentText(INTERFACE_ID, 25, "Choose the stat you wish to be advanced!")
+        player.setVarp(VARP_ID, 0)
 
-    private val ITEM_TO_REWARD = mapOf(
-        org.alter.api.cfg.Items.LAMP to Pair(1, 150.0),
-        org.alter.api.cfg.Items.BOOK_OF_KNOWLEDGE to Pair(1, 150.0)
-    )
+        player.queue(TaskPriority.STRONG) {
+            waitReturnValue()
+            val msg = requestReturnValue as? ResumePauseButtonMessage ?: return@queue
 
-    fun open(p: Player, item: Int) {
-        val (minLevel, xp) = ITEM_TO_REWARD[item] ?: (1 to 150.0)
-        p.attr[XP_REWARD_ITEM] = item
-        p.attr[XP_REWARD_SKILL] = -1
-        p.attr[XP_REWARD_MIN_LEVEL] = minLevel
-        p.attr[XP_REWARD_EXPERIENCE] = xp
-        p.setVarp(Varp.GENERIC_VARP_261, minLevel)
-        p.setInterfaceUnderlay(-1, -1)
-        p.openInterface(INTERFACE_ID, InterfaceDestination.MAIN_SCREEN)
-        p.setComponentText(INTERFACE_ID, 0, "Choose the stat you wish to be advanced!")
-        p.setComponentText(INTERFACE_ID, CONFIRM_COMPONENT, "Confirm")
-        // Initialize client-side script to handle button interactions and highlighting
-        val containerHash = (INTERFACE_ID shl 16) or 1
-        val confirmHash = (INTERFACE_ID shl 16) or CONFIRM_COMPONENT
-        p.runClientScript(3804, containerHash, confirmHash)
-        COMPONENT_TO_SKILL.keys.forEach { comp ->
-            p.setInterfaceEvents(INTERFACE_ID, comp, 1..1, InterfaceEvent.ClickOp1)
+            // Haal de “slot” uit het bericht (in plaats van onbestaande 'sub')
+            val selectedSlot = msg.slot
+
+            // Zoek de lamp op via values() i.p.v. entries
+            val lamp = SkillLamp.values().find { it.slot == selectedSlot } ?: return@queue
+
+            val baseLevel = player.getSkills().getBaseLevel(lamp.skill)
+            val reward = 10 * baseLevel
+
+            player.addXp(lamp.skill, reward.toDouble())
+            player.message("You have been rewarded $reward experience in ${lamp.name}.")
+            player.closeInterface(INTERFACE_ID)
         }
-        p.setInterfaceEvents(INTERFACE_ID, 1, 1..1, InterfaceEvent.ClickOp1)
-        p.setInterfaceEvents(INTERFACE_ID, CONFIRM_BUTTON, 1..1, InterfaceEvent.ClickOp1)
-        p.setInterfaceEvents(INTERFACE_ID, CONFIRM_COMPONENT, 1..1, InterfaceEvent.ClickOp1)
+    }
+
+    private enum class SkillLamp(val slot: Int, val skill: Int) {
+        ATTACK(0, Skills.ATTACK),
+        STRENGTH(1, Skills.STRENGTH),
+        RANGED(2, Skills.RANGED),
+        MAGIC(3, Skills.MAGIC),
+        DEFENCE(4, Skills.DEFENCE),
+        HITPOINTS(5, Skills.HITPOINTS),
+        PRAYER(6, Skills.PRAYER),
+        AGILITY(7, Skills.AGILITY),
+        HERBLORE(8, Skills.HERBLORE),
+        THIEVING(9, Skills.THIEVING),
+        CRAFTING(10, Skills.CRAFTING),
+        RUNECRAFTING(11, Skills.RUNECRAFTING),
+        MINING(12, Skills.MINING),
+        SMITHING(13, Skills.SMITHING),
+        FISHING(14, Skills.FISHING),
+        COOKING(15, Skills.COOKING),
+        FIREMAKING(16, Skills.FIREMAKING),
+        WOODCUTTING(17, Skills.WOODCUTTING),
+        FLETCHING(18, Skills.FLETCHING),
+        SLAYER(19, Skills.SLAYER),
+        FARMING(20, Skills.FARMING),
+        CONSTRUCTION(21, Skills.CONSTRUCTION),
+        HUNTER(22, Skills.HUNTER)
     }
 }

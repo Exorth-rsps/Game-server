@@ -1,6 +1,7 @@
 package org.alter.plugins.content.mechanics.random_events
 
 import org.alter.api.cfg.Npcs
+import org.alter.api.ext.message
 import org.alter.game.fs.def.NpcDef
 import org.alter.game.model.entity.Npc
 import org.alter.game.model.entity.Player
