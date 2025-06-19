@@ -12,16 +12,16 @@ object SandwichTray {
     const val INTERFACE_ID = 297
 
     private const val KEY_COMPONENT = 13
-    private const val REFRESH_COMPONENT = 2
+    private const val REFRESH_COMPONENT = 5
 
     val componentToItem = mapOf(
-        6 to Items.BAGUETTE,
-        7 to Items.TRIANGLE_SANDWICH,
-        8 to Items.SQUARE_SANDWICH,
-        9 to Items.ROLL,
-        10 to Items.MEAT_PIE,
-        11 to Items.KEBAB,
-        12 to Items.CHOCOLATE_BAR
+        15 to Items.BAGUETTE,
+        16 to Items.TRIANGLE_SANDWICH,
+        17 to Items.SQUARE_SANDWICH,
+        18 to Items.ROLL,
+        19 to Items.MEAT_PIE,
+        20 to Items.KEBAB,
+        21 to Items.CHOCOLATE_BAR
     )
 
     val itemComponents: IntArray = componentToItem.keys.toIntArray()
@@ -37,7 +37,7 @@ object SandwichTray {
         player.setComponentText(INTERFACE_ID, REFRESH_COMPONENT, "Please select the $name.")
 
         componentToItem.keys.forEach { comp ->
-            player.setInterfaceEvents(INTERFACE_ID, component = comp, range = -1..-1, setting = InterfaceEvent.ClickOp1)
+            player.setInterfaceEvents(INTERFACE_ID, component = comp, range = 0..0, setting = InterfaceEvent.ClickOp1)
         }
 
         task.waitReturnValue()
