@@ -4,6 +4,7 @@ import org.alter.game.fs.def.ItemDef
 import org.alter.game.message.impl.ResumePauseButtonMessage
 import org.alter.game.model.queue.QueueTask
 import org.alter.api.InterfaceDestination
+import org.alter.api.ext.InterfaceEvent
 import org.alter.api.cfg.Items
 import org.alter.api.ext.*
 
@@ -13,7 +14,7 @@ object SandwichTray {
     private const val KEY_COMPONENT = 4
     private const val REFRESH_COMPONENT = 5
 
-    private val componentToItem = mapOf(
+    val componentToItem = mapOf(
         15 to Items.BAGUETTE,
         16 to Items.TRIANGLE_SANDWICH,
         17 to Items.SQUARE_SANDWICH,
@@ -22,6 +23,8 @@ object SandwichTray {
         20 to Items.KEBAB,
         21 to Items.CHOCOLATE_BAR
     )
+
+    val itemComponents: IntArray = componentToItem.keys.toIntArray()
 
     val items: IntArray = componentToItem.values.toIntArray()
 
@@ -34,7 +37,7 @@ object SandwichTray {
         player.setComponentText(INTERFACE_ID, REFRESH_COMPONENT, "Please select the $name.")
 
         componentToItem.keys.forEach { comp ->
-            player.setInterfaceEvents(INTERFACE_ID, component = comp, range = -1..-1, setting = 1)
+            player.setInterfaceEvents(INTERFACE_ID, component = comp, range = -1..-1, setting = InterfaceEvent.ClickOp1)
         }
 
         task.waitReturnValue()
