@@ -11,6 +11,14 @@ object XpReward {
     private const val INTERFACE_ID = 240
     private const val VARP_ID = 261
 
+    private val UNAVAILABLE_SKILLS = setOf(
+        Skills.AGILITY,
+        Skills.SLAYER,
+        Skills.FARMING,
+        Skills.CONSTRUCTION,
+        Skills.HUNTER
+    )
+
     fun open(player: Player, item: Int? = null, xpMultiplier: Int = 10) {
         player.setInterfaceUnderlay(-1, -1)
         player.openInterface(INTERFACE_ID, InterfaceDestination.MAIN_SCREEN)
@@ -26,6 +34,12 @@ object XpReward {
 
             // Zoek de lamp op via values() i.p.v. entries
             val lamp = SkillLamp.values().find { it.slot == selectedSlot } ?: return@queue
+
+            if (lamp.skill in UNAVAILABLE_SKILLS) {
+                player.message("This skill is currently not available")
+                player.closeInterface(INTERFACE_ID)
+                return@queue
+            }
 
             val baseLevel = player.getSkills().getBaseLevel(lamp.skill)
             val reward = xpMultiplier * baseLevel
