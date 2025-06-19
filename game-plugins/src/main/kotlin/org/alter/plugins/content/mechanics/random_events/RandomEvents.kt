@@ -16,8 +16,8 @@ private const val IGNORE_DELAY = 100
 
 private val EVENTS = intArrayOf(
     Npcs.GENIE,
-    Npcs.LEO,
-    Npcs.FREAKY_FORESTER_6748,
+    //Npcs.LEO,
+    //Npcs.FREAKY_FORESTER_6748,
     Npcs.SANDWICH_LADY
 )
 
