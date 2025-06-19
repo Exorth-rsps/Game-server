@@ -11,7 +11,7 @@ object XpReward {
     private const val INTERFACE_ID = 240
     private const val VARP_ID = 261
 
-    fun open(player: Player) {
+    fun open(player: Player, item: Int? = null, xpMultiplier: Int = 10) {
         player.setInterfaceUnderlay(-1, -1)
         player.openInterface(INTERFACE_ID, InterfaceDestination.MAIN_SCREEN)
         player.setComponentText(INTERFACE_ID, 25, "Choose the stat you wish to be advanced!")
@@ -28,10 +28,14 @@ object XpReward {
             val lamp = SkillLamp.values().find { it.slot == selectedSlot } ?: return@queue
 
             val baseLevel = player.getSkills().getBaseLevel(lamp.skill)
-            val reward = 10 * baseLevel
+            val reward = xpMultiplier * baseLevel
 
             player.addXp(lamp.skill, reward.toDouble())
-            player.message("You have been rewarded $reward experience in ${lamp.name}.")
+            if (item != null) {
+                player.inventory.remove(item)
+            }
+            val skillName = Skills.getSkillName(player.world, lamp.skill)
+            player.message("You have been rewarded $reward experience in $skillName.")
             player.closeInterface(INTERFACE_ID)
         }
     }
