@@ -6,6 +6,7 @@ import org.alter.plugins.content.combat.isBeingAttacked
 import org.alter.plugins.content.magic.TeleportType
 import org.alter.plugins.content.magic.teleport
 
+
 private val RANDOM_EVENT_TIMER = TimerKey()
 
 private val MIN_DELAY = 3000

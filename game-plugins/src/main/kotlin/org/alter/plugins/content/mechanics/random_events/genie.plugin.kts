@@ -7,6 +7,7 @@ import org.alter.game.model.queue.QueueTask
 import org.alter.plugins.content.mechanics.random_events.CALL_EVENT_TIMER
 import org.alter.plugins.content.mechanics.random_events.FOLLOW_EVENT_TIMER
 
+
 on_npc_option(npc = Npcs.GENIE, option = "talk-to") {
     val eventNpc = player.getInteractingNpc()
     if (eventNpc.owner != player) {

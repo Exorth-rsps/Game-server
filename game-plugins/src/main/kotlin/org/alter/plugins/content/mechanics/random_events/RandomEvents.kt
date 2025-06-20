@@ -12,10 +12,8 @@ import org.alter.game.model.timer.TimerKey
  * Utilities for random events.
  */
 val IGNORE_EVENT_TIMER = TimerKey()
-
 val CALL_EVENT_TIMER = TimerKey()
 val CALL_INDEX_ATTR = AttributeKey<Int>()
-
 val FOLLOW_EVENT_TIMER = TimerKey()
 
 const val FOLLOW_DELAY = 1
@@ -28,6 +26,7 @@ val CALL_MESSAGES = arrayOf<(Player) -> String>(
     { p -> "Hello ${p.username}!" },
     { p -> "Hello ${p.username}, talk to me now!" },
     { p -> "${p.username}, Last chance!" }
+
 )
 
 private const val IGNORE_DELAY = 100
