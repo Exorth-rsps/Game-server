@@ -12,17 +12,21 @@ import org.alter.game.model.timer.TimerKey
  * Utilities for random events.
  */
 val IGNORE_EVENT_TIMER = TimerKey()
-
 val CALL_EVENT_TIMER = TimerKey()
 val CALL_INDEX_ATTR = AttributeKey<Int>()
+val FOLLOW_EVENT_TIMER = TimerKey()
 
-private const val CALL_DELAY = 20
+const val FOLLOW_DELAY = 1
 
-private val CALL_MESSAGES = arrayOf<(Player) -> String>(
+const val CALL_DELAY = 20
+
+val CALL_MESSAGES = arrayOf<(Player) -> String>(
     { p -> "Hello ${p.username}, i can we speak?" },
     { p -> "Hello ${p.username}, are you there?" },
     { p -> "Hello ${p.username}!" },
-    { p -> "Hello ${p.username}, talk to me now!" }
+    { p -> "Hello ${p.username}, talk to me now!" },
+    { p -> "${p.username}, Last chance!" }
+
 )
 
 private const val IGNORE_DELAY = 100
@@ -39,9 +43,11 @@ fun spawnRandomEvent(player: Player, npcId: Int = EVENTS.random()) {
     npc.owner = player
     npc.respawns = false
     npc.timers[IGNORE_EVENT_TIMER] = IGNORE_DELAY
-    npc.attr[CALL_INDEX_ATTR] = 0
-    npc.timers[CALL_EVENT_TIMER] = CALL_DELAY
+    npc.attr[CALL_INDEX_ATTR] = 1
     world.spawn(npc)
+    npc.forceChat(CALL_MESSAGES[0](player))
+    npc.timers[CALL_EVENT_TIMER] = CALL_DELAY
+    npc.timers[FOLLOW_EVENT_TIMER] = FOLLOW_DELAY
     val name = world.definitions.get(NpcDef::class.java, npcId).name
     player.message("A random event has appeared: $name. Talk to them or you'll be sent home!")
 }

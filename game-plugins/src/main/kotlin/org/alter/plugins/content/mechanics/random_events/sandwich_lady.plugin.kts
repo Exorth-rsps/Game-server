@@ -7,6 +7,8 @@ import org.alter.game.model.queue.QueueTask
 import org.alter.plugins.content.interfaces.sandwich.SandwichTray
 import org.alter.game.fs.def.ItemDef
 import org.alter.plugins.content.mechanics.random_events.CALL_EVENT_TIMER
+import org.alter.plugins.content.mechanics.random_events.FOLLOW_EVENT_TIMER
+
 
 private val SANDWICH_REWARDS = intArrayOf(
     Items.SANDWICH_LADY_HAT,
@@ -23,6 +25,8 @@ on_npc_option(npc = Npcs.SANDWICH_LADY, option = "talk-to") {
     }
     eventNpc.timers.remove(IGNORE_EVENT_TIMER)
     eventNpc.timers.remove(CALL_EVENT_TIMER)
+    eventNpc.timers.remove(FOLLOW_EVENT_TIMER)
+
     player.queue { sandwichDialog(eventNpc) }
 }
 
