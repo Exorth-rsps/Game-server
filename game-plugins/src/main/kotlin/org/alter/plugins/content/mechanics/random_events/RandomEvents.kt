@@ -39,9 +39,10 @@ fun spawnRandomEvent(player: Player, npcId: Int = EVENTS.random()) {
     npc.owner = player
     npc.respawns = false
     npc.timers[IGNORE_EVENT_TIMER] = IGNORE_DELAY
-    npc.attr[CALL_INDEX_ATTR] = 0
-    npc.timers[CALL_EVENT_TIMER] = CALL_DELAY
+    npc.attr[CALL_INDEX_ATTR] = 1
     world.spawn(npc)
+    npc.forceChat(CALL_MESSAGES[0](player))
+    npc.timers[CALL_EVENT_TIMER] = CALL_DELAY
     val name = world.definitions.get(NpcDef::class.java, npcId).name
     player.message("A random event has appeared: $name. Talk to them or you'll be sent home!")
 }
