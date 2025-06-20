@@ -15,13 +15,13 @@ object SandwichTray {
     private const val REFRESH_COMPONENT = 5
 
     val componentToItem = mapOf(
-        6 to Items.BAGUETTE,
-        7 to Items.TRIANGLE_SANDWICH,
-        8 to Items.SQUARE_SANDWICH,
-        9 to Items.ROLL,
-        10 to Items.MEAT_PIE,
-        11 to Items.KEBAB,
-        12 to Items.CHOCOLATE_BAR
+        15 to Items.BAGUETTE,
+        16 to Items.TRIANGLE_SANDWICH,
+        17 to Items.SQUARE_SANDWICH,
+        18 to Items.ROLL,
+        19 to Items.MEAT_PIE,
+        20 to Items.KEBAB,
+        21 to Items.CHOCOLATE_BAR
     )
 
     val itemComponents: IntArray = componentToItem.keys.toIntArray()
