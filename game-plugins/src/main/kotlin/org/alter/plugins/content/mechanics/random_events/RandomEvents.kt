@@ -16,6 +16,10 @@ val IGNORE_EVENT_TIMER = TimerKey()
 val CALL_EVENT_TIMER = TimerKey()
 val CALL_INDEX_ATTR = AttributeKey<Int>()
 
+val FOLLOW_EVENT_TIMER = TimerKey()
+
+const val FOLLOW_DELAY = 2
+
 const val CALL_DELAY = 20
 
 val CALL_MESSAGES = arrayOf<(Player) -> String>(
@@ -43,6 +47,7 @@ fun spawnRandomEvent(player: Player, npcId: Int = EVENTS.random()) {
     world.spawn(npc)
     npc.forceChat(CALL_MESSAGES[0](player))
     npc.timers[CALL_EVENT_TIMER] = CALL_DELAY
+    npc.timers[FOLLOW_EVENT_TIMER] = FOLLOW_DELAY
     val name = world.definitions.get(NpcDef::class.java, npcId).name
     player.message("A random event has appeared: $name. Talk to them or you'll be sent home!")
 }

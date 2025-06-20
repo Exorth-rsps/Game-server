@@ -9,6 +9,8 @@ import org.alter.plugins.content.mechanics.random_events.CALL_EVENT_TIMER
 import org.alter.plugins.content.mechanics.random_events.CALL_INDEX_ATTR
 import org.alter.plugins.content.mechanics.random_events.CALL_MESSAGES
 import org.alter.plugins.content.mechanics.random_events.CALL_DELAY
+import org.alter.plugins.content.mechanics.random_events.FOLLOW_EVENT_TIMER
+import org.alter.plugins.content.mechanics.random_events.FOLLOW_DELAY
 import org.alter.plugins.content.mechanics.random_events.spawnRandomEvent
 
 private val RANDOM_EVENT_TIMER = TimerKey()
@@ -45,6 +47,17 @@ on_timer(CALL_EVENT_TIMER) {
                 npc.timers[CALL_EVENT_TIMER] = CALL_DELAY
             }
         }
+    }
+}
+
+on_timer(FOLLOW_EVENT_TIMER) {
+    val owner = npc.owner
+    if (npc.isSpawned() && owner != null && owner.isOnline) {
+        if (npc.lock.canMove()) {
+            npc.walkTo(owner.tile)
+            npc.facePawn(owner)
+        }
+        npc.timers[FOLLOW_EVENT_TIMER] = FOLLOW_DELAY
     }
 }
 
