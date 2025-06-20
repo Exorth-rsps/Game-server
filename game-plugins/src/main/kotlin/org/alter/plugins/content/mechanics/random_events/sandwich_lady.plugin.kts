@@ -11,7 +11,7 @@ private val SANDWICH_REWARDS = intArrayOf(
     Items.SANDWICH_LADY_HAT,
     Items.SANDWICH_LADY_TOP,
     Items.SANDWICH_LADY_BOTTOM,
-    Items.BAGUETTE
+    Items.STALE_BAGUETTE
 )
 
 on_npc_option(npc = Npcs.SANDWICH_LADY, option = "talk-to") {
