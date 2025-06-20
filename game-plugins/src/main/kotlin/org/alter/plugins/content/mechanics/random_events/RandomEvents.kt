@@ -3,6 +3,7 @@ package org.alter.plugins.content.mechanics.random_events
 import org.alter.api.cfg.Npcs
 import org.alter.api.ext.message
 import org.alter.game.fs.def.NpcDef
+import org.alter.game.model.attr.AttributeKey
 import org.alter.game.model.entity.Npc
 import org.alter.game.model.entity.Player
 import org.alter.game.model.timer.TimerKey
@@ -12,12 +13,22 @@ import org.alter.game.model.timer.TimerKey
  */
 val IGNORE_EVENT_TIMER = TimerKey()
 
+val CALL_EVENT_TIMER = TimerKey()
+val CALL_INDEX_ATTR = AttributeKey<Int>()
+
+private const val CALL_DELAY = 20
+
+private val CALL_MESSAGES = arrayOf<(Player) -> String>(
+    { p -> "Hello ${p.username}, i can we speak?" },
+    { p -> "Hello ${p.username}, are you there?" },
+    { p -> "Hello ${p.username}!" },
+    { p -> "Hello ${p.username}, talk to me now!" }
+)
+
 private const val IGNORE_DELAY = 100
 
 private val EVENTS = intArrayOf(
     Npcs.GENIE,
-    //Npcs.LEO,
-    //Npcs.FREAKY_FORESTER_6748,
     Npcs.SANDWICH_LADY
 )
 
@@ -28,6 +39,8 @@ fun spawnRandomEvent(player: Player, npcId: Int = EVENTS.random()) {
     npc.owner = player
     npc.respawns = false
     npc.timers[IGNORE_EVENT_TIMER] = IGNORE_DELAY
+    npc.attr[CALL_INDEX_ATTR] = 0
+    npc.timers[CALL_EVENT_TIMER] = CALL_DELAY
     world.spawn(npc)
     val name = world.definitions.get(NpcDef::class.java, npcId).name
     player.message("A random event has appeared: $name. Talk to them or you'll be sent home!")

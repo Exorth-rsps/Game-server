@@ -13,8 +13,6 @@ on_command("randomevent", Privilege.DEV_POWER, description = "Spawn a random eve
         val name = args.joinToString(" ").lowercase()
         val npcId = when (name) {
             "genie" -> Npcs.GENIE
-            "gravedigger", "leo" -> Npcs.LEO
-            "freaky forester", "forester" -> Npcs.FREAKY_FORESTER_6748
             "sandwich lady", "sandwich" -> Npcs.SANDWICH_LADY
             else -> -1
         }
