@@ -4,6 +4,7 @@ import org.alter.api.cfg.Items
 import org.alter.api.cfg.Npcs
 import org.alter.game.model.entity.Npc
 import org.alter.game.model.queue.QueueTask
+import org.alter.plugins.content.mechanics.random_events.CALL_EVENT_TIMER
 
 on_npc_option(npc = Npcs.GENIE, option = "talk-to") {
     val eventNpc = player.getInteractingNpc()
@@ -12,6 +13,7 @@ on_npc_option(npc = Npcs.GENIE, option = "talk-to") {
         return@on_npc_option
     }
     eventNpc.timers.remove(IGNORE_EVENT_TIMER)
+    eventNpc.timers.remove(CALL_EVENT_TIMER)
     player.queue { genieDialog(eventNpc) }
 }
 
