@@ -12,9 +12,9 @@ private val RANDOM_EVENT_TIMER = TimerKey()
 private val MIN_DELAY = 3000
 private val MAX_DELAY = 6000
 
-on_login {
-    player.timers[RANDOM_EVENT_TIMER] = world.random(MIN_DELAY..MAX_DELAY)
-}
+//on_login {
+//    player.timers[RANDOM_EVENT_TIMER] = world.random(MIN_DELAY..MAX_DELAY)
+//}
 
 on_logout {
     player.timers.remove(RANDOM_EVENT_TIMER)
