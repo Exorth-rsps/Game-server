@@ -2,6 +2,7 @@ package org.alter.plugins.content.area.legacy.barrows
 
 import org.alter.api.cfg.Objs
 import org.alter.api.cfg.Items
+import org.alter.api.cfg.Varp
 import org.alter.game.model.entity.Npc
 import org.alter.plugins.content.drops.DropTableFactory
 import org.alter.plugins.content.drops.DropTableType
@@ -22,6 +23,8 @@ on_obj_option(obj = Objs.CHEST_20723, option = "open") {
                 ?.firstOrNull()?.let { player.inventory.add(it) }
         }
         player.attr.remove(Barrows.LAST_BROTHER_ATTR)
+        player.attr.remove(Barrows.TUNNEL_ATTR)
+        player.setVarp(Varp.BARROWS_CHEST_COUNT, player.getVarp(Varp.BARROWS_CHEST_COUNT) + 1)
         player.message("You loot the chest and feel a strange power fade.")
         return@on_obj_option
     }

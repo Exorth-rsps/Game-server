@@ -7,6 +7,11 @@ on_item_option(item = Items.SPADE, "dig") {
     player.animate(830)
     val loc = player.tile
 
+    val progress = player.attr[Barrows.PROGRESS_ATTR] ?: 0
+    if (progress == 0 && player.attr[Barrows.TUNNEL_ATTR] == null) {
+        player.attr[Barrows.TUNNEL_ATTR] = world.random(Barrows.BROTHERS.indices)
+    }
+
     // 1) Barrows-logica: 1 loop, in plaats van twee
     Barrows.BROTHERS.forEachIndexed { index, brother ->
         if (loc.isWithinRadius(brother.mound, 4)) {

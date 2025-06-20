@@ -77,3 +77,5 @@ spawn_npc(Npcs.MAN_3107, 2958, 3374, 0, 5, Direction.SOUTH)
 
 spawn_npc(Npcs.MAN_3106, 3041, 3356, 0, 5, Direction.SOUTH)
 spawn_npc(Npcs.MAN_3107, 3036, 3351, 0, 5, Direction.SOUTH)
+
+spawn_npc(Npcs.MAKEOVER_MAGE, 2944, 3381, 0, 2, Direction.EAST)

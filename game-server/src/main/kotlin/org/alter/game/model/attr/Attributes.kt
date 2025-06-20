@@ -251,3 +251,23 @@ val SLAYER_AMOUNT = AttributeKey<Int>(persistenceKey = "slayer_amount")
  * The amount of Slayer monsters left to kill
  */
 val STARTED_SLAYER = AttributeKey<Boolean>(persistenceKey = "started_slayer")
+
+/**
+ * The item id of the active XP reward interface.
+ */
+val XP_REWARD_ITEM = AttributeKey<Int>()
+
+/**
+ * The skill selected on the XP reward interface.
+ */
+val XP_REWARD_SKILL = AttributeKey<Int>()
+
+/**
+ * Minimum skill level required for the active XP reward.
+ */
+val XP_REWARD_MIN_LEVEL = AttributeKey<Int>()
+
+/**
+ * Amount of experience granted by the active XP reward.
+ */
+val XP_REWARD_EXPERIENCE = AttributeKey<Double>()
