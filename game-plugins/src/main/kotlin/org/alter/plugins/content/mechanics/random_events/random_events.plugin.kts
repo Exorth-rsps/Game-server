@@ -1,17 +1,10 @@
 package org.alter.plugins.content.mechanics.random_events
 
 import org.alter.game.model.timer.TimerKey
-import org.alter.api.cfg.Npcs
 import org.alter.plugins.content.combat.isAttacking
 import org.alter.plugins.content.combat.isBeingAttacked
-import org.alter.plugins.content.mechanics.random_events.IGNORE_EVENT_TIMER
-import org.alter.plugins.content.mechanics.random_events.CALL_EVENT_TIMER
-import org.alter.plugins.content.mechanics.random_events.CALL_INDEX_ATTR
-import org.alter.plugins.content.mechanics.random_events.CALL_MESSAGES
-import org.alter.plugins.content.mechanics.random_events.CALL_DELAY
-import org.alter.plugins.content.mechanics.random_events.FOLLOW_EVENT_TIMER
-import org.alter.plugins.content.mechanics.random_events.FOLLOW_DELAY
-import org.alter.plugins.content.mechanics.random_events.spawnRandomEvent
+import org.alter.plugins.content.magic.TeleportType
+import org.alter.plugins.content.magic.teleport
 
 private val RANDOM_EVENT_TIMER = TimerKey()
 
@@ -64,8 +57,8 @@ on_timer(FOLLOW_EVENT_TIMER) {
 on_timer(IGNORE_EVENT_TIMER) {
     val owner = npc.owner
     if (npc.isSpawned() && owner != null && owner.isOnline) {
-        owner.message("Well ${owner.username}, im done, i send you home!")
-        owner.moveTo(world.gameContext.home)
+        owner.message("${owner.username}, you have failed a Random event!")
+        owner.teleport(type = TeleportType.MODERN, endTile = Tile (world.gameContext.home))
     }
     world.remove(npc)
 }

@@ -18,7 +18,7 @@ val CALL_INDEX_ATTR = AttributeKey<Int>()
 
 val FOLLOW_EVENT_TIMER = TimerKey()
 
-const val FOLLOW_DELAY = 2
+const val FOLLOW_DELAY = 1
 
 const val CALL_DELAY = 20
 
@@ -26,7 +26,8 @@ val CALL_MESSAGES = arrayOf<(Player) -> String>(
     { p -> "Hello ${p.username}, i can we speak?" },
     { p -> "Hello ${p.username}, are you there?" },
     { p -> "Hello ${p.username}!" },
-    { p -> "Hello ${p.username}, talk to me now!" }
+    { p -> "Hello ${p.username}, talk to me now!" },
+    { p -> "${p.username}, Last chance!" }
 )
 
 private const val IGNORE_DELAY = 100
