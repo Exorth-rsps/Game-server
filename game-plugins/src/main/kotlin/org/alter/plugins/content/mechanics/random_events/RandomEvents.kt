@@ -21,7 +21,7 @@ const val FOLLOW_DELAY = 1
 const val CALL_DELAY = 20
 
 val CALL_MESSAGES = arrayOf<(Player) -> String>(
-    { p -> "Hello ${p.username}, i can we speak?" },
+    { p -> "Hello ${p.username}, can we speak?" },
     { p -> "Hello ${p.username}, are you there?" },
     { p -> "Hello ${p.username}!" },
     { p -> "Hello ${p.username}, talk to me now!" },
