@@ -11,7 +11,7 @@ import org.alter.plugins.content.combat.specialattack.SpecialAttacks
 
 val SPECIAL_REQUIREMENT = 30
 
-private fun executeSpec() {
+fun executeSpec() {
     player.animate(id = Animation.DRAGON_HASTA_SPECIAL)
     player.graphic(id = Graphic.DRAGON_HASTA_SPECIAL)
     world.spawn(AreaSound(tile = player.tile, id = Sound.PUNCTURE, radius = 10, volume = 1))
