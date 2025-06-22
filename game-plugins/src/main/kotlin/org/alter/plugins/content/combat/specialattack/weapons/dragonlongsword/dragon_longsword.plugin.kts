@@ -13,7 +13,7 @@ val SPECIAL_REQUIREMENT = 25
 
 SpecialAttacks.register(Items.DRAGON_LONGSWORD, SPECIAL_REQUIREMENT) {
     player.animate(id = Animation.DRAGON_LONGSWORD_SPECIAL)
-    player.graphic(id = Graphic.DRAGON_LONGSWORD_SPECIAL)
+    player.graphic(id = Graphic.DRAGON_LONGSWORD_SPECIAL, height = 75)
     world.spawn(AreaSound(tile = player.tile, id = Sound.STABSWORD_SLASH, radius = 10, volume = 1))
 
     val maxHit = MeleeCombatFormula.getMaxHit(player, target, specialAttackMultiplier = 1.25)
