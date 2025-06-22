@@ -14,6 +14,7 @@ SpecialAttacks.register(Items.DRAGON_BATTLEAXE, SPECIAL_REQUIREMENT, executeOnSp
     player.animate(id = Animation.DRAGON_BATTLEAXE_SPECIAL)
     player.graphic(id = Graphic.DRAGON_BATTLEAXE_SPECIAL)
     world.spawn(AreaSound(tile = player.tile, id = 2537, radius = 10, volume = 1))
+    player.forceChat("Raarrrrrgggggghhhhhhh!")
 
     val skills = player.getSkills()
 
