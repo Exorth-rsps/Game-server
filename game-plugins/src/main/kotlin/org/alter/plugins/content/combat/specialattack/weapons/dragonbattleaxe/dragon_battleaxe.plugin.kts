@@ -9,7 +9,7 @@ import org.alter.plugins.content.combat.specialattack.SpecialAttacks
 
 val SPECIAL_REQUIREMENT = 100
 
-SpecialAttacks.register(Items.DRAGON_BATTLEAXE, SPECIAL_REQUIREMENT) {
+SpecialAttacks.register(Items.DRAGON_BATTLEAXE, SPECIAL_REQUIREMENT, executeOnSpecBar = true) {
     // Special attack animation and effects
     player.animate(id = Animation.DRAGON_BATTLEAXE_SPECIAL)
     player.graphic(id = Graphic.DRAGON_BATTLEAXE_SPECIAL)
