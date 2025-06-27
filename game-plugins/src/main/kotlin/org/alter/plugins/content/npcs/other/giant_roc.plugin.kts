@@ -42,10 +42,10 @@ ids.forEach {
     set_combat_def(it) {
         configs {
             attackSpeed = 4
-            respawnDelay = 200
+            respawnDelay = 300
             poisonChance = 0.0
             venomChance = 0.0
-            followRange = 10
+            followRange = 5
         }
         stats {
             hitpoints = 200
@@ -74,9 +74,6 @@ ids.forEach {
             attackSound = Sound.GIANT_ROC_PECK_ATTACK
             blockSound = Sound.GIANT_ROC_HIT
             deathSound = Sound.GIANT_ROC_DEATH
-        }
-        aggro {
-            radius = 8
         }
     }
 }

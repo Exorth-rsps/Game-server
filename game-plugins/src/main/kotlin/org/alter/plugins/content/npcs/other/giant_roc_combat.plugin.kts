@@ -37,8 +37,8 @@ suspend fun combat(it: QueueTask) {
 }
 
 fun peckAttack(npc: Npc, target: Pawn) {
-    val minHit = 8
-    val maxHit = 20
+    val minHit = 3
+    val maxHit = 10
     npc.prepareAttack(CombatClass.MELEE, CombatStyle.STAB, AttackStyle.ACCURATE)
     npc.animate(Animation.GIANT_ROC_ATTACK)
     if (MeleeCombatFormula.getAccuracy(npc, target) >= world.randomDouble()) {
@@ -50,9 +50,9 @@ fun peckAttack(npc: Npc, target: Pawn) {
 
 fun flapAttack(npc: Npc, target: Pawn) {
     val minHit = 5
-    val maxHit = 15
+    val maxHit = 10
     npc.prepareAttack(CombatClass.MELEE, CombatStyle.CRUSH, AttackStyle.ACCURATE)
-    npc.animate(Animation.GIANT_ROC_ATTACK)
+    npc.animate(Animation.GIANT_ROC_FLAP)
     if (MeleeCombatFormula.getAccuracy(npc, target) >= world.randomDouble()) {
         target.hit(damage = world.random(minHit..maxHit), type = HitType.HIT, delay = 1)
     } else {
@@ -61,8 +61,8 @@ fun flapAttack(npc: Npc, target: Pawn) {
 }
 
 fun boulderAttack(npc: Npc, target: Pawn) {
-    val minHit = 10
-    val maxHit = 25
+    val minHit = 5
+    val maxHit = 15
     npc.prepareAttack(CombatClass.RANGED, CombatStyle.RANGED, AttackStyle.ACCURATE)
     npc.animate(Animation.GIANT_ROC_RANGED)
     npc.createProjectile(target, gfx = 406, startHeight = 43, endHeight = 31, delay = 51, angle = 15, steepness = 0)

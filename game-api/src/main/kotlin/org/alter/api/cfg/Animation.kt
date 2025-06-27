@@ -1863,5 +1863,5 @@ object Animation {
     const val GIANT_ROC_DEATH = 5033
     const val GIANT_ROC_SPAWN = 5028
     const val GIANT_ROC_HIT = 5029
-    const val GIANT_ROC_DEFEND = 5032
+    const val GIANT_ROC_FLAP = 5032
 }
