@@ -45,7 +45,7 @@ fun magicAttack(npc: Npc, target: Pawn) {
     val projectile = npc.createProjectile(target, gfx = Graphic.WIND_STRIKE_PROJECTILE, type = ProjectileType.MAGIC)
     npc.prepareAttack(CombatClass.MAGIC, CombatStyle.MAGIC, AttackStyle.ACCURATE)
     npc.animate(Animation.STAFF_MAGIC_SPELL_CAST)
-    npc.graphic(Graphic.WIND_STRIKE_CAST)
+    npc.graphic(Graphic.WIND_STRIKE_CAST, height = 124)
     world.spawn(projectile)
     val hitDelay = RangedCombatStrategy.getHitDelay(npc.getFrontFacingTile(target), target.getCentreTile()) - 1
     if (MagicCombatFormula.getAccuracy(npc, target) >= world.randomDouble()) {
