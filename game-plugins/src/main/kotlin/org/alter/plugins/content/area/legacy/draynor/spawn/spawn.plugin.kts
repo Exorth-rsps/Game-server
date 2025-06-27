@@ -12,5 +12,6 @@ spawn_npc(Npcs.TANNER, 3097, 3258, 0, 5, Direction.EAST)
 spawn_npc(Npcs.ROMMIK, 3100, 3260, 0, 5, Direction.EAST)
 spawn_npc(Npcs.BOB_10619, 3086, 3259, 0, 5, Direction.EAST)
 spawn_npc(Npcs.FRIENDLY_FORESTER_11427, 3095, 3239, 0, 0, Direction.SOUTH)
+spawn_npc(Npcs.GIANT_ROC, 3102, 3218, 0, 2, Direction.NORTH)
 
 
