@@ -1,0 +1,79 @@
+package org.alter.plugins.content.npcs.other
+
+import org.alter.plugins.content.drops.DropTableFactory
+
+val ids = intArrayOf(
+    Npcs.GIANT_ROC
+)
+
+val table = DropTableFactory
+val droptable =
+    table.build {
+        guaranteed {
+            obj(Items.BIG_BONES, quantity = 1)
+        }
+        main {
+            total(1024)
+            obj(Items.LONG_BONE, quantity = 1, slots = 1)
+            obj(Items.CURVED_BONE, quantity = 1, slots = 1)
+            nothing(128)
+        }
+    }
+
+table.register(droptable, *ids)
+
+on_npc_spawn(npc = Npcs.GIANT_ROC) {
+    npc.animate(Animation.GIANT_ROC_SPAWN)
+}
+
+on_npc_pre_death(*ids) {
+    val p = npc.damageMap.getMostDamage()!! as Player
+    val playerName = p.username
+    p.world.players.forEach {
+        it.message("<col=8900331>[GLOBAL]</col> The Giant Roc has been slain by $playerName!", ChatMessageType.CONSOLE)
+    }
+}
+
+on_npc_death(*ids) {
+    table.getDrop(world, npc.damageMap.getMostDamage()!! as Player, npc.id, npc.tile)
+}
+
+ids.forEach {
+    set_combat_def(it) {
+        configs {
+            attackSpeed = 4
+            respawnDelay = 300
+            poisonChance = 0.0
+            venomChance = 0.0
+            followRange = 5
+        }
+        stats {
+            hitpoints = 200
+            attack = 150
+            strength = 150
+            defence = 150
+            magic = 1
+            ranged = 150
+        }
+
+        bonuses {
+            defenceStab = 50
+            defenceSlash = 50
+            defenceCrush = 50
+            defenceMagic = 0
+            defenceRanged = 50
+        }
+
+        anims {
+            attack = Animation.GIANT_ROC_ATTACK
+            block = Animation.GIANT_ROC_HIT
+            death = Animation.GIANT_ROC_DEATH
+        }
+
+        sound {
+            attackSound = Sound.GIANT_ROC_PECK_ATTACK
+            blockSound = Sound.GIANT_ROC_HIT
+            deathSound = Sound.GIANT_ROC_DEATH
+        }
+    }
+}
