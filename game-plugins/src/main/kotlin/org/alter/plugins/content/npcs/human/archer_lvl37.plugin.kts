@@ -8,6 +8,7 @@ import org.alter.plugins.content.combat.*
 import org.alter.plugins.content.combat.formula.RangedCombatFormula
 import org.alter.plugins.content.combat.strategy.RangedCombatStrategy
 import org.alter.api.ProjectileType
+import org.alter.api.cfg.Graphic
 
 val ids = intArrayOf(
     Npcs.ARCHER_3301
@@ -110,7 +111,7 @@ suspend fun combat(it: QueueTask) {
 fun rangedAttack(npc: Npc, target: Pawn) {
     val minHit = 2
     val maxHit = 8
-    val projectile = npc.createProjectile(target, gfx = RangedProjectile.IRON_ARROW.gfx, type = ProjectileType.ARROW)
+    val projectile = npc.createProjectile(target, gfx = Graphic.IRON_ARROW_PROJECTILE, type = ProjectileType.ARROW)
     npc.prepareAttack(CombatClass.RANGED, CombatStyle.RANGED, AttackStyle.ACCURATE)
     npc.animate(Animation.HUMAN_BOW_ATTACK)
     world.spawn(projectile)
