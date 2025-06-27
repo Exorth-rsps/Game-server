@@ -1,6 +1,14 @@
 package org.alter.plugins.content.npcs.human;
 
 import org.alter.plugins.content.drops.DropTableFactory
+import org.alter.game.model.combat.AttackStyle
+import org.alter.game.model.combat.CombatClass
+import org.alter.game.model.combat.CombatStyle
+import org.alter.plugins.content.combat.*
+import org.alter.plugins.content.combat.formula.RangedCombatFormula
+import org.alter.plugins.content.combat.strategy.RangedCombatStrategy
+import org.alter.api.ProjectileType
+import org.alter.api.cfg.Graphic
 
 val ids = intArrayOf(
     Npcs.ARCHER_3301
@@ -36,8 +44,8 @@ on_npc_death(*ids) {
 }
 
 
-ids.forEach {
-    set_combat_def(it) {
+    ids.forEach {
+        set_combat_def(it) {
         configs {
             attackSpeed = 6
             respawnDelay = 25
@@ -73,5 +81,48 @@ ids.forEach {
             blockSound = Sound.HUMAN_BLOCK_1
             deathSound = Sound.HUMAN_DEATH
         }
+    }
+}
+
+on_npc_combat(Npcs.ARCHER_3301) {
+    npc.queue {
+        combat(this)
+    }
+}
+
+suspend fun combat(it: QueueTask) {
+    val npc = it.npc
+    var target = npc.getCombatTarget() ?: return
+
+    while (npc.canEngageCombat(target)) {
+        npc.facePawn(target)
+        if (npc.combatRaycast(target, distance = 6, projectile = true)) {
+            if (npc.isAttackDelayReady()) {
+                rangedAttack(npc, target)
+                npc.postAttackLogic(target)
+            }
+        } else {
+            npc.moveToAttackRange(it, target, distance = 6, projectile = true)
+        }
+        it.wait(1)
+        target = npc.getCombatTarget() ?: break
+    }
+
+    npc.resetFacePawn()
+    npc.removeCombatTarget()
+}
+
+fun rangedAttack(npc: Npc, target: Pawn) {
+    val minHit = 2
+    val maxHit = 8
+    val projectile = npc.createProjectile(target, gfx = Graphic.IRON_ARROW_PROJECTILE, type = ProjectileType.ARROW)
+    npc.prepareAttack(CombatClass.RANGED, CombatStyle.RANGED, AttackStyle.ACCURATE)
+    npc.animate(Animation.HUMAN_BOW_ATTACK)
+    world.spawn(projectile)
+    val hitDelay = RangedCombatStrategy.getHitDelay(npc.getFrontFacingTile(target), target.getCentreTile()) - 1
+    if (RangedCombatFormula.getAccuracy(npc, target) >= world.randomDouble()) {
+        target.hit(damage = world.random(minHit..maxHit), type = HitType.HIT, delay = hitDelay)
+    } else {
+        target.hit(damage = 0, type = HitType.BLOCK, delay = hitDelay)
     }
 }
