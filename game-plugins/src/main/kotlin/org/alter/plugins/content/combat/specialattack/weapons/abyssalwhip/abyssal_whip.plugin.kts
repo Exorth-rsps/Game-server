@@ -15,7 +15,7 @@ val SPECIAL_REQUIREMENT = 50
 fun register(item: Int) {
     SpecialAttacks.register(item, SPECIAL_REQUIREMENT) {
         player.animate(id = Animation.HUMAN_WHIP_SWING)
-        player.graphic(id = Graphic.WHIP_SPECIAL)
+        target.graphic(id = Graphic.WHIP_SPECIAL)
         world.spawn(AreaSound(tile = player.tile, id = Sound.WHIP, radius = 10, volume = 1))
 
         val maxHit = MeleeCombatFormula.getMaxHit(player, target)
