@@ -99,6 +99,7 @@ suspend fun combat(it: QueueTask) {
         if (npc.moveToAttackRange(it, target, distance = 6, projectile = true) && npc.isAttackDelayReady()) {
             rangedAttack(npc, target)
             npc.postAttackLogic(target)
+
         }
         it.wait(1)
         target = npc.getCombatTarget() ?: break
