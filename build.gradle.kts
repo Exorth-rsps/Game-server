@@ -16,16 +16,10 @@ allprojects {
     java {
         toolchain {
             languageVersion.set(JavaLanguageVersion.of(17))
-            vendor.set(JvmVendorSpec.ORACLE)
-            implementation.set(JvmImplementation.VENDOR_SPECIFIC)
         }
     }
     kotlin{
-        jvmToolchain{
-            languageVersion.set(JavaLanguageVersion.of(17))
-            vendor.set(JvmVendorSpec.ORACLE)
-            implementation.set(JvmImplementation.VENDOR_SPECIFIC)
-        }
+        jvmToolchain(17)
     }
     repositories {
         mavenLocal()
