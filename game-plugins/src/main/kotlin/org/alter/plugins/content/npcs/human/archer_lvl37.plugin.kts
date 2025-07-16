@@ -96,13 +96,10 @@ suspend fun combat(it: QueueTask) {
 
     while (npc.canEngageCombat(target)) {
         npc.facePawn(target)
-        if (npc.combatRaycast(target, distance = 6, projectile = true)) {
-            if (npc.isAttackDelayReady()) {
-                rangedAttack(npc, target)
-                npc.postAttackLogic(target)
-            }
-        } else {
-            npc.moveToAttackRange(it, target, distance = 6, projectile = true)
+        if (npc.moveToAttackRange(it, target, distance = 6, projectile = true) && npc.isAttackDelayReady()) {
+            rangedAttack(npc, target)
+            npc.postAttackLogic(target)
+
         }
         it.wait(1)
         target = npc.getCombatTarget() ?: break
