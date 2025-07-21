@@ -9,7 +9,7 @@ enum class TeleportSpell(val spellName: String, val type: TeleportType, val endA
      * Standard.
      */
     LUMBRIDGE("Lumbridge Home Teleport", TeleportType.MODERN, Area(2963, 3377, 2968, 3380), 0.0),
-    //ENTRANA("Entrana Teleport", TeleportType.MODERN, Area(2825, 3343, 2828, 3345), 0.0),
+    ENTRANA("Entrana Teleport", TeleportType.MODERN, Area(2825, 3343, 2828, 3345), 0.0),
     DRAYNOR("Draynor Teleport", TeleportType.MODERN, Area(3077, 3248, 3082, 3252), 0.0),
     FISHING_GUILD("Fishing Guild Teleport", TeleportType.MODERN, Area(2602, 3398, 2606, 3402), 0.0),
     //LEGENDS_GUILD("Legends Guild Teleport", TeleportType.MODERN, Area(2728, 3351, 2729, 3359), 0.0),
