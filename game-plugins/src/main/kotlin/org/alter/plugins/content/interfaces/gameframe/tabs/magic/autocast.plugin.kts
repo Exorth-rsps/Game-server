@@ -1,15 +1,15 @@
 package org.alter.plugins.content.interfaces.autocast
 
-import org.alter.game.model.interf.InterfaceDestination
+import org.alter.api.InterfaceDestination
 import org.alter.plugins.content.combat.Combat
 import org.alter.plugins.content.combat.autocast.Autocast
 import org.alter.plugins.content.combat.autocast.AutocastSpells
 import org.alter.plugins.content.interfaces.attack.AttackTab.ATTACK_TAB_INTERFACE_ID
 
-private const val AUTOCAST_INTERFACE_ID = 201
-private const val SPELL_COMPONENT = 1
-private const val DEFENSIVE_COMPONENT = 3
-private const val CLOSE_COMPONENT = 5
+const val AUTOCAST_INTERFACE_ID = 201
+const val SPELL_COMPONENT = 1
+const val DEFENSIVE_COMPONENT = 3
+const val CLOSE_COMPONENT = 5
 
 on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 23) {
     player.openInterface(interfaceId = AUTOCAST_INTERFACE_ID, dest = InterfaceDestination.TAB_AREA)
