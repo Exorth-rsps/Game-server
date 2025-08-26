@@ -12,6 +12,9 @@ const val DEFENSIVE_COMPONENT = 3
 const val CLOSE_COMPONENT = 5
 
 on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 26) {
+    // Ensure combat spells are visible by disabling spell filters
+    player.setVarbit(MagicVarbits.SPELLBOOK_FILTERING, 1)
+    player.setVarbit(MagicVarbits.SPELLBOOK_SHOW_COMBAT_SPELLS, 1)
     player.openInterface(interfaceId = AUTOCAST_INTERFACE_ID, dest = InterfaceDestination.TAB_AREA)
     player.setInterfaceEvents(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELL_COMPONENT, range = 0..50, setting = 2)
 }
