@@ -10,20 +10,12 @@ import org.alter.plugins.content.combat.strategy.magic.CombatSpell
 
 /**
  * Utility for validating and managing autocast spell selections.
- *
- * The [restrictedSpells] map should contain any spells that can only be
- * autocast with specific staves. The array associated with each spell
- * represents the item ids of the staves that can autocast it.
  */
 object Autocast {
 
-    private val restrictedSpells: Map<CombatSpell, IntArray> = mapOf(
-        // TODO: Populate when restricted spells such as Iban blast or god spells are added.
-    )
-
     /** Returns true if the player's equipped weapon can autocast [spell]. */
     fun canAutocast(player: Player, spell: CombatSpell): Boolean {
-        val allowed = restrictedSpells[spell] ?: return true
+        val allowed = AutocastSpells.allowedStaves(spell) ?: return true
         return player.hasEquipped(EquipmentType.WEAPON, *allowed)
     }
 
@@ -36,10 +28,8 @@ object Autocast {
 
     /** Ensures the currently selected autocast spell is valid for the equipped weapon. */
     fun validate(player: Player) {
-        val id = player.getVarbit(Combat.SELECTED_AUTOCAST_VARBIT)
-        if (id == 0) return
-        val spell = CombatSpell.values.firstOrNull { it.autoCastId == id }
-        if (spell == null || !canAutocast(player, spell)) {
+        val spell = AutocastSpells.forId(player.getVarbit(Combat.SELECTED_AUTOCAST_VARBIT)) ?: return
+        if (!canAutocast(player, spell)) {
             reset(player)
         }
     }
