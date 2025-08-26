@@ -11,9 +11,13 @@ const val SPELL_COMPONENT = 1
 const val DEFENSIVE_COMPONENT = 3
 const val CLOSE_COMPONENT = 5
 
-on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 23) {
+on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 26) {
     player.openInterface(interfaceId = AUTOCAST_INTERFACE_ID, dest = InterfaceDestination.TAB_AREA)
     player.setInterfaceEvents(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELL_COMPONENT, range = 0..50, setting = 2)
+}
+
+on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 21) {
+    player.toggleVarbit(Combat.DEFENSIVE_MAGIC_CAST_VARBIT)
 }
 
 on_button(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELL_COMPONENT) {
