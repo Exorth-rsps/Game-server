@@ -17,14 +17,18 @@ on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 26) {
     // Ensure combat spells are visible by disabling spell filters
     player.setVarbit(MagicVarbits.SPELLBOOK_FILTERING, 1)
     player.setVarbit(MagicVarbits.SPELLBOOK_SHOW_COMBAT_SPELLS, 1)
+    // Open the interface before sending items so icons render immediately
+    player.openInterface(interfaceId = AUTOCAST_INTERFACE_ID, dest = InterfaceDestination.TAB_AREA)
+
     // Populate the interface with available combat spell icons
-    val spells = CombatSpell.values.sortedBy { it.autoCastId }
-    val items = Array<Item?>(50) { index ->
-        val spell = spells.getOrNull(index)
-        spell?.let { Item(it.id) }
+    val items = Array<Item?>(50) { null }
+    CombatSpell.values.forEach { spell ->
+        val slot = spell.autoCastId - 1
+        if (slot in items.indices) {
+            items[slot] = Item(spell.id)
+        }
     }
     player.sendItemContainer(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELL_COMPONENT, items = items)
-    player.openInterface(interfaceId = AUTOCAST_INTERFACE_ID, dest = InterfaceDestination.TAB_AREA)
     player.setInterfaceEvents(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELL_COMPONENT, range = 0..50, setting = 2)
 }
 
