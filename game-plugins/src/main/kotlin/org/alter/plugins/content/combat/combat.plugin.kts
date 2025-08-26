@@ -7,6 +7,7 @@ import org.alter.game.model.attr.INTERACTING_PLAYER_ATTR
 import org.alter.game.model.timer.FROZEN_TIMER
 import org.alter.game.model.timer.STUN_TIMER
 import org.alter.plugins.content.combat.specialattack.SpecialAttacks
+import org.alter.plugins.content.combat.autocast.Autocast
 import org.alter.plugins.content.combat.strategy.magic.CombatSpell
 import org.alter.plugins.content.interfaces.attack.AttackTab
 
@@ -61,8 +62,13 @@ suspend fun cycle(it: QueueTask): Boolean {
         pawn.setVarp(Combat.PRIORITY_PID_VARP, target.index)
         if (!pawn.attr.has(Combat.CASTING_SPELL) && pawn.getVarbit(Combat.SELECTED_AUTOCAST_VARBIT) != 0) {
             val spell = CombatSpell.values.firstOrNull { it.autoCastId == pawn.getVarbit(Combat.SELECTED_AUTOCAST_VARBIT) }
-            if (spell != null) {
+            if (spell != null && Autocast.canAutocast(pawn, spell)) {
                 pawn.attr[Combat.CASTING_SPELL] = spell
+            } else {
+                if (spell != null) {
+                    pawn.message("You can't autocast that spell with this staff.")
+                }
+                Autocast.reset(pawn)
             }
         }
     }
