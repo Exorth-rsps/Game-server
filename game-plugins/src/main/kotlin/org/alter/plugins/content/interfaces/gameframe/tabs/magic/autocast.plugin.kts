@@ -9,6 +9,8 @@ import org.alter.plugins.content.interfaces.attack.AttackTab.ATTACK_TAB_INTERFAC
 const val AUTOCAST_INTERFACE_ID = 201
 const val SPELLBOOK_COMPONENT = 1
 const val MAGIC_INTERFACE_ID = 218
+const val DEFENSIVE_COMPONENT = 3
+const val CLOSE_COMPONENT = 5
 
 on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 26) {
     // Ensure combat spells are visible by disabling spell filters
@@ -22,6 +24,14 @@ on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 26) {
 
 on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 21) {
     player.toggleVarbit(Combat.DEFENSIVE_MAGIC_CAST_VARBIT)
+}
+
+on_button(interfaceId = AUTOCAST_INTERFACE_ID, component = DEFENSIVE_COMPONENT) {
+    player.toggleVarbit(Combat.DEFENSIVE_MAGIC_CAST_VARBIT)
+}
+
+on_button(interfaceId = AUTOCAST_INTERFACE_ID, component = CLOSE_COMPONENT) {
+    player.closeInterface(AUTOCAST_INTERFACE_ID)
 }
 
 on_button(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELLBOOK_COMPONENT) {
