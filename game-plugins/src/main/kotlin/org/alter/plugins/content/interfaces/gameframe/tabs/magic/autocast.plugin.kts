@@ -10,6 +10,7 @@ const val AUTOCAST_INTERFACE_ID = 201
 const val SPELLBOOK_COMPONENT = 1
 const val MAGIC_INTERFACE_ID = 218
 const val DEFENSIVE_COMPONENT = 3
+const val CANCEL_COMPONENT = 4
 const val CLOSE_COMPONENT = 5
 
 on_login {
@@ -36,6 +37,11 @@ on_button(interfaceId = AUTOCAST_INTERFACE_ID, component = DEFENSIVE_COMPONENT) 
 }
 
 on_button(interfaceId = AUTOCAST_INTERFACE_ID, component = CLOSE_COMPONENT) {
+    player.closeInterface(AUTOCAST_INTERFACE_ID)
+}
+
+on_button(interfaceId = AUTOCAST_INTERFACE_ID, component = CANCEL_COMPONENT) {
+    Autocast.reset(player)
     player.closeInterface(AUTOCAST_INTERFACE_ID)
 }
 
