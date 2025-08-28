@@ -25,7 +25,7 @@ on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 26) {
     // Open the autocast interface and embed the magic spellbook inside component 1
     player.openInterface(interfaceId = AUTOCAST_INTERFACE_ID, dest = InterfaceDestination.TAB_AREA)
     player.openInterface(parent = AUTOCAST_INTERFACE_ID, child = SPELLBOOK_COMPONENT, interfaceId = MAGIC_INTERFACE_ID)
-    player.setInterfaceEvents(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELLBOOK_COMPONENT, range = 0..50, setting = 2)
+    player.setInterfaceEvents(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELLBOOK_COMPONENT, range = 0..51, setting = 2)
 }
 
 on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 21) {
