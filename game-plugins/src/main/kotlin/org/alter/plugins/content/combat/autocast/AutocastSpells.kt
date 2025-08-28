@@ -12,7 +12,7 @@ object AutocastSpells {
 
     private val restrictedSpells: Map<CombatSpell, IntArray> = buildMap {
         // Ancient magicks require a proper staff to autocast.
-        val ancientStaves = intArrayOf(Items.ANCIENT_STAFF)
+        val ancientStaves = intArrayOf(Items.ANCIENT_STAFF, Items.AHRIMS_STAFF, Items.ELDRITCH_NIGHTMARE_STAFF, Items.KODAI_WAND, Items.MASTER_WAND, Items.NIGHTMARE_STAFF, Items.VOLATILE_NIGHTMARE_STAFF)
         CombatSpell.values
             .filter { it.autoCastId in 31..46 }
             .forEach { put(it, ancientStaves) }
