@@ -6,12 +6,12 @@ import org.alter.plugins.content.combat.autocast.Autocast
 import org.alter.plugins.content.combat.autocast.AutocastSpells
 import org.alter.plugins.content.interfaces.attack.AttackTab.ATTACK_TAB_INTERFACE_ID
 
-const val AUTOCAST_INTERFACE_ID = 201
-const val SPELLBOOK_COMPONENT = 1
-const val MAGIC_INTERFACE_ID = 218
-const val DEFENSIVE_COMPONENT = 3
-const val CANCEL_COMPONENT = 4
-const val CLOSE_COMPONENT = 5
+val AUTOCAST_INTERFACE_ID = 201
+val SPELLBOOK_COMPONENT = 1
+val MAGIC_INTERFACE_ID = 218
+val DEFENSIVE_COMPONENT = 3
+val CANCEL_COMPONENT = 4
+val CLOSE_COMPONENT = 5
 
 on_login {
     player.setVarbit(MagicVarbits.SPELLBOOK_FILTERING, 1)
@@ -19,12 +19,9 @@ on_login {
 }
 
 on_button(interfaceId = ATTACK_TAB_INTERFACE_ID, component = 26) {
-    // Ensure combat spells are visible by disabling spell filters
     player.setVarbit(MagicVarbits.SPELLBOOK_FILTERING, 1)
     player.setVarbit(MagicVarbits.SPELLBOOK_SHOW_COMBAT_SPELLS, 1)
-    // Open the autocast interface and embed the magic spellbook inside component 1
     player.openInterface(interfaceId = AUTOCAST_INTERFACE_ID, dest = InterfaceDestination.TAB_AREA)
-    player.openInterface(parent = AUTOCAST_INTERFACE_ID, child = SPELLBOOK_COMPONENT, interfaceId = MAGIC_INTERFACE_ID)
     player.setInterfaceEvents(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELLBOOK_COMPONENT, range = 0..51, setting = 2)
 }
 
