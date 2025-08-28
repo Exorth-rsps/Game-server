@@ -47,7 +47,7 @@ on_button(interfaceId = AUTOCAST_INTERFACE_ID, component = CANCEL_COMPONENT) {
 
 on_button(interfaceId = AUTOCAST_INTERFACE_ID, component = SPELLBOOK_COMPONENT) {
     val slot = player.getInteractingSlot()
-    val spell = AutocastSpells.forId(slot + 1) ?: return@on_button
+    val spell = AutocastSpells.forId(slot) ?: return@on_button
     if (Autocast.canAutocast(player, spell)) {
         player.attr[Combat.CASTING_SPELL] = spell
         player.setVarbit(Combat.SELECTED_AUTOCAST_VARBIT, spell.autoCastId)
