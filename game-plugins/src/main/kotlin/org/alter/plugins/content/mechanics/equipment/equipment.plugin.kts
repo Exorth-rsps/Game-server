@@ -2,6 +2,7 @@ package org.alter.plugins.content.mechanics.equipment
 
 import org.alter.api.EquipmentType.Companion.EQUIPMENT_INTERFACE_ID
 import org.alter.game.action.EquipAction
+import org.alter.plugins.content.combat.autocast.Autocast
 
 fun bind_unequip(equipment: EquipmentType, child: Int) {
     on_button(interfaceId = EQUIPMENT_INTERFACE_ID, component = child) {
@@ -11,6 +12,7 @@ fun bind_unequip(equipment: EquipmentType, child: Int) {
                 val result = EquipAction.unequip(player, equipment.id)
                 if (equipment == EquipmentType.WEAPON && result == EquipAction.Result.SUCCESS) {
                     player.sendWeaponComponentInformation()
+                    Autocast.reset(player)
                 }
             }
             9 -> {
@@ -33,6 +35,7 @@ for (equipment in EquipmentType.values) {
     on_equip_to_slot(equipment.id) {
         if (equipment == EquipmentType.WEAPON) {
             player.sendWeaponComponentInformation()
+            Autocast.validate(player)
         }
     }
 }
