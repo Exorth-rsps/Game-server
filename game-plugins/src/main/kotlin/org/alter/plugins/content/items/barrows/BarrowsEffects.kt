@@ -17,7 +17,7 @@ import org.alter.game.model.entity.Player
 object BarrowsEffects {
 
     fun onHit(attacker: Pawn, target: Pawn, hit: PawnHit) {
-        if (attacker !is Player || !hit.landed()) return
+        if (attacker !is Player || !hit.landed) return
 
         if (isWearingAhrim(attacker) && target is Player && attacker.world.chance(1, 4)) {
             target.getSkills().alterCurrentLevel(Skills.STRENGTH, -5)
