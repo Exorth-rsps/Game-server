@@ -1,14 +1,15 @@
 package org.alter.plugins.content.items.barrows
 
+import org.alter.api.EquipmentType
 import org.alter.api.Skills
 import org.alter.api.cfg.Items
 import org.alter.api.ext.hasEquipped
 import org.alter.api.ext.heal
+import org.alter.api.ext.message
 import org.alter.api.ext.sendRunEnergy
 import org.alter.game.model.combat.PawnHit
 import org.alter.game.model.entity.Pawn
 import org.alter.game.model.entity.Player
-import org.alter.game.model.item.EquipmentType
 
 /**
  * Handles special set effects for Barrows equipment.
@@ -16,7 +17,7 @@ import org.alter.game.model.item.EquipmentType
 object BarrowsEffects {
 
     fun onHit(attacker: Pawn, target: Pawn, hit: PawnHit) {
-        if (attacker !is Player || !hit.landed()) return
+        if (attacker !is Player || !hit.landed) return
 
         if (isWearingAhrim(attacker) && target is Player && attacker.world.chance(1, 4)) {
             target.getSkills().alterCurrentLevel(Skills.STRENGTH, -5)
