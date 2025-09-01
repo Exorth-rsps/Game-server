@@ -11,3 +11,6 @@ on_item_unequip(Items.ELDRITCH_NIGHTMARE_STAFF) {
     player.setVarbit(4070, 0)
     player.setVarbit(358, 0)
 }
+
+//TO-DO
+//SPECIAL ATTACK
