@@ -12,6 +12,7 @@ import org.alter.game.model.timer.ACTIVE_COMBAT_TIMER
 import org.alter.api.HitType
 import org.alter.api.ProjectileType
 import org.alter.api.ext.hit
+import org.alter.plugins.content.items.barrows.BarrowsEffects
 import org.alter.plugins.content.combat.formula.CombatFormula
 import java.lang.ref.WeakReference
 
@@ -42,8 +43,10 @@ suspend fun Pawn.canAttackMelee(it: QueueTask, target: Pawn, moveIfNeeded: Boole
                 || moveIfNeeded && moveToAttackRange(it, target, distance = 0, projectile = false)
 
 fun Pawn.dealHit(target: Pawn, formula: CombatFormula, delay: Int, onHit: (PawnHit) -> Unit = {}): PawnHit {
-    val accuracy = formula.getAccuracy(this, target)
-    val maxHit = formula.getMaxHit(this, target)
+    var accuracy = formula.getAccuracy(this, target)
+    var maxHit = formula.getMaxHit(this, target)
+    accuracy = BarrowsEffects.modifyAccuracy(this, target, accuracy)
+    maxHit = BarrowsEffects.modifyMaxHit(this, target, maxHit)
     val landHit = accuracy >= world.randomDouble()
     return dealHit(target, maxHit, landHit, delay, onHit)
 }
@@ -64,6 +67,10 @@ fun Pawn.dealHit(target: Pawn, maxHit: Int, landHit: Boolean, delay: Int, onHit:
 
     hit.setCancelIf { isDead() }
     hit.addAction { onHit(pawnHit) }
+    hit.addAction {
+        val pawn = this@dealHit
+        BarrowsEffects.onHit(pawn, target, pawnHit)
+    }
     hit.addAction {
         val pawn = this@dealHit
         Combat.postDamage(pawn, target)
