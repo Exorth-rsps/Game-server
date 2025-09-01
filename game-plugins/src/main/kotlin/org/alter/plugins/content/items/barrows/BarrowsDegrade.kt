@@ -4,6 +4,7 @@ import org.alter.api.cfg.Items
 import org.alter.game.model.entity.Player
 import org.alter.game.model.item.Item
 import org.alter.game.model.item.ItemAttribute
+import org.alter.api.ext.*
 
 /**
  * Handles degrading of Barrows equipment.
