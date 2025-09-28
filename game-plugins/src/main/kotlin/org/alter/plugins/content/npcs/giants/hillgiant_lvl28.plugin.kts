@@ -17,32 +17,37 @@ val droptable =
         guaranteed {
             obj(Items.BIG_BONES, quantity = 1)
         }
-        main {
-            total(1024)
-            obj(Items.IRON_ARROW, quantityRange = 25..150, slots = 8)
-            obj(Items.STEEL_ARROW, quantityRange = 1..75, slots = 4)
-            obj(Items.AIR_RUNE, quantityRange = 10..125, slots = 8)
-            obj(Items.WATER_RUNE, quantityRange = 5..100, slots = 8)
-            obj(Items.EARTH_RUNE, quantityRange = 5..75, slots = 8)
-            obj(Items.FIRE_RUNE, quantityRange = 5..75, slots = 8)
-            obj(Items.MIND_RUNE, quantityRange = 1..50, slots = 8)
-            obj(Items.CHAOS_RUNE, quantityRange = 1..10, slots = 4)
-            obj(Items.DEATH_RUNE, quantityRange = 1..5, slots = 2)
-            obj(Items.BEER, quantity = 1, slots = 4)
-            obj(Items.COINS_995, quantityRange = 1..75, slots = 4)
-            obj(Items.UNCUT_SAPPHIRE, quantity = 1, slots = 4)
-            obj(Items.UNCUT_EMERALD, quantity = 1, slots = 2)
-            obj(Items.UNCUT_RUBY, quantity = 1, slots = 1)
-            obj(Items.STEEL_AXE, quantity = 1, slots = 2)
-            obj(Items.BLACK_AXE, quantity = 1, slots = 2)
-            obj(Items.MITHRIL_AXE, quantity = 1, slots = 1)
-            obj(Items.STEEL_PICKAXE, quantity = 1, slots = 2)
-            obj(Items.BLACK_PICKAXE, quantity = 1, slots = 2)
-            obj(Items.MITHRIL_PICKAXE, quantity = 1, slots = 1)
-            obj(Items.IRON_ORE_NOTED, quantityRange = 1..5, slots = 1)
-            obj(Items.RUNE_ESSENCE_NOTED, quantityRange = 1..15, slots = 1)
-            nothing(slots = 128)
+        table("main") {
+            total(128)
+            obj(Items.AIR_RUNE, quantityRange = 2..15, 18)
+            obj(Items.WATER_RUNE, quantityRange = 2..10, 18)
+            obj(Items.EARTH_RUNE, quantityRange = 2..15, 18)
+            obj(Items.FIRE_RUNE, quantityRange = 2..15, 18)
+            obj(Items.MIND_RUNE, quantityRange = 2..15, 18)
+            obj(Items.CHAOS_RUNE, quantityRange = 1..4, 15)
+            obj(Items.DEATH_RUNE, quantityRange = 1..3, 9)
+            obj(Items.BEER, quantity = 1, 12)
+            obj(Items.COINS, quantityRange = 1..75, 60)
         }
+        table("rare") {
+            total(128)
+            obj(Items.UNCUT_DIAMOND, quantity = 1, 2)
+            obj(Items.UNCUT_EMERALD, quantity = 1, 7)
+            obj(Items.UNCUT_SAPPHIRE, quantity = 1, 16)
+        }
+        table("second") {
+            total(128)
+            obj(Items.IRON_ORE_NOTED, quantityRange = 1..5, 3)
+            obj(Items.RUNE_ESSENCE, quantityRange = 1..5, 3)
+            obj(Items.MITHRIL_PICKAXE, quantity = 1, 2)
+            obj(Items.BLACK_PICKAXE, quantity = 1, 4)
+            obj(Items.STEEL_AXE, quantity = 1, 8)
+            obj(Items.MITHRIL_AXE, quantity = 1, 5)
+            obj(Items.BLACK_AXE, quantity = 1, 6)
+            obj(Items.IRON_ARROW, quantityRange = 5..15, 10)
+            obj(Items.STEEL_ARROW, quantityRange = 1..15, 14)
+        }
+
     }
 
 
