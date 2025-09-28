@@ -16,37 +16,44 @@ val table = DropTableFactory
 val kbd =
     table.build {
         guaranteed {
-            obj(Items.DRAGON_BONES)
-            obj(Items.BLACK_DRAGONHIDE)
+            obj(Items.DRAGON_BONES, quantity = 1)
+            obj(Items.BLACK_DRAGONHIDE, quantity = 1)
         }
-        main {
-            total(10240)
-            obj(Items.RUNE_LONGSWORD, quantity = 1, slots = 365)
-            obj(Items.ADAMANT_PLATEBODY, quantity = 1, slots = 80)
-            obj(Items.ADAMANT_KITESHIELD, quantity = 1, slots = 80)
-            obj(Items.ADAMANT_PLATELEGS, quantity = 1, slots = 80)
-            obj(Items.ADAMANT_FULL_HELM, quantity = 1, slots = 80)
-            obj(Items.DRAGON_MED_HELM, quantity = 1, slots = 40)
-            obj(Items.DRAGON_PLATELEGS, quantity = 1, slots = 20)
-            obj(Items.DRAGON_CHAINBODY_3140, quantity = 1, slots = 20)
-            obj(Items.DRAGON_PLATESKIRT, quantity = 1, slots = 20)
-            obj(Items.DRAGON_BOOTS, quantity = 1, slots = 2)
-            obj(Items.AIR_RUNE, quantityRange = 100..300, slots = 365)
-            obj(Items.FIRE_RUNE, quantityRange = 100..300, slots = 365)
-            obj(Items.BLOOD_RUNE, quantityRange = 10..50, slots = 365)
-            obj(Items.CHAOS_RUNE, quantityRange = 50..150, slots = 365)
-            obj(Items.DEATH_RUNE, quantityRange = 30..100, slots = 365)
-            obj(Items.YEW_LOGS_NOTED, quantityRange = 1..150, slots = 365)
-            obj(Items.ADAMANTITE_BAR_NOTED, quantityRange = 1..3, slots = 365)
-            obj(Items.RUNITE_BAR_NOTED, quantity = 1, slots = 80)
-            obj(Items.DRAGON_ARROWTIPS, quantityRange = 1..50, slots = 2)
-            obj(Items.SHARK, quantityRange = 1..5, slots = 365)
-            obj(Items.DRAGON_PLATEBODY, quantity = 1, slots = 1)
-            obj(Items.DRAGON_FULL_HELM, quantity = 1, slots = 1)
-            obj(Items.DRAGONFIRE_SHIELD, quantity = 1, slots = 1)
-            obj(Items.DRAGON_PICKAXE, quantity = 1, slots = 1)
-            obj(Items.DRAGON_AXE, quantity = 1, slots = 1)
+        table("main") {
+            total(128)
+            obj(Items.RUNE_LONGSWORD, quantity = 1, 30)
+            obj(Items.AIR_RUNE, quantityRange = 100..300, 20)
+            obj(Items.FIRE_RUNE, quantityRange = 100..300, 20)
+            obj(Items.BLOOD_RUNE, quantityRange = 10..50, 20)
+            obj(Items.CHAOS_RUNE, quantityRange = 50..150, 20)
+            obj(Items.DEATH_RUNE, quantityRange = 30..100, 20)
         }
+        table("second") {
+            total(128)
+            obj(Items.YEW_LOGS_NOTED, quantityRange = 1..150, 20)
+            obj(Items.ADAMANTITE_BAR_NOTED, quantityRange = 1..3, 20)
+            obj(Items.SHARK, quantityRange = 1..5, 20)
+            obj(Items.ADAMANT_PLATELEGS, quantity = 1, 15)
+            obj(Items.ADAMANT_PLATEBODY, quantity = 1, 15)
+            obj(Items.ADAMANT_KITESHIELD, quantity = 1, 15)
+            obj(Items.ADAMANT_FULL_HELM, quantity = 1, 15)
+            obj(Items.RUNITE_BAR, quantity = 1, 15)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.DRAGON_MED_HELM, quantity = 1, 10)
+            obj(Items.DRAGON_PLATELEGS, quantity = 1, 8)
+            obj(Items.DRAGON_CHAINBODY, quantity = 1, 8)
+            obj(Items.DRAGON_PLATESKIRT, quantity = 1, 8)
+            obj(Items.DRAGON_BOOTS, quantity = 1, 8)
+            obj(Items.DRAGON_ARROWTIPS, quantityRange = 1..50, 8)
+            obj(Items.DRAGON_PLATEBODY, quantity = 1, 3)
+            obj(Items.DRAGON_FULL_HELM, quantity = 1, 3)
+            obj(Items.DRAGON_AXE, quantity = 1, 3)
+            obj(Items.DRAGON_PICKAXE, quantity = 1, 3)
+            obj(Items.DRAGONFIRE_SHIELD, quantity = 1, 3)
+        }
+
 
     }
 
