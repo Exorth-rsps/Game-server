@@ -37,6 +37,7 @@ val droptable =
                 obj(Items.CADANTINE_POTION_UNF_NOTED, quantityRange = 1..4, 5)
                 obj(Items.RUNE_SCIMITAR, quantity = 1, 11)
             }
+        }
     }
 
 
