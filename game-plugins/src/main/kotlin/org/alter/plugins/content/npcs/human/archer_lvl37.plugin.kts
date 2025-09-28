@@ -18,17 +18,22 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
+            obj(Items.COINS, quantityRange = 100..250)
             obj(Items.BONES, quantity = 1)
         }
-        main {
-            total(512)
-            obj(Items.STEEL_ARROW, quantityRange = 5..100, slots = 4)
-            obj(Items.IRON_ARROW, quantityRange = 5..200, slots = 4)
-            obj(Items.SHORTBOW, quantity = 1, slots = 4)
-            obj(Items.OAK_SHORTBOW, quantity = 1, slots = 4)
-            obj(Items.STEEL_SWORD, quantity = 1, slots = 4)
-            obj(Items.COINS_995, quantity = 25, slots = 16)
-            nothing(slots = 64)
+        table("rare") {
+            total(128)
+            obj(Items.GREEN_DHIDE_VAMBRACES, quantity = 1, 3)
+            obj(Items.GREEN_DHIDE_BODY, quantity = 1, 4)
+            obj(Items.GREEN_DHIDE_CHAPS, quantity = 1, 5)
+        }
+        table("main") {
+            total(128)
+            obj(Items.STUDDED_CHAPS, quantity = 1, 7)
+            obj(Items.WILLOW_LONGBOW_U, quantity = 1, 9)
+            obj(Items.MAPLE_SHORTBOW_U, quantity = 1, 10)
+            obj(Items.IRON_ARROW, quantity = 15, 12)
+            obj(Items.STEEL_ARROW, quantity = 15, 14)
         }
     }
 

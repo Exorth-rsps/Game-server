@@ -12,6 +12,18 @@ val droptable =
         guaranteed {
             obj(Items.BONES, quantity = 1)
         }
+        table("rare") {
+            total(128)
+            obj(Items.AMULET_OF_ACCURACY, quantity = 1, 8)
+            obj(Items.AMULET_OF_POWER, quantity = 1, 4)
+            obj(Items.AMULET_OF_MAGIC, quantity = 1, 7)
+            obj(Items.STEEL_SQ_SHIELD, quantity = 1, 14)
+            obj(Items.STEEL_SWORD, quantity = 1, 14)
+            obj(Items.STEEL_MED_HELM, quantity = 1, 14)
+            obj(Items.STEEL_PLATELEGS, quantity = 1, 14)
+            obj(Items.STEEL_CHAINBODY, quantity = 1, 14)
+            obj(Items.UNCUT_RED_TOPAZ, quantity = 1, 20)
+        }
     }
 
 

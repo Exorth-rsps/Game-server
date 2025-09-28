@@ -9,24 +9,29 @@ val ids = intArrayOf(
 val table = DropTableFactory
 val droptable =
     table.build {
-        guaranteed {
-            obj(Items.BONES, quantity = 1)
-        }
-        main {
+        table("rare") {
             total(128)
-            nothing(16)
+            obj(Items.ZAMORAK_MONK_BOTTOM, quantity = 1, 1)
+            obj(Items.ZAMORAK_MONK_TOP, quantity = 1, 1)
+            obj(Items.ELDER_CHAOS_TOP, quantity = 1, 1)
+            obj(Items.ELDER_CHAOS_ROBE, quantity = 1, 1)
+            obj(Items.ELDER_CHAOS_HOOD, quantity = 1, 1)
+            obj(Items.ANCIENT_STAFF, quantity = 1, 3)
+            obj(Items.ZURIELS_STAFF, quantity = 1, 1)
         }
-        table("Herbs") {
-            total(512)
-            nothing(slots = 4)
-        }
-        table("Herbs_Noted") {
-            total(256)
-            nothing(64)
-        }
-        table("Coins") {
-            total(256)
-            nothing(64)
+        table("main") {
+            total(128)
+            obj(Items.AIR_RUNE, quantityRange = 10..25, 10)
+            obj(Items.MIND_RUNE, quantityRange = 10..25, 10)
+            obj(Items.EARTH_RUNE, quantityRange = 10..25, 10)
+            obj(Items.WATER_RUNE, quantityRange = 10..20, 10)
+            obj(Items.FIRE_RUNE, quantityRange = 10..20, 10)
+            obj(Items.BODY_RUNE, quantityRange = 10..20, 10)
+            obj(Items.NATURE_RUNE, quantityRange = 10..15, 10)
+            obj(Items.BLOOD_RUNE, quantityRange = 10..15, 10)
+            obj(Items.DEATH_RUNE, quantityRange = 10..15, 10)
+            obj(Items.CHAOS_RUNE, quantityRange = 10..15, 10)
+            obj(Items.LAW_RUNE, quantityRange = 10..15, 10)
         }
     }
 

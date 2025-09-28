@@ -10,24 +10,30 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
-            obj(Items.BONES, quantity = 1)
+            obj(Items.COINS, quantityRange = 250..500, 1)
         }
-        main {
-            total(10240)
-            obj(Items.ARROW_SHAFT, quantity = 1, slots = 20)
-            obj(Items.FEATHER, quantity = 1, slots = 20)
-            obj(Items.BRONZE_ARROWTIPS, quantity = 1, slots = 20)
-            obj(Items.IRON_ARROWTIPS, quantity = 1, slots = 20)
-            obj(Items.STEEL_ARROWTIPS, quantity = 1, slots = 20)
-            obj(Items.CRYSTAL_BOW, quantity = 1, slots = 1)
-            obj(Items.CRYSTAL_SHIELD, quantity = 1, slots = 1)
-            obj(Items.CRYSTAL_BODY, quantity = 1, slots = 1)
-            obj(Items.CRYSTAL_LEGS, quantity = 1, slots = 1)
-            obj(Items.CRYSTAL_HALBERD, quantity = 1, slots = 1)
-            obj(Items.CRYSTAL_HELM, quantity = 1, slots = 1)
-            obj(Items.ICE_GLOVES, quantity = 1, slots = 2)
-            nothing(1280)
+        table("rare") {
+            total(128)
+            obj(Items.ICE_GLOVES, quantity = 1, 1)
+            obj(Items.NEW_CRYSTAL_BOW, quantity = 1, 1)
+            obj(Items.NEW_CRYSTAL_SHIELD, quantity = 1, 1)
         }
+        table("main") {
+            total(128)
+            obj(Items.RANARR_WEED_NOTED, quantityRange = 1..8, 7)
+            obj(Items.DWARF_WEED_NOTED, quantityRange = 1..5, 7)
+            obj(Items.TORSTOL_NOTED, quantityRange = 1..3, 5)
+            obj(Items.BLOOD_RUNE, quantityRange = 1..10, 9)
+            obj(Items.DEATH_RUNE, quantityRange = 1..10, 9)
+        }
+        table("second") {
+            total(128)
+            obj(Items.RING_OF_LIFE, quantity = 1, 2)
+            obj(Items.RUNE_ARROWTIPS, quantityRange = 1..5, 5)
+            obj(Items.ADAMANT_ARROWTIPS, quantityRange = 1..5, 5)
+            obj(Items.MITHRIL_ARROWTIPS, quantityRange = 1..8, 5)
+        }
+
     }
 
 

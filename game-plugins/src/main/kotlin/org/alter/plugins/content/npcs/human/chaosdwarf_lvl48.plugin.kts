@@ -12,33 +12,45 @@ val droptable =
         guaranteed {
             obj(Items.BONES, quantity = 1)
         }
-        main {
-            total(1024)
-            obj(Items.COINS_995, quantityRange = 1..50, slots = 32)
-            obj(Items.AIR_RUNE, quantityRange = 1..50, slots = 4)
-            obj(Items.CHAOS_RUNE, quantityRange = 1..20, slots = 2)
-            obj(Items.MIND_RUNE, quantityRange = 1..50, slots = 4)
-            obj(Items.DEATH_RUNE, quantityRange = 1..10, slots = 2)
-            obj(Items.WATER_RUNE, quantityRange = 1..25, slots = 4)
-            obj(Items.MITHRIL_BAR, quantity = 1, slots = 2)
-            obj(Items.COAL, quantityRange = 1..3, slots = 4)
-            obj(Items.UNCUT_SAPPHIRE, quantity = 1, slots = 4)
-            obj(Items.UNCUT_EMERALD, quantity = 1, slots = 4)
-            obj(Items.MITHRIL_MED_HELM, quantity = 1, slots = 4)
-            obj(Items.MITHRIL_SQ_SHIELD, quantity = 1, slots = 2)
-            obj(Items.MITHRIL_CHAINBODY, quantity = 1, slots = 2)
-            obj(Items.MITHRIL_SWORD, quantity = 1, slots = 2)
-            obj(Items.MITHRIL_LONGSWORD, quantity = 1, slots = 2)
-            obj(Items.MITHRIL_KITESHIELD, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_FULL_HELM, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_PLATELEGS, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_PLATESKIRT, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_PLATEBODY, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_WARHAMMER, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_BATTLEAXE, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_SCIMITAR, quantity = 1, slots = 1)
-            nothing(128)
+        table("coins") {
+            total(128)
+            obj(Items.COINS, quantityRange = 1..50, 80)
         }
+        table("main") {
+            total(128)
+            obj(Items.AIR_RUNE, quantityRange = 1..20, 30)
+            obj(Items.MIND_RUNE, quantityRange = 1..20, 30)
+            obj(Items.CHAOS_RUNE, quantityRange = 1..10, 20)
+            obj(Items.DEATH_RUNE, quantityRange = 1..5, 14)
+            obj(Items.WATER_RUNE, quantityRange = 1..20, 20)
+            obj(Items.MITHRIL_BAR, quantity = 1, 2)
+            obj(Items.COAL, quantityRange = 1..3, 10)
+        }
+        table("gems") {
+            total(128)
+            obj(Items.UNCUT_SAPPHIRE, quantity = 1, 20)
+            obj(Items.UNCUT_EMERALD, quantity = 1, 17)
+        }
+        table("second") {
+            total(128)
+            obj(Items.MITHRIL_MED_HELM, quantity = 1, 17)
+            obj(Items.MITHRIL_SQ_SHIELD, quantity = 1, 17)
+            obj(Items.MITHRIL_CHAINBODY, quantity = 1, 17)
+            obj(Items.MITHRIL_SWORD, quantity = 1, 17)
+            obj(Items.MITHRIL_LONGSWORD, quantity = 1, 17)
+            obj(Items.MITHRIL_KITESHIELD, quantity = 1, 17)
+            obj(Items.MITHRIL_FULL_HELM, quantity = 1, 10)
+            obj(Items.MITHRIL_PLATELEGS, quantity = 1, 10)
+            obj(Items.MITHRIL_PLATEBODY, quantity = 1, 10)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.MITHRIL_PLATESKIRT, quantity = 1, 10)
+            obj(Items.MITHRIL_WARHAMMER, quantity = 1, 6)
+            obj(Items.MITHRIL_BATTLEAXE, quantity = 1, 6)
+            obj(Items.MITHRIL_SCIMITAR, quantity = 1, 6)
+        }
+
     }
 
 

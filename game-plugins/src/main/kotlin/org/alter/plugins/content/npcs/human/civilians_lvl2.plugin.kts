@@ -14,12 +14,8 @@ val droptable =
     table.build {
         guaranteed {
             obj(Items.BONES, quantity = 1)
-        }
-        main {
-            total(256)
-            obj(Items.COINS_995, quantityRange = 1..5, 32)
-            obj(Items.CABBAGE, quantity = 1, 128)
-            nothing(8)
+            obj(Items.COINS, quantityRange = 1..5)
+            obj(Items.CABBAGE, quantity = 1)
         }
     }
 

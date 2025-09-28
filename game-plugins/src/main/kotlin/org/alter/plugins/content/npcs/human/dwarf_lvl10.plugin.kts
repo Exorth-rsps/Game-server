@@ -12,15 +12,13 @@ val droptable =
         guaranteed {
             obj(Items.BONES, quantity = 1)
         }
-        main {
-            total(512)
-            obj(Items.COPPER_ORE, quantity = 1, slots = 4)
-            obj(Items.TIN_ORE, quantity = 1, slots = 4)
-            obj(Items.IRON_ORE, quantity = 1, slots = 2)
-            obj(Items.UNCUT_SAPPHIRE, quantity = 1, slots = 1)
-            obj(Items.STEEL_PICKAXE, quantity = 1, slots = 1)
-            obj(Items.MUDDY_KEY, quantity = 1, slots = 1)
-            nothing(64)
+        table("main") {
+            total(128)
+            obj(Items.TIN_ORE, quantity = 1, 20)
+            obj(Items.COPPER_ORE, quantity = 1, 20)
+            obj(Items.IRON_ORE, quantity = 1, 10)
+            obj(Items.BRONZE_PICKAXE, quantity = 1, 10)
+            obj(Items.IRON_PICKAXE, quantity = 1, 10)
         }
     }
 

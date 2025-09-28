@@ -12,6 +12,23 @@ val droptable =
         guaranteed {
             obj(Items.BONES, quantity = 1)
         }
+        table("main") {
+            total(128)
+            obj(Items.COINS, quantityRange = 2..850, 22)
+            obj(Items.UNCUT_DIAMOND, quantity = 1, 1)
+            obj(Items.UNCUT_EMERALD, quantity = 1, 7)
+            obj(Items.UNCUT_SAPPHIRE, quantity = 1, 11)
+            obj(Items.UNCUT_RUBY, quantity = 1, 4)
+            obj(Items.GRIMY_GUAM_LEAF_NOTED, quantityRange = 2..8, 9)
+            obj(Items.GRIMY_IRIT_LEAF_NOTED, quantityRange = 2..8, 5)
+            obj(Items.GRIMY_RANARR_WEED_NOTED, quantityRange = 1..7, 5)
+            obj(Items.GRIMY_TARROMIN_NOTED, quantityRange = 1..6, 5)
+            obj(Items.GRIMY_MARRENTILL_NOTED, quantityRange = 1..6, 5)
+            obj(Items.IRON_BAR_NOTED, quantity = 1, 5)
+            obj(Items.STEEL_BAR_NOTED, quantity = 1, 5)
+            obj(Items.MITHRIL_BAR_NOTED, quantity = 1, 3)
+            obj(Items.DRAGON_BATTLEAXE, quantity = 1, 1)
+        }
 
     }
 

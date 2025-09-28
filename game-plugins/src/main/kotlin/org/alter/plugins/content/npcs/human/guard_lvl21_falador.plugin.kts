@@ -12,33 +12,42 @@ val droptable =
         guaranteed {
             obj(Items.BONES, quantity = 1)
         }
-        main {
-            total(512)
-            obj(Items.STEEL_ARROW, quantityRange = 5..100, slots = 4)
-            obj(Items.IRON_ARROW, quantityRange = 5..200, slots = 4)
-            obj(Items.SHORTBOW, quantity = 1, slots = 4)
-            obj(Items.OAK_SHORTBOW, quantity = 1, slots = 4)
-            obj(Items.STEEL_SWORD, quantity = 1, slots = 4)
-            obj(Items.COINS_995, quantity = 25, slots = 16)
-            obj(Items.AIR_RUNE, quantityRange = 5..25, slots = 4)
-            obj(Items.MIND_RUNE, quantityRange = 5..25, slots = 4)
-            obj(Items.STEEL_SQ_SHIELD, quantity = 1, slots = 4)
-            obj(Items.STEEL_MED_HELM, quantity = 1, slots = 4)
-            obj(Items.STEEL_CHAINBODY, quantity = 1, slots = 4)
-            obj(Items.STEEL_MACE, quantity = 1, slots = 4)
-            obj(Items.STEEL_LONGSWORD, quantity = 1, slots = 4)
-            obj(Items.STEEL_FULL_HELM, quantity = 1, slots = 2)
-            obj(Items.STEEL_BATTLEAXE, quantity = 1, slots = 2)
-            obj(Items.WATER_RUNE, quantityRange = 5..25, slots = 2)
-            obj(Items.CHAOS_RUNE, quantityRange = 1..20, slots = 2)
-            obj(Items.STEEL_KITESHIELD, quantity = 1, slots = 1)
-            obj(Items.STEEL_PLATELEGS, quantity = 1, slots = 1)
-            obj(Items.STEEL_PLATESKIRT, quantity = 1, slots = 1)
-            obj(Items.STEEL_PLATEBODY, quantity = 1, slots = 1)
-            obj(Items.STEEL_2H_SWORD, quantity = 1, slots = 1)
-            obj(Items.STEEL_SCIMITAR, quantity = 1, slots = 1)
-            nothing(slots = 64)
+        table("main") {
+            total(128)
+            obj(Items.STEEL_ARROW, quantityRange = 5..15, 2)
+            obj(Items.IRON_ARROW, quantityRange = 5..15, 3)
+            obj(Items.SHORTBOW, quantityRange = 1..0, 4)
+            obj(Items.OAK_SHORTBOW, quantityRange = 1..0, 5)
+            obj(Items.STEEL_SWORD, quantityRange = 1..0, 6)
+            obj(Items.AIR_RUNE, quantityRange = 5..15, 8)
         }
+        table("coins") {
+            total(128)
+            obj(Items.COINS, quantityRange = 25..0, 1)
+        }
+        table("second") {
+            total(128)
+            obj(Items.MIND_RUNE, quantityRange = 5..15, 1)
+            obj(Items.STEEL_SQ_SHIELD, quantityRange = 1..0, 2)
+            obj(Items.STEEL_MED_HELM, quantityRange = 1..0, 3)
+            obj(Items.STEEL_CHAINBODY, quantityRange = 1..0, 4)
+            obj(Items.STEEL_MACE, quantityRange = 1..0, 5)
+            obj(Items.STEEL_LONGSWORD, quantityRange = 1..0, 6)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.STEEL_FULL_HELM, quantityRange = 1..0, 1)
+            obj(Items.STEEL_BATTLEAXE, quantityRange = 1..0, 2)
+            obj(Items.WATER_RUNE, quantityRange = 5..15, 3)
+            obj(Items.CHAOS_RUNE, quantityRange = 1..10, 4)
+            obj(Items.STEEL_KITESHIELD, quantity = 1, 5)
+            obj(Items.STEEL_PLATELEGS, quantity = 1, 6)
+            obj(Items.STEEL_PLATESKIRT, quantity = 1, 7)
+            obj(Items.STEEL_PLATEBODY, quantity = 1, 8)
+            obj(Items.STEEL_SCIMITAR, quantity = 1, 9)
+            obj(Items.STEEL_2H_SWORD, quantity = 1, 10)
+        }
+
     }
 
 

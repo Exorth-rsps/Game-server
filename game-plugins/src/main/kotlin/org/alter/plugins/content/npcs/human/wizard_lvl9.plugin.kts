@@ -9,29 +9,21 @@ val ids = intArrayOf(
 val table = DropTableFactory
 val droptable =
     table.build {
-        guaranteed {
-            obj(Items.BONES, quantity = 1)
-        }
-        main {
+        table("main") {
             total(128)
-            obj(Items.FIRE_RUNE, quantity = 5, slots = 3)
-            obj(Items.MIND_RUNE, quantity = 5, slots = 3)
-            obj(Items.WATER_RUNE, quantity = 5, slots = 3)
-            obj(Items.AIR_RUNE, quantity = 5, slots = 3)
-            obj(Items.AIR_RUNE, quantity = 12, slots = 2)
-            obj(Items.EARTH_RUNE, quantity = 12, slots = 2)
-            obj(Items.BLOOD_RUNE, quantity = 2, slots = 1)
-            obj(Items.STAFF, quantity = 1, slots = 8)
-            obj(Items.WATER_TALISMAN, quantity = 1, slots = 3)
-            obj(Items.MIND_TALISMAN, quantity = 1, slots = 4)
-            obj(Items.CHAOS_RUNE, quantity = 2, slots = 8)
-            obj(Items.COINS_995, quantity = 1, slots = 23)
-            obj(Items.COINS_995, quantity = 2, slots = 9)
-            obj(Items.COINS_995, quantity = 18, slots = 7)
-            obj(Items.COINS_995, quantity = 30, slots = 1)
-            obj(Items.BLUE_WIZARD_ROBE, quantity = 1, slots = 7)
-            obj(Items.BLUE_WIZARD_HAT, quantity = 1, slots = 3)
-            nothing(slots = 15)
+            obj(Items.AIR_TALISMAN, quantity = 1, 20)
+            obj(Items.EARTH_TALISMAN, quantity = 1, 20)
+            obj(Items.FIRE_TALISMAN, quantity = 1, 20)
+            obj(Items.WATER_TALISMAN, quantity = 1, 20)
+            obj(Items.BODY_TALISMAN, quantity = 1, 15)
+            obj(Items.MIND_TALISMAN, quantity = 1, 15)
+            obj(Items.BLOOD_TALISMAN, quantity = 1, 1)
+        }
+        table("second") {
+            total(128)
+            obj(Items.CHAOS_TALISMAN, quantity = 1, 10)
+            obj(Items.COSMIC_TALISMAN, quantity = 1, 10)
+            obj(Items.DEATH_TALISMAN, quantity = 1, 1)
         }
     }
 
