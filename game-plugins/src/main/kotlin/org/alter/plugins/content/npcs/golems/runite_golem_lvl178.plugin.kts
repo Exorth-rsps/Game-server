@@ -10,28 +10,32 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
-            obj(Items.BIG_BONES, quantity = 1)
+            obj(Items.BIG_BONES, quantity = 1, 1)
         }
-        main {
-            total(1024)
-            obj(Items.MUDDY_KEY, quantity = 1, slots = 2)
-            obj(Items.UNCUT_OPAL_NOTED, quantity = 1, slots = 8)
-            obj(Items.UNCUT_JADE_NOTED, quantity = 1, slots = 8)
-            obj(Items.UNCUT_RED_TOPAZ_NOTED, quantity = 1, slots = 8)
-            obj(Items.UNCUT_SAPPHIRE_NOTED, quantity = 1, slots = 4)
-            obj(Items.UNCUT_EMERALD_NOTED, quantity = 1, slots = 4)
-            obj(Items.UNCUT_RUBY_NOTED, quantity = 1, slots = 4)
-            obj(Items.UNCUT_DIAMOND_NOTED, quantity = 1, slots = 2)
-            obj(Items.RUNE_FULL_HELM_T, quantity = 1, slots = 1)
-            obj(Items.RUNE_KITESHIELD_T, quantity = 1, slots = 1)
-            obj(Items.RUNE_PLATESKIRT_T, quantity = 1, slots = 1)
-            obj(Items.RUNE_PLATELEGS_T, quantity = 1, slots = 1)
-            obj(Items.RUNE_PLATEBODY_T, quantity = 1, slots = 1)
-            obj(Items.RUNE_BOOTS, quantity = 1, slots = 1)
-            obj(Items.RUNE_SCIMITAR, quantity = 1, slots = 1)
-            obj(Items.RUNE_PICKAXE, quantity = 1, slots = 1)
-            nothing(128)
+        table("main") {
+            total(128)
+            obj(Items.UNCUT_DIAMOND, quantity = 1, 4)
+            obj(Items.UNCUT_RUBY, quantity = 1, 8)
+            obj(Items.UNCUT_EMERALD, quantity = 1, 11)
+            obj(Items.UNCUT_SAPPHIRE, quantity = 1, 20)
+            obj(Items.BLOOD_RUNE, quantityRange = 1..5, 10)
+            obj(Items.DEATH_RUNE, quantityRange = 1..5, 10)
+            obj(Items.AIR_RUNE, quantityRange = 10..75, 15)
+            obj(Items.WATER_RUNE, quantityRange = 10..75, 15)
+            obj(Items.EARTH_RUNE, quantityRange = 10..75, 15)
+            obj(Items.FIRE_RUNE, quantityRange = 10..75, 15)
+            obj(Items.MIND_RUNE, quantityRange = 10..75, 15)
         }
+        table("rare") {
+            total(128)
+            obj(Items.DRAGON_SCIMITAR, quantity = 1, 2)
+            obj(Items.DRAGON_LONGSWORD, quantity = 1, 4)
+            obj(Items.DRAGON_BATTLEAXE, quantity = 1, 4)
+            obj(Items.DRAGON_SWORD, quantity = 1, 4)
+            obj(Items.AMULET_OF_GLORY, quantity = 1, 1)
+            obj(Items.AMULET_OF_FURY, quantity = 1, 1)
+        }
+
     }
 
 
