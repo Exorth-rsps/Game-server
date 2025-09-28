@@ -10,14 +10,8 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
-        }
-        main {
-            total(512)
-            obj(Items.COPPER_ORE_NOTED, quantityRange = 1..5, slots = 2)
-            obj(Items.TIN_ORE_NOTED, quantityRange = 1..5, slots = 2)
-            obj(Items.IRON_ORE_NOTED, quantityRange = 1..3, slots = 2)
-            obj(Items.MUDDY_KEY, quantity = 1, slots = 1)
-            nothing(64)
+            obj(Items.BONES, quantity = 1, 1)
+            obj(Items.ASHES, quantity = 1, 1)
         }
         }
 
