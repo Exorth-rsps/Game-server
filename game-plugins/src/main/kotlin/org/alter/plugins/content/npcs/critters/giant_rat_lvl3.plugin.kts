@@ -10,21 +10,23 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
-            obj(Items.BONES, quantity = 1)
-            obj(Items.RAW_RAT_MEAT, quantity = 1)
+            obj(Items.BONES, quantity = 1, 1)
+            obj(Items.RAW_RAT_MEAT, quantity = 1, 1)
+            obj(Items.COINS, quantityRange = 1..25, 1)
         }
-        main {
-            total(256)
-            nothing(slots = 32)
-            obj(Items.COINS_995, quantityRange = 5..10, slots = 8)
-            obj(Items.IRON_FULL_HELM, quantity = 1, slots = 1)
-            obj(Items.IRON_MED_HELM, quantity = 1, slots = 2)
-            obj(Items.IRON_PLATEBODY, quantity = 1, slots = 1)
-            obj(Items.IRON_PLATELEGS, quantity = 1, slots = 1)
-            obj(Items.IRON_PLATESKIRT, quantity = 1, slots = 1)
-            obj(Items.IRON_CHAINBODY, quantity = 1, slots = 2)
-            obj(Items.IRON_2H_SWORD, quantity = 1, slots = 1)
-            obj(Items.IRON_SCIMITAR, quantity = 1, slots = 1)
+        table("second") {
+            total(11)
+            obj(Items.IRON_MED_HELM, quantity = 1, 1)
+            obj(Items.IRON_CHAINBODY, quantity = 1, 1)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.IRON_FULL_HELM, quantity = 1, 1)
+            obj(Items.IRON_PLATEBODY, quantity = 1, 18)
+            obj(Items.IRON_PLATELEGS, quantity = 1, 17)
+            obj(Items.IRON_PLATESKIRT, quantity = 1, 16)
+            obj(Items.IRON_2H_SWORD, quantity = 1, 7)
+            obj(Items.IRON_SCIMITAR, quantity = 1, 3)
         }
     }
 
