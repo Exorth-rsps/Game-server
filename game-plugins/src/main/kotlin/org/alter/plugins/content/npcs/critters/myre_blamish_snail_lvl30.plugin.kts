@@ -10,7 +10,7 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
-            obj(Items.COINS, quantityRange = 10..100, 1)
+            obj(Items.COINS, quantityRange = 10..100)
         }
         table("main") {
             total(128)

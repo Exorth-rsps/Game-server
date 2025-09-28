@@ -11,9 +11,9 @@ val droptable =
     table.build {
         table("main") {
             total(128)
-            obj(Items.BRONZE_BOOTS, quantity = 1, 4)
-            obj(Items.NATURE_RUNE, quantityRange = 5..7, 15)
-            obj(Items.FIRE_RUNE, quantityRange = 15..20, 15)
+            obj(Items.BRONZE_BOOTS, quantity = 1)
+            obj(Items.NATURE_RUNE, quantityRange = 5..7)
+            obj(Items.FIRE_RUNE, quantityRange = 15..20)
         }
         table("herbs") {
             total(128)
