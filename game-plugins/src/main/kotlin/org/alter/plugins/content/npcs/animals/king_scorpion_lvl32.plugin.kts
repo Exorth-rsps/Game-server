@@ -17,6 +17,7 @@ val droptable =
             total(128)
             obj(Items.IRON_ORE, quantity = 1, 5)
             obj(Items.COAL, quantity = 1, 5)
+            nothing(118)
         }
         }
 

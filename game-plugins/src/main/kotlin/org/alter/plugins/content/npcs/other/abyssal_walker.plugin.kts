@@ -15,11 +15,13 @@ val droptable =
         table("main") {
             total(128)
             obj(Items.PURE_ESSENCE_NOTED, quantityRange = 10..22, 11)
+            nothing(117)
         }
         table("rare") {
             total(128)
             obj(Items.COLOSSAL_POUCH, quantity = 1, 19)
             obj(Items.LARGE_POUCH, quantity = 1, 25)
+            nothing(84)
         }
     }
 

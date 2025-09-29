@@ -17,6 +17,7 @@ val droptable =
             obj(Items.ICE_GLOVES, quantity = 1, 1)
             obj(Items.NEW_CRYSTAL_BOW, quantity = 1, 1)
             obj(Items.NEW_CRYSTAL_SHIELD, quantity = 1, 1)
+            nothing(125)
         }
         table("main") {
             total(128)
@@ -25,6 +26,7 @@ val droptable =
             obj(Items.TORSTOL_NOTED, quantityRange = 1..3, 5)
             obj(Items.BLOOD_RUNE, quantityRange = 1..10, 9)
             obj(Items.DEATH_RUNE, quantityRange = 1..10, 9)
+            nothing(91)
         }
         table("second") {
             total(128)
@@ -32,6 +34,7 @@ val droptable =
             obj(Items.RUNE_ARROWTIPS, quantityRange = 1..5, 5)
             obj(Items.ADAMANT_ARROWTIPS, quantityRange = 1..5, 5)
             obj(Items.MITHRIL_ARROWTIPS, quantityRange = 1..8, 5)
+            nothing(111)
         }
 
     }

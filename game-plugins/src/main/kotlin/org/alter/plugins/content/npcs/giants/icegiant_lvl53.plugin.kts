@@ -18,14 +18,17 @@ val droptable =
             obj(Items.WILLOW_LOGS_NOTED, quantityRange = 1..10, 1)
             obj(Items.MAPLE_LOGS_NOTED, quantityRange = 1..7, 1)
             obj(Items.YEW_LOGS_NOTED, quantityRange = 1..4, 1)
+            nothing(115)
         }
         table("rare") {
             total(128)
             obj(Items.CAPE_OF_LEGENDS, quantity = 1, 1)
+            nothing(127)
         }
         table("second") {
             total(128)
             obj(Items.LOGS_NOTED, quantityRange = 1..15, 1)
+            nothing(127)
         }
     }
 

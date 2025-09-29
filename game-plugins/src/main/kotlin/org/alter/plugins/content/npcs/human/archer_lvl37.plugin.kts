@@ -26,6 +26,7 @@ val droptable =
             obj(Items.GREEN_DHIDE_VAMBRACES, quantity = 1, 3)
             obj(Items.GREEN_DHIDE_BODY, quantity = 1, 4)
             obj(Items.GREEN_DHIDE_CHAPS, quantity = 1, 5)
+            nothing(116)
         }
         table("main") {
             total(128)
@@ -34,6 +35,7 @@ val droptable =
             obj(Items.MAPLE_SHORTBOW_U, quantity = 1, 10)
             obj(Items.IRON_ARROW, quantity = 15, 12)
             obj(Items.STEEL_ARROW, quantity = 15, 14)
+            nothing(76)
         }
     }
 
