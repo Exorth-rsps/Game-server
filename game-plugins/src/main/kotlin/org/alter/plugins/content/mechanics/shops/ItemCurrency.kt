@@ -20,7 +20,7 @@ open class ItemCurrency(private val currencyItem: Int, private val singularCurre
     private data class AcceptItemState(val acceptable: Boolean, val errorMessage: String)
 
     private fun canAcceptItem(shop: Shop, world: World, item: Int): AcceptItemState {
-        if (item == Items.COINS_995 || item == Items.BLOOD_MONEY) {
+        if (item == Items.COINS || item == Items.BLOOD_MONEY) {
             return AcceptItemState(acceptable = false, errorMessage = "You can't sell this item to a shop.")
         }
         when {

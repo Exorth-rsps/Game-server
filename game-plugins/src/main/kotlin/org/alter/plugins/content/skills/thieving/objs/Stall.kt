@@ -135,23 +135,23 @@ object StallRewards {
 	)
 
 	val silk_stall_steals = arrayOf(
-		StallItem(Items.COINS_995, amount = 5, chance = 50.0),
-		StallItem(Items.COINS_995, amount = 50, chance = 5.0),
-		StallItem(Items.COINS_995, amount = 500, chance = 1.0)
+		StallItem(Items.COINS, amount = 5, chance = 50.0),
+		StallItem(Items.COINS, amount = 50, chance = 5.0),
+		StallItem(Items.COINS, amount = 500, chance = 1.0)
 	)
 	val draynor_market_stall_steals = arrayOf(
-		StallItem(Items.COINS_995, amount = 5, chance = 50.0),
-		StallItem(Items.COINS_995, amount = 50, chance = 5.0),
-		StallItem(Items.COINS_995, amount = 500, chance = 1.0)
+		StallItem(Items.COINS, amount = 5, chance = 50.0),
+		StallItem(Items.COINS, amount = 50, chance = 5.0),
+		StallItem(Items.COINS, amount = 500, chance = 1.0)
 	)
 	val draynor_seed_stall_steals = arrayOf(
-		StallItem(Items.COINS_995, amount = 5, chance = 50.0),
-		StallItem(Items.COINS_995, amount = 50, chance = 5.0),
-		StallItem(Items.COINS_995, amount = 500, chance = 1.0)
+		StallItem(Items.COINS, amount = 5, chance = 50.0),
+		StallItem(Items.COINS, amount = 50, chance = 5.0),
+		StallItem(Items.COINS, amount = 500, chance = 1.0)
 	)
 
 	val spice_stall_steals = arrayOf(
-		StallItem(Items.COINS_995, amount = 100, chance = 50.0),
+		StallItem(Items.COINS, amount = 100, chance = 50.0),
 		StallItem(Items.GRIMY_GUAM_LEAF, amount = 1, chance = 32.5),
 		StallItem(Items.GRIMY_TARROMIN, amount = 1, chance = 10.5),
 		StallItem(Items.GRIMY_RANARR_WEED, amount = 1, chance = 9.0),
@@ -163,9 +163,9 @@ object StallRewards {
 	)
 
 	val fur_stall_steals = arrayOf(
-		StallItem(Items.COINS_995, amount = 100, chance = 50.0),
-		StallItem(Items.COINS_995, amount = 621, chance = 32.5),
-		StallItem(Items.COINS_995, amount = 1250, chance = 10.5),
+		StallItem(Items.COINS, amount = 100, chance = 50.0),
+		StallItem(Items.COINS, amount = 621, chance = 32.5),
+		StallItem(Items.COINS, amount = 1250, chance = 10.5),
 		StallItem(Items.COWHIDE, amount = 1, chance = 9.0),
 		StallItem(Items.GREEN_DRAGONHIDE, amount = 1, chance = 7.5),
 		StallItem(Items.BLUE_DRAGONHIDE, amount = 1, chance = 5.0),
@@ -174,9 +174,9 @@ object StallRewards {
 	)
 
 	val silver_stall_steals = arrayOf(
-		StallItem(Items.COINS_995, amount = 100, chance = 50.0),
-		StallItem(Items.COINS_995, amount = 621, chance = 32.5),
-		StallItem(Items.COINS_995, amount = 1250, chance = 10.5),
+		StallItem(Items.COINS, amount = 100, chance = 50.0),
+		StallItem(Items.COINS, amount = 621, chance = 32.5),
+		StallItem(Items.COINS, amount = 1250, chance = 10.5),
 		StallItem(Items.BRONZE_BAR, amount = 1, chance = 9.0),
 		StallItem(Items.IRON_BAR, amount = 1, chance = 7.5),
 		StallItem(Items.STEEL_BAR, amount = 1, chance = 5.0),
@@ -189,9 +189,9 @@ object StallRewards {
 	)
 
 	val gem_stall_steals = arrayOf(
-		StallItem(Items.COINS_995, chance = 62.0, amount = 5),
-		StallItem(Items.COINS_995, chance = 62.0, amount = 15),
-		StallItem(Items.COINS_995, chance = 30.0, amount = 99),
+		StallItem(Items.COINS, chance = 62.0, amount = 5),
+		StallItem(Items.COINS, chance = 62.0, amount = 15),
+		StallItem(Items.COINS, chance = 30.0, amount = 99),
 		StallItem(Items.UNCUT_SAPPHIRE, chance = 22.0),
 		StallItem(Items.UNCUT_EMERALD, chance = 13.3),
 		StallItem(Items.UNCUT_RUBY, chance = 3.91),
