@@ -13,14 +13,15 @@ val droptable =
         guaranteed {
             obj(Items.BIG_BONES, quantity = 1)
         }
-        main {
-            total(512)
-            obj(Items.RAW_SHRIMPS_NOTED, quantityRange = 1..25, slots = 4)
-            obj(Items.RAW_TROUT_NOTED, quantityRange = 1..25, slots = 4)
-            obj(Items.RAW_TUNA_NOTED, quantityRange = 1..10, slots = 2)
-            obj(Items.RAW_LOBSTER_NOTED, quantityRange = 1..5, slots = 2)
-            obj(Items.RAW_SWORDFISH_NOTED, quantityRange = 1..3, slots = 1)
-            nothing(64)
+        table("main") {
+            total(128)
+            obj(Items.RAW_SHRIMPS_NOTED, quantityRange = 1..15, 11)
+            obj(Items.RAW_SALMON_NOTED, quantityRange = 1..8, 5)
+            obj(Items.RAW_LOBSTER_NOTED, quantityRange = 1..8, 5)
+            obj(Items.RAW_HERRING_NOTED, quantityRange = 1..10, 8)
+            obj(Items.RAW_COD_NOTED, quantityRange = 1..10, 10)
+            obj(Items.RAW_TROUT_NOTED, quantityRange = 1..10, 10)
+            obj(Items.RAW_SWORDFISH, quantityRange = 1..6, 4)
         }
         }
 

@@ -13,15 +13,31 @@ val droptable =
         guaranteed {
             obj(Items.BIG_BONES, quantity = 1)
         }
-        main {
-            total(4096)
-            obj(Items.RAW_SHRIMPS_NOTED, quantityRange = 1..50, slots = 32)
-            obj(Items.RAW_TROUT_NOTED, quantityRange = 1..50, slots = 32)
-            obj(Items.RAW_TUNA_NOTED, quantityRange = 1..25, slots = 16)
-            obj(Items.RAW_LOBSTER_NOTED, quantityRange = 1..10, slots = 16)
-            obj(Items.RAW_SWORDFISH_NOTED, quantityRange = 1..5, slots = 8)
-            obj(Items.FROZEN_KEY, quantity = 1, slots = 1)
-            nothing(512)
+        table("rare") {
+            total(128)
+            obj(Items.FROZEN_KEY, quantity = 1, 1)
+            obj(Items.INFINITY_TOP, quantity = 1, 1)
+            obj(Items.MASTER_WAND, quantity = 1, 1)
+            obj(Items.INFINITY_HAT, quantity = 1, 1)
+            obj(Items.INFINITY_BOOTS, quantity = 1, 1)
+            obj(Items.INFINITY_GLOVES, quantity = 1, 1)
+            obj(Items.INFINITY_BOTTOMS, quantity = 1, 1)
+            obj(Items.BLURITE_SWORD, quantity = 1, 1)
+        }
+        table("second") {
+            total(128)
+            obj(Items.PURE_ESSENCE_NOTED, quantityRange = 1..20, 10)
+            obj(Items.COAL_NOTED, quantityRange = 1..10, 10)
+            obj(Items.UNCUT_DIAMOND, quantity = 1, 10)
+        }
+        table("gems") {
+            total(128)
+            obj(Items.UNCUT_RUBY, quantity = 1, 15)
+        }
+        table("secondary") {
+            total(128)
+            obj(Items.OAK_LOGS_NOTED, quantityRange = 1..5, 7)
+            obj(Items.WILLOW_LOGS_NOTED, quantityRange = 1..5, 4)
         }
         }
 
