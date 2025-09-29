@@ -14,12 +14,14 @@ val droptable =
             obj(Items.JANGERBERRIES, quantity = 1, 30)
             obj(Items.EYE_OF_NEWT, quantity = 1, 50)
             obj(Items.UNICORN_HORN_DUST, quantity = 1, 50)
+            nothing(1)
         }
         table("second") {
             total(128)
             obj(Items.LIMPWURT_ROOT, quantity = 1, 50)
             obj(Items.VOLCANIC_ASH, quantity = 1, 50)
             obj(Items.RED_SPIDERS_EGGS, quantity = 1, 50)
+            nothing(1)
         }
         table("herb-secondaries") {
             total(128)
@@ -27,6 +29,7 @@ val droptable =
             obj(Items.WHITE_BERRIES, quantity = 1, 40)
             obj(Items.TOADS_LEGS, quantity = 1, 40)
             obj(Items.GOAT_HORN_DUST, quantity = 1, 40)
+            nothing(1)
         }
         table("herbs") {
             total(128)
@@ -34,6 +37,7 @@ val droptable =
             obj(Items.MORT_MYRE_FUNGUS, quantity = 1, 40)
             obj(Items.DRAGON_SCALE_DUST, quantity = 1, 40)
             obj(Items.YEW_ROOTS, quantity = 1, 40)
+            nothing(1)
         }
         table("rare") {
             total(128)
@@ -42,6 +46,7 @@ val droptable =
             obj(Items.MAGIC_ROOTS, quantity = 1, 20)
             obj(Items.NIHIL_DUST, quantity = 1, 20)
             obj(Items.CRUSHED_NEST, quantity = 1, 20)
+            nothing(28)
         }
 
     }

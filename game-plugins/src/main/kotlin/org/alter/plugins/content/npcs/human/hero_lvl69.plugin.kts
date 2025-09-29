@@ -17,12 +17,14 @@ val droptable =
             obj(Items.COINS, quantityRange = 1..150, 90)
             obj(Items.AIR_RUNE, quantityRange = 1..30, 22)
             obj(Items.WATER_RUNE, quantityRange = 1..20, 18)
+            nothing(1)
         }
         table("rare") {
             total(128)
             obj(Items.GOLD_ORE, quantity = 1, 6)
             obj(Items.UNCUT_EMERALD, quantity = 1, 5)
             obj(Items.UNCUT_DIAMOND, quantity = 1, 5)
+            nothing(112)
         }
         table("second") {
             total(128)
@@ -30,6 +32,7 @@ val droptable =
             obj(Items.FIRE_RUNE, quantityRange = 1..5, 18)
             obj(Items.DEATH_RUNE, quantityRange = 1..3, 18)
             obj(Items.BLOOD_RUNE, quantityRange = 1..3, 18)
+            nothing(56)
         }
 
     }

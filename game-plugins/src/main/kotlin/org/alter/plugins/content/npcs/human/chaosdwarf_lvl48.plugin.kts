@@ -15,6 +15,7 @@ val droptable =
         table("coins") {
             total(128)
             obj(Items.COINS, quantityRange = 1..50, 80)
+            nothing(48)
         }
         table("main") {
             total(128)
@@ -25,11 +26,13 @@ val droptable =
             obj(Items.WATER_RUNE, quantityRange = 1..20, 20)
             obj(Items.MITHRIL_BAR, quantity = 1, 2)
             obj(Items.COAL, quantityRange = 1..3, 10)
+            nothing(2)
         }
         table("gems") {
             total(128)
             obj(Items.UNCUT_SAPPHIRE, quantity = 1, 20)
             obj(Items.UNCUT_EMERALD, quantity = 1, 17)
+            nothing(91)
         }
         table("second") {
             total(128)
@@ -42,6 +45,7 @@ val droptable =
             obj(Items.MITHRIL_FULL_HELM, quantity = 1, 10)
             obj(Items.MITHRIL_PLATELEGS, quantity = 1, 10)
             obj(Items.MITHRIL_PLATEBODY, quantity = 1, 10)
+            nothing(1)
         }
         table("rare") {
             total(128)
@@ -49,6 +53,7 @@ val droptable =
             obj(Items.MITHRIL_WARHAMMER, quantity = 1, 6)
             obj(Items.MITHRIL_BATTLEAXE, quantity = 1, 6)
             obj(Items.MITHRIL_SCIMITAR, quantity = 1, 6)
+            nothing(100)
         }
 
     }

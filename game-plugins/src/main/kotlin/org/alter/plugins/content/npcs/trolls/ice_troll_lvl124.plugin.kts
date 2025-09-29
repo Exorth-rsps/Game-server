@@ -22,6 +22,7 @@ val droptable =
             obj(Items.RAW_COD_NOTED, quantityRange = 1..10, 10)
             obj(Items.RAW_TROUT_NOTED, quantityRange = 1..10, 10)
             obj(Items.RAW_SWORDFISH, quantityRange = 1..6, 4)
+            nothing(75)
         }
         }
 

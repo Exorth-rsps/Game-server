@@ -19,17 +19,20 @@ val droptable =
             obj(Items.CRYSTAL_LEGS_PERFECTED, quantity = 1, 1)
             obj(Items.ARCHERS_RING, quantity = 1, 4)
             obj(Items.NECKLACE_OF_ANGUISH, quantity = 1, 1)
+            nothing(120)
         }
         table("main") {
             total(128)
             obj(Items.RUNE_ARROW, quantityRange = 1..15, 5)
             obj(Items.ADAMANT_ARROW, quantityRange = 1..15, 10)
+            nothing(113)
         }
         table("coins") {
             total(128)
             obj(Items.COINS, quantityRange = 400..1000, 1)
             obj(Items.COINS, quantityRange = 150..300, 5)
             obj(Items.COINS, quantityRange = 200..500, 7)
+            nothing(115)
         }
 
     }
