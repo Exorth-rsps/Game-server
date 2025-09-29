@@ -10,16 +10,9 @@ val ids = intArrayOf(
 val table = DropTableFactory
 val droptable =
     table.build {
-            guaranteed {
-                obj(Items.BONES, quantity = 1)
-            }
-        table("Herbs") {
-            total(512)
-            nothing(slots = 4)
-        }
-        table("Secondaries") {
-            total(256)
-            nothing(64)
+        guaranteed {
+            obj(Items.BONES, quantity = 1)
+            obj(Items.GOAT_HORN_DUST, quantityRange = 1..5)
         }
         }
 

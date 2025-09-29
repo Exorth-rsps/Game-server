@@ -13,22 +13,11 @@ val droptable =
             obj(Items.BONES, quantity = 1)
             obj(Items.RAW_RAT_MEAT, quantity = 1)
         }
-        main {
-            total(10240)
-            obj(Items.CHAOS_RUNE, quantityRange = 1..40, slots = 40)
-            obj(Items.DEATH_RUNE, quantityRange = 1..40, slots = 40)
-            obj(Items.BLOOD_RUNE, quantityRange = 1..20, slots = 20)
-            obj(Items.WRATH_RUNE, quantityRange = 1..10, slots = 2)
-            obj(Items.MITHRIL_ARROW, quantityRange = 50..75, slots = 20)
-            obj(Items.ADAMANT_ARROW, quantityRange = 1..50, slots = 2)
-            obj(Items.RAW_LOBSTER_NOTED, quantityRange = 1..10, slots = 20)
-            obj(Items.RAW_SWORDFISH_NOTED, quantityRange = 1..9, slots = 20)
-            obj(Items.RAW_RAT_MEAT_NOTED, quantityRange = 1..18, slots = 40)
-            obj(Items.RAW_TUNA_NOTED, quantityRange = 1..12, slots = 40)
-            obj(Items.RAW_SHARK_NOTED, quantityRange = 1..3, slots = 2)
-            obj(Items.COINS_995, quantityRange = 150..950, slots = 80)
-            obj(Items.BRINE_SABRE, quantity = 1, slots = 1)
-            nothing(1280)
+        table("rare") {
+            total(128)
+            obj(Items.CHAOS_RUNE, quantityRange = 1..5, 9)
+            obj(Items.DEATH_RUNE, quantityRange = 1..4, 9)
+            obj(Items.BLOOD_RUNE, quantityRange = 1..4, 9)
         }
     }
 

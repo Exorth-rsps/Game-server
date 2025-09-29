@@ -12,22 +12,37 @@ val droptable =
             obj(Items.DRAGON_BONES, quantity = 1)
             obj(Items.BLUE_DRAGONHIDE, quantity = 1)
         }
-        main {
-            total(512)
-            obj(Items.STEEL_PLATELEGS, quantity = 1, slots = 2)
-            obj(Items.STEEL_BATTLEAXE, quantity = 1, slots = 2)
-            obj(Items.MITHRIL_AXE, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_KITESHIELD, quantity = 1, slots = 2)
-            obj(Items.ADAMANT_FULL_HELM, quantity = 1, slots = 1)
-            obj(Items.RUNE_DAGGER, quantity = 1, slots = 1)
-            obj(Items.STEEL_BAR_NOTED, quantityRange = 1..5, slots = 2)
-            obj(Items.WATER_RUNE, quantityRange = 1..9, slots = 16)
-            obj(Items.FIRE_RUNE, quantityRange = 1..11, slots = 4)
-            obj(Items.COINS_995, quantityRange = 66..621, slots = 2)
-            obj(Items.BASS, quantity = 1, slots = 4)
-            obj(Items.ADAMANTITE_ORE, quantity = 1, slots = 4)
-            nothing(64)
+        table("herbs-noted") {
+            total(128)
+            obj(Items.GRIMY_LANTADYME_NOTED, quantityRange = 3..8, 12)
+            obj(Items.GRIMY_RANARR_WEED_NOTED, quantityRange = 3..8, 10)
+            obj(Items.GRIMY_GUAM_LEAF_NOTED, quantityRange = 3..8, 20)
+            obj(Items.GRIMY_MARRENTILL_NOTED, quantityRange = 3..8, 24)
+            obj(Items.GRIMY_HARRALANDER_NOTED, quantityRange = 3..8, 22)
         }
+        table("gems") {
+            total(128)
+            obj(Items.UNCUT_SAPPHIRE, quantity = 1, 90)
+            obj(Items.UNCUT_EMERALD, quantity = 1, 80)
+        }
+        table("second") {
+            total(128)
+            obj(Items.UNCUT_RUBY, quantity = 1, 75)
+            obj(Items.LIMPWURT_ROOT_NOTED, quantityRange = 2..6, 40)
+            obj(Items.RED_SPIDERS_EGGS_NOTED, quantityRange = 2..6, 34)
+        }
+        table("main") {
+            total(128)
+            obj(Items.MITHRIL_SWORD, quantity = 1, 45)
+            obj(Items.ADAMANT_SWORD, quantity = 1, 40)
+            obj(Items.RUNE_SWORD, quantity = 1, 28)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.WHITE_BERRIES_NOTED, quantityRange = 2..6, 22)
+            obj(Items.SNAPE_GRASS_NOTED, quantityRange = 2..6, 28)
+        }
+
 
     }
 

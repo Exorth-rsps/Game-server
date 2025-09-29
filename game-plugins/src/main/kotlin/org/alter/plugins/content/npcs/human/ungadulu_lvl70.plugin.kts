@@ -9,24 +9,34 @@ val ids = intArrayOf(
 val table = DropTableFactory
 val droptable =
     table.build {
-        guaranteed {
-            obj(Items.BONES, quantity = 1)
-        }
-        main {
-            total(128)
-            nothing(16)
-        }
-        table("Herbs") {
-            total(512)
-            nothing(slots = 4)
-        }
-        table("Herbs_Noted") {
-            total(256)
-            nothing(64)
-        }
-        table("Coins") {
-            total(256)
-            nothing(64)
+        table.build {
+            guaranteed {
+                obj(Items.BONES, quantity = 1)
+            }
+            table("rare") {
+                total(128)
+                obj(Items.BERSERKER_HELM, quantity = 1, 1)
+                obj(Items.ARCHER_HELM, quantity = 1, 1)
+                obj(Items.MIME_MASK, quantity = 1, 15)
+            }
+            table("second") {
+                total(128)
+                obj(Items.MIME_BOOTS, quantity = 1, 15)
+                obj(Items.MIME_GLOVES, quantity = 1, 15)
+                obj(Items.MIME_LEGS, quantity = 1, 15)
+                obj(Items.MIME_TOP, quantity = 1, 15)
+            }
+            table("main") {
+                total(128)
+                obj(Items.GUAM_POTION_UNF_NOTED, quantityRange = 1..5, 5)
+                obj(Items.MARRENTILL_POTION_UNF_NOTED, quantityRange = 1..5, 5)
+                obj(Items.TARROMIN_POTION_UNF_NOTED, quantityRange = 1..5, 5)
+                obj(Items.RANARR_POTION_UNF_NOTED, quantityRange = 1..4, 5)
+                obj(Items.IRIT_POTION_UNF_NOTED, quantityRange = 1..4, 5)
+                obj(Items.AVANTOE_POTION_UNF_NOTED, quantityRange = 1..4, 5)
+                obj(Items.CADANTINE_POTION_UNF_NOTED, quantityRange = 1..4, 5)
+                obj(Items.RUNE_SCIMITAR, quantity = 1, 11)
+            }
         }
     }
 

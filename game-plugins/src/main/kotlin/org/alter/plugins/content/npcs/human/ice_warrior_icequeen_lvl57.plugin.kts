@@ -12,16 +12,37 @@ val droptable =
         guaranteed {
             obj(Items.BONES, quantity = 1)
         }
-        main {
-            total(512)
-            obj(Items.ARROW_SHAFT, quantity = 1, slots = 4)
-            obj(Items.FEATHER, quantity = 1, slots = 4)
-            obj(Items.BRONZE_ARROWTIPS, quantity = 1, slots = 2)
-            obj(Items.IRON_ARROWTIPS, quantity = 1, slots = 2)
-            obj(Items.STEEL_ARROWTIPS, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_ARROWTIPS, quantity = 1, slots = 1)
-            nothing(64)
+        table("main") {
+            total(128)
+            obj(Items.LIMPWURT_SEED, quantityRange = 1..3, 30)
+            obj(Items.STRAWBERRY_SEED, quantityRange = 1..3, 30)
+            obj(Items.MARRENTILL_SEED, quantityRange = 1..3, 30)
+            obj(Items.JANGERBERRY_SEED, quantityRange = 1..3, 30)
+            obj(Items.TARROMIN_SEED, quantityRange = 1..3, 30)
         }
+        table("second") {
+            total(128)
+            obj(Items.WATERMELON_SEED, quantityRange = 1..2, 30)
+            obj(Items.HARRALANDER_SEED, quantityRange = 1..2, 30)
+            obj(Items.SNAPE_GRASS_SEED, quantityRange = 1..2, 30)
+            obj(Items.RANARR_SEED, quantityRange = 1..2, 30)
+            obj(Items.WHITEBERRY_SEED, quantityRange = 1..2, 30)
+        }
+        table("herbs") {
+            total(128)
+            obj(Items.TOADFLAX_SEED, quantityRange = 1..2, 30)
+            obj(Items.IRIT_SEED, quantityRange = 1..2, 30)
+            obj(Items.POISON_IVY_SEED, quantityRange = 1..2, 30)
+            obj(Items.AVANTOE_SEED, quantityRange = 1..2, 30)
+            obj(Items.KWUARM_SEED, quantityRange = 1..2, 30)
+        }
+        table("gems") {
+            total(128)
+            obj(Items.SNAPDRAGON_SEED, quantityRange = 1..2, 30)
+            obj(Items.CADANTINE_SEED, quantityRange = 1..2, 30)
+            obj(Items.LANTADYME_SEED, quantityRange = 1..2, 30)
+        }
+
     }
 
 

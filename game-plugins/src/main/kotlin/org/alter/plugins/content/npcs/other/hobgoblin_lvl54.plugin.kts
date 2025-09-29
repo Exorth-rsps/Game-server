@@ -10,25 +10,18 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
-            obj(Items.BONES, quantity = 1)
+            obj(Items.COINS, quantityRange = 1..50)
         }
-        main {
-            total(512)
-            obj(Items.IRON_SWORD, quantity = 1, slots = 16)
-            obj(Items.STEEL_DAGGER, quantity = 1, slots = 4)
-            obj(Items.STEEL_LONGSWORD, quantity = 1, slots = 4)
-            obj(Items.AIR_RUNE, quantityRange = 1..25, slots = 4)
-            obj(Items.WATER_RUNE, quantityRange = 1..25, slots = 4)
-            obj(Items.EARTH_RUNE, quantityRange = 1..25, slots = 4)
-            obj(Items.FIRE_RUNE, quantityRange = 1..25, slots = 4)
-            obj(Items.CHAOS_RUNE, quantityRange = 1..10, slots = 2)
-            obj(Items.IRON_ARROW, quantityRange = 25..50, slots = 2)
-            obj(Items.STEEL_ARROW, quantityRange = 10..25, slots = 2)
-            obj(Items.MITHRIL_ARROWTIPS, quantityRange = 1..50, slots = 1)
-            obj(Items.COINS_995, quantityRange = 25..150, slots = 16)
-            obj(Items.GOBLIN_MAIL, quantity = 1, slots = 16)
-            obj(Items.LIMPWURT_ROOT, quantity = 1, slots = 2)
-            nothing(16)
+        table("main") {
+            total(128)
+            obj(Items.BONES, quantity = 1, 70)
+            obj(Items.GOBLIN_MAIL, quantity = 1, 30)
+            obj(Items.IRON_SWORD, quantity = 1, 20)
+            obj(Items.AIR_RUNE, quantityRange = 1..10, 10)
+        }
+        table("second") {
+            total(128)
+            obj(Items.STEEL_ARROW, quantityRange = 1..5, 10)
         }
     }
 

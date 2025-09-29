@@ -12,13 +12,42 @@ val ids = intArrayOf(
 val table = DropTableFactory
 val droptable =
     table.build {
+        table("herbs-noted") {
+            total(128)
+            obj(Items.GRIMY_GUAM_LEAF, quantity = 1, 88)
+        }
         guaranteed {
+            obj(Items.COINS, quantityRange = 111..450)
             obj(Items.BONES, quantity = 1)
         }
-        main {
-            total(64)
-            nothing(16)
+        table("coins") {
+            total(128)
+            obj(Items.COINS, quantityRange = 100..500, 2)
         }
+        table("main") {
+            total(128)
+            obj(Items.GRIMY_IRIT_LEAF, quantity = 1, 85)
+            obj(Items.GRIMY_LANTADYME, quantity = 1, 80)
+        }
+        table("second") {
+            total(128)
+            obj(Items.GRIMY_HARRALANDER, quantity = 1, 75)
+            obj(Items.GRIMY_CADANTINE, quantity = 1, 71)
+        }
+        table("herbs") {
+            total(128)
+            obj(Items.GRIMY_KWUARM, quantity = 1, 67)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.GRIMY_AVANTOE, quantity = 1, 62)
+            obj(Items.GRIMY_TARROMIN, quantity = 1, 77)
+        }
+        table("herb-secondaries") {
+            total(128)
+            obj(Items.GRIMY_MARRENTILL, quantity = 1, 81)
+        }
+
     }
 
  table.register(droptable, *ids)

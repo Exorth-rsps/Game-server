@@ -12,16 +12,21 @@ val droptable =
         guaranteed {
             obj(Items.BIG_BONES, quantity = 1)
         }
-        main {
-            total(512)
-            obj(Items.RUNE_MED_HELM, quantity = 1, slots = 1)
-            obj(Items.RUNE_SQ_SHIELD, quantity = 1, slots = 1)
-            obj(Items.RUNE_SWORD, quantity = 1, slots = 1)
-            obj(Items.CHAOS_RUNE, quantityRange = 1..10, slots = 2)
-            obj(Items.DEATH_RUNE, quantityRange = 1..5, slots = 1)
-            obj(Items.WINE_OF_ZAMORAK, quantity = 1, slots = 2)
-            obj(Items.LIMPWURT_ROOT, quantity = 1, slots = 2)
-            obj(Items.EYE_OF_NEWT, quantity = 1, slots = 4)
+        table("main") {
+            total(128)
+            obj(Items.RUNE_MED_HELM, quantity = 1, 25)
+            obj(Items.CHAOS_RUNE, quantityRange = 1..5, 20)
+            obj(Items.RUNE_SQ_SHIELD, quantity = 1, 20)
+            obj(Items.ADAMANT_SQ_SHIELD, quantity = 1, 25)
+            obj(Items.ADAMANT_SCIMITAR, quantity = 1, 17)
+            obj(Items.AMULET_OF_STRENGTH, quantity = 1, 10)
+            obj(Items.AMULET_OF_POWER, quantity = 1, 10)
+            obj(Items.CHEFS_HAT, quantity = 1, 5)
+        }
+        table("secondary") {
+            total(128)
+            obj(Items.STEEL_BOOTS, quantity = 1, 5)
+            obj(Items.IRON_BOOTS, quantity = 1, 10)
         }
     }
 

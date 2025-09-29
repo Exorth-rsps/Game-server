@@ -22,6 +22,7 @@ import org.alter.plugins.content.combat.strategy.CombatStrategy
 import org.alter.plugins.content.combat.strategy.MagicCombatStrategy
 import org.alter.plugins.content.combat.strategy.MeleeCombatStrategy
 import org.alter.plugins.content.combat.strategy.RangedCombatStrategy
+import org.alter.plugins.content.items.barrows.BarrowsDegrade
 import org.alter.plugins.content.combat.strategy.magic.CombatSpell
 import org.alter.plugins.content.interfaces.attack.AttackTab
 import java.lang.ref.WeakReference
@@ -66,6 +67,9 @@ object Combat {
             target.closeInterface(target.interfaces.getModal())
             target.interfaces.setModal(-1)
         }
+        if (pawn is Player) {
+            BarrowsDegrade.degrade(pawn)
+        }
     }
 
     fun postDamage(pawn: Pawn, target: Pawn) {
@@ -100,6 +104,9 @@ object Combat {
                     target.attack(pawn)
                 }
             }
+        }
+        if (target is Player) {
+            BarrowsDegrade.degrade(target)
         }
     }
 

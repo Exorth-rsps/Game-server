@@ -12,15 +12,20 @@ val droptable =
         guaranteed {
             obj(Items.BIG_BONES, quantity = 1)
         }
-        main {
-            total(512)
-            obj(Items.LOGS_NOTED, quantityRange = 1..50, slots = 4)
-            obj(Items.OAK_LOGS_NOTED, quantityRange = 1..40, slots = 4)
-            obj(Items.WILLOW_LOGS_NOTED, quantityRange = 1..30, slots = 2)
-            obj(Items.MAPLE_LOGS_NOTED, quantityRange = 1..20, slots = 2)
-            obj(Items.YEW_LOGS_NOTED, quantityRange = 1..10, slots = 1)
-            obj(Items.FLAX_NOTED, quantityRange = 1..40, slots = 1)
-            nothing(64)
+        table("main") {
+            total(128)
+            obj(Items.OAK_LOGS_NOTED, quantityRange = 1..15, 10)
+            obj(Items.WILLOW_LOGS_NOTED, quantityRange = 1..10, 1)
+            obj(Items.MAPLE_LOGS_NOTED, quantityRange = 1..7, 1)
+            obj(Items.YEW_LOGS_NOTED, quantityRange = 1..4, 1)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.CAPE_OF_LEGENDS, quantity = 1, 1)
+        }
+        table("second") {
+            total(128)
+            obj(Items.LOGS_NOTED, quantityRange = 1..15, 1)
         }
     }
 

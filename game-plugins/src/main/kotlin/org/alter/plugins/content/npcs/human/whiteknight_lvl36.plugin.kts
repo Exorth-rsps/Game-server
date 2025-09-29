@@ -12,35 +12,41 @@ val droptable =
         guaranteed {
             obj(Items.BONES, quantity = 1)
         }
-        main {
-            total(1024)
-            obj(Items.STEEL_SWORD, quantity = 1, slots = 8)
-            obj(Items.STEEL_MED_HELM, quantity = 1, slots = 8)
-            obj(Items.STEEL_ARROW, quantityRange = 10..100, slots = 8)
-            obj(Items.WILLOW_SHORTBOW, quantity = 1, slots = 4)
-            obj(Items.MIND_RUNE, quantityRange = 1..75, slots = 4)
-            obj(Items.CHAOS_RUNE, quantityRange = 1..25, slots = 4)
-            obj(Items.MITHRIL_ARROW, quantityRange = 1..50, slots = 2)
-            obj(Items.COIF, quantity = 1, slots = 2)
-            obj(Items.LEATHER_BODY, quantity = 1, slots = 2)
-            obj(Items.STUDDED_BODY, quantity = 1, slots = 2)
-            obj(Items.LEATHER_CHAPS, quantity = 1, slots = 2)
-            obj(Items.STUDDED_CHAPS, quantity = 1, slots = 2)
-            obj(Items.LEATHER_VAMBRACES, quantity = 1, slots = 2)
-            obj(Items.LEATHER_BOOTS, quantity = 1, slots = 4)
-            obj(Items.DESERT_BOOTS, quantity = 1, slots = 1)
-            obj(Items.COOKING_GAUNTLETS, quantity = 1, slots = 1)
-            obj(Items.WATER_RUNE, quantityRange = 1..50, slots = 2)
-            obj(Items.WHITE_MED_HELM, quantity = 1, slots = 2)
-            obj(Items.WHITE_SWORD, quantity = 1, slots = 2)
-            obj(Items.WHITE_CHAINBODY, quantity = 1, slots = 2)
-            obj(Items.WHITE_FULL_HELM, quantity = 1, slots = 1)
-            obj(Items.WHITE_PLATELEGS, quantity = 1, slots = 1)
-            obj(Items.WHITE_PLATESKIRT, quantity = 1, slots = 1)
-            obj(Items.WHITE_KITESHIELD, quantity = 1, slots = 1)
-            obj(Items.WHITE_PLATEBODY, quantity = 1, slots = 1)
-            nothing(slots = 128)
+        table("main") {
+            total(128)
+            obj(Items.STEEL_SWORD, quantity = 1, 40)
+            obj(Items.STEEL_MED_HELM, quantity = 1, 40)
+            obj(Items.MIND_RUNE, quantityRange = 1..75, 15)
+            obj(Items.CHAOS_RUNE, quantityRange = 1..25, 12)
+            obj(Items.COOKING_GAUNTLETS, quantity = 1, 2)
+            obj(Items.DESERT_BOOTS, quantity = 1, 2)
+            obj(Items.WHITE_MED_HELM, quantity = 1, 4)
+            obj(Items.WHITE_SWORD, quantity = 1, 4)
+            obj(Items.WHITE_CHAINBODY, quantity = 1, 4)
+            obj(Items.WHITE_FULL_HELM, quantity = 1, 3)
+            obj(Items.WHITE_PLATEBODY, quantity = 1, 3)
         }
+        table("rare") {
+            total(128)
+            obj(Items.MITHRIL_ARROW, quantityRange = 1..50, 6)
+            obj(Items.COIF, quantity = 1, 30)
+            obj(Items.LEATHER_BODY, quantity = 1, 20)
+            obj(Items.STUDDED_BODY, quantity = 1, 20)
+            obj(Items.LEATHER_CHAPS, quantity = 1, 20)
+            obj(Items.STUDDED_CHAPS, quantity = 1, 20)
+            obj(Items.LEATHER_VAMBRACES, quantity = 1, 20)
+        }
+        table("second") {
+            total(128)
+            obj(Items.STEEL_ARROW, quantityRange = 10..100, 8)
+            obj(Items.WILLOW_SHORTBOW, quantity = 1, 16)
+            obj(Items.LEATHER_BOOTS, quantity = 1, 30)
+            obj(Items.WATER_RUNE, quantityRange = 1..50, 22)
+            obj(Items.WHITE_PLATELEGS, quantity = 1, 3)
+            obj(Items.WHITE_PLATESKIRT, quantity = 1, 3)
+            obj(Items.WHITE_KITESHIELD, quantity = 1, 3)
+        }
+
     }
 
 

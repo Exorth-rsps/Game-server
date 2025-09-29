@@ -10,29 +10,35 @@ val ids = intArrayOf(
 val table = DropTableFactory
 val droptable =
     table.build {
-            guaranteed {
-                obj(Items.BONES, quantity = 1)
-            }
-        main {
-            total(512)
-            nothing(64)
+        guaranteed {
+            obj(Items.BONES, quantity = 1)
         }
-        table("Herbs") {
-            total(512)
-            nothing(slots = 4)
+        table("rare") {
+            total(128)
+            obj(Items.GORAK_CLAWS, quantity = 1, 1)
+            obj(Items.RING_OF_LIFE, quantity = 1, 1)
         }
-        table("Secondaries") {
-            total(256)
-            nothing(64)
+        table("herbs") {
+            total(128)
+            obj(Items.GRIMY_GUAM_LEAF, quantityRange = 1..5, 25)
+            obj(Items.GRIMY_MARRENTILL, quantityRange = 1..5, 25)
+            obj(Items.GRIMY_TARROMIN, quantityRange = 1..3, 25)
+            obj(Items.GRIMY_HARRALANDER, quantityRange = 1..3, 25)
+            obj(Items.GRIMY_RANARR_WEED, quantityRange = 1..3, 25)
+            obj(Items.GRIMY_IRIT_LEAF, quantityRange = 1..3, 25)
         }
-        table("gEMS") {
-            total(256)
-            nothing(64)
+        table("second") {
+            total(128)
+            obj(Items.GRIMY_AVANTOE, quantityRange = 1..3, 25)
+            obj(Items.GRIMY_KWUARM, quantityRange = 1..3, 25)
+            obj(Items.GRIMY_CADANTINE, quantityRange = 1..3, 25)
+            obj(Items.GRIMY_DWARF_WEED, quantityRange = 1..3, 25)
         }
-        table("Herbs_Noted") {
-            total(512)
-            nothing(slots = 4)
+        table("coins") {
+            total(128)
+            obj(Items.COINS, quantityRange = 100..2215, 15)
         }
+
         }
 
 

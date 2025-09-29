@@ -17,30 +17,35 @@ on_npc_combat(Npcs.LOAR_SHADOW) {
 val table = DropTableFactory
 val droptable =
     table.build {
-            guaranteed {
-                obj(Items.BONES, quantity = 1)
-            }
-        main {
-            total(512)
-            nothing(64)
+        guaranteed {
+            obj(Items.COINS, quantity = 2500)
+            obj(Items.BONES, quantity = 1)
         }
-        table("Herbs") {
-            total(512)
-            nothing(slots = 4)
+        table("coins") {
+            total(128)
+            obj(Items.COINS, quantityRange = 1100..3500, 2)
         }
-        table("Secondaries") {
-            total(256)
-            nothing(64)
+        table("main") {
+            total(128)
+            obj(Items.GRIMY_GUAM_LEAF, quantityRange = 1..9, 20)
+            obj(Items.GRIMY_MARRENTILL, quantityRange = 1..9, 18)
+            obj(Items.GRIMY_TARROMIN, quantityRange = 1..9, 19)
+            obj(Items.GRIMY_RANARR_WEED, quantityRange = 1..9, 17)
         }
-        table("gEMS") {
-            total(256)
-            nothing(64)
+        table("second") {
+            total(128)
+            obj(Items.GRIMY_IRIT_LEAF, quantityRange = 1..5, 15)
+            obj(Items.GRIMY_KWUARM, quantityRange = 1..5, 14)
+            obj(Items.GRIMY_SNAPDRAGON, quantityRange = 1..5, 13)
+            obj(Items.GRIMY_CADANTINE, quantityRange = 1..5, 12)
+            obj(Items.GRIMY_DWARF_WEED, quantityRange = 1..5, 11)
+            obj(Items.GRIMY_TORSTOL_NOTED, quantityRange = 1..5, 10)
+            obj(Items.GRIMY_HARRALANDER, quantityRange = 1..5, 21)
+            obj(Items.GRIMY_LANTADYME, quantityRange = 1..4, 22)
+            obj(Items.GRIMY_TOADFLAX, quantityRange = 1..3, 24)
         }
-        table("Herbs_Noted") {
-            total(512)
-            nothing(slots = 4)
-        }
-        }
+
+    }
 
 
 

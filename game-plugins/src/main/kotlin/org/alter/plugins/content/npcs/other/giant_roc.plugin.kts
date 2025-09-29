@@ -12,12 +12,26 @@ val droptable =
         guaranteed {
             obj(Items.BIG_BONES, quantity = 1)
         }
-        main {
-            total(1024)
-            obj(Items.LONG_BONE, quantity = 1, slots = 1)
-            obj(Items.CURVED_BONE, quantity = 1, slots = 1)
-            nothing(128)
+        table("rare") {
+            total(128)
+            obj(Items.CRYSTAL_HELM_PERFECTED, quantity = 1, 1)
+            obj(Items.CRYSTAL_BODY_PERFECTED, quantity = 1, 1)
+            obj(Items.CRYSTAL_LEGS_PERFECTED, quantity = 1, 1)
+            obj(Items.ARCHERS_RING, quantity = 1, 4)
+            obj(Items.NECKLACE_OF_ANGUISH, quantity = 1, 1)
         }
+        table("main") {
+            total(128)
+            obj(Items.RUNE_ARROW, quantityRange = 1..15, 5)
+            obj(Items.ADAMANT_ARROW, quantityRange = 1..15, 10)
+        }
+        table("coins") {
+            total(128)
+            obj(Items.COINS, quantityRange = 400..1000, 1)
+            obj(Items.COINS, quantityRange = 150..300, 5)
+            obj(Items.COINS, quantityRange = 200..500, 7)
+        }
+
     }
 
 table.register(droptable, *ids)

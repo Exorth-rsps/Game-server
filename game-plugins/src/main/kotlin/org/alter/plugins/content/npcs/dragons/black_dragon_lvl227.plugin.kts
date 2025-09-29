@@ -12,20 +12,34 @@ val droptable =
             obj(Items.DRAGON_BONES, quantity = 1)
             obj(Items.BLACK_DRAGONHIDE, quantity = 1)
         }
-        main {
-            total(512)
-            obj(Items.MITHRIL_2H_SWORD, quantity = 1, slots = 4)
-            obj(Items.MITHRIL_AXE, quantity = 1, slots = 4)
-            obj(Items.MITHRIL_BATTLEAXE, quantity = 1, slots = 4)
-            obj(Items.RUNE_LONGSWORD, quantity = 1, slots = 2)
-            obj(Items.ADAMANT_PLATEBODY, quantity = 1, slots = 2)
-            obj(Items.RUNE_ARROW, quantityRange = 1..12, slots = 1)
-            obj(Items.BLOOD_RUNE, quantityRange = 1..12, slots = 1)
-            obj(Items.DEATH_RUNE, quantityRange = 1..19, slots = 1)
-            obj(Items.COINS_995, quantityRange = 97..1287, slots = 2)
-            obj(Items.ADAMANTITE_BAR, quantity = 1, slots = 2)
-            nothing(64)
+        table("main") {
+            total(128)
+            obj(Items.MITHRIL_BATTLEAXE, quantity = 1, 35)
+            obj(Items.ADAMANT_BATTLEAXE, quantity = 1, 30)
+            obj(Items.RUNE_BATTLEAXE, quantity = 1, 28)
         }
+        table("rare") {
+            total(128)
+            obj(Items.DRACONIC_VISAGE, quantity = 1, 1)
+        }
+        table("herbs-noted") {
+            total(128)
+            obj(Items.GRIMY_LANTADYME_NOTED, quantityRange = 3..10, 12)
+            obj(Items.GRIMY_RANARR_WEED_NOTED, quantityRange = 3..10, 10)
+            obj(Items.GRIMY_GUAM_LEAF_NOTED, quantityRange = 3..10, 20)
+            obj(Items.GRIMY_MARRENTILL_NOTED, quantityRange = 3..10, 24)
+            obj(Items.GRIMY_HARRALANDER_NOTED, quantityRange = 3..10, 22)
+            obj(Items.GRIMY_DWARF_WEED_NOTED, quantityRange = 3..10, 10)
+            obj(Items.GRIMY_TORSTOL_NOTED, quantityRange = 3..10, 9)
+        }
+        table("gems") {
+            total(128)
+            obj(Items.UNCUT_SAPPHIRE, quantity = 1, 90)
+            obj(Items.UNCUT_EMERALD, quantity = 1, 80)
+            obj(Items.UNCUT_DIAMOND, quantity = 1, 70)
+            obj(Items.UNCUT_RUBY, quantity = 1, 75)
+        }
+
 
     }
 

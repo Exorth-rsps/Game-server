@@ -14,26 +14,32 @@ val droptable =
         guaranteed {
             obj(Items.BIG_BONES, quantity = 1)
         }
-        main {
-            total(1024)
-            obj(Items.RUNE_MED_HELM, quantity = 1, slots = 2)
-            obj(Items.RUNE_SQ_SHIELD, quantity = 1, slots = 2)
-            obj(Items.RUNE_SWORD, quantity = 1, slots = 2)
-            obj(Items.CHAOS_RUNE, quantityRange = 1..10, slots = 2)
-            obj(Items.DEATH_RUNE, quantityRange = 1..5, slots = 1)
-            obj(Items.WINE_OF_ZAMORAK, quantity = 1, slots = 2)
-            obj(Items.LIMPWURT_ROOT, quantity = 1, slots = 2)
-            obj(Items.EYE_OF_NEWT, quantity = 1, slots = 4)
-            obj(Items.RUNE_PLATELEGS, quantity = 1, slots = 2)
-            obj(Items.RUNE_PLATESKIRT, quantity = 1, slots = 2)
-            obj(Items.RUNE_PLATEBODY, quantity = 1, slots = 2)
-            obj(Items.RUNE_FULL_HELM, quantity = 1, slots = 2)
-            obj(Items.RUNE_KITESHIELD, quantity = 1, slots = 2)
-            obj(Items.RUNE_BATTLEAXE, quantity = 1, slots = 2)
-            obj(Items.RUNE_SCIMITAR, quantity = 1, slots = 2)
-            obj(Items.RUNE_2H_SWORD, quantity = 1, slots = 2)
-            obj(Items.RUNE_WARHAMMER, quantity = 1, slots = 2)
-            obj(Items.ICY_KEY, quantity = 1, slots = 1)
+        table("main") {
+            total(128)
+            obj(Items.RUNE_SWORD, quantity = 1, 25)
+            obj(Items.RUNE_BATTLEAXE, quantity = 1, 10)
+            obj(Items.RUNE_WARHAMMER, quantity = 1, 10)
+            obj(Items.RUNE_SCIMITAR, quantity = 1, 6)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.ICY_KEY, quantity = 1, 1)
+            obj(Items.RUNE_PLATELEGS, quantity = 1, 4)
+            obj(Items.RUNE_PLATEBODY, quantity = 1, 4)
+            obj(Items.RUNE_KITESHIELD, quantity = 1, 4)
+            obj(Items.RUNE_FULL_HELM, quantity = 1, 4)
+        }
+        table("gems") {
+            total(128)
+            obj(Items.UNCUT_DIAMOND, quantity = 1, 6)
+            obj(Items.UNCUT_RUBY, quantity = 1, 8)
+            obj(Items.UNCUT_EMERALD, quantity = 1, 12)
+            obj(Items.UNCUT_SAPPHIRE, quantity = 1, 15)
+        }
+        table("herb-secondaries") {
+            total(128)
+            obj(Items.EYE_OF_NEWT, quantity = 1, 25)
+            obj(Items.LIMPWURT_ROOT, quantity = 1, 25)
         }
     }
 
