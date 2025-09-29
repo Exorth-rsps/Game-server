@@ -10,7 +10,15 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
-            obj(Items.BONES, quantity = 1)
+            obj(Items.ASHES, quantity = 1)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.SMALL_POUCH, quantity = 1, 22)
+        }
+        table("main") {
+            total(128)
+            obj(Items.PURE_ESSENCE_NOTED, quantityRange = 5..15, 11)
         }
     }
 

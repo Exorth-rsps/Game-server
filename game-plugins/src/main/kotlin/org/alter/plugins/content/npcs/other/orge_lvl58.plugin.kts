@@ -11,15 +11,11 @@ val droptable =
     table.build {
         guaranteed {
             obj(Items.BIG_BONES, quantity = 1)
+            obj(Items.RED_CAPE, quantity = 1)
+            obj(Items.BLACK_CAPE, quantity = 1)
+            obj(Items.TEAM50_CAPE, quantity = 1)
         }
-        table("Herbs") {
-            total(512)
-            nothing(slots = 4)
-        }
-        table("Herbs_Noted") {
-            total(512)
-            nothing(slots = 4)
-        }
+
     }
 
 

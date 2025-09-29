@@ -11,19 +11,22 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
-            obj(Items.BIG_BONES, quantity = 1)
+            obj(Items.BIG_BONES, quantity = 1,)
             obj(Items.ADAMANTITE_ORE, quantity = 1)
-            obj(Items.UNCUT_RUBY, quantity = 1)
         }
-        main {
-            total(1024)
-            obj(Items.ROCKSHELL_HELM, quantity = 1, slots = 1)
-            obj(Items.ROCKSHELL_PLATE, quantity = 1, slots = 1)
-            obj(Items.ROCKSHELL_LEGS, quantity = 1, slots = 1)
-            obj(Items.ROCKSHELL_BOOTS, quantity = 1, slots = 1)
-            obj(Items.ROCKSHELL_GLOVES, quantity = 1, slots = 1)
-            obj(Items.MUDDY_KEY, quantity = 1, slots = 2)
-            nothing(128)
+        table("gems") {
+            total(128)
+            obj(Items.UNCUT_DIAMOND, quantity = 1, 70)
+            obj(Items.UNCUT_RUBY, quantity = 1, 75)
+            obj(Items.UNCUT_EMERALD, quantity = 1, 80)
+        }
+        table("rare") {
+            total(128)
+            obj(Items.ROCKSHELL_HELM, quantity = 1, 11)
+            obj(Items.ROCKSHELL_BOOTS, quantity = 1, 12)
+            obj(Items.ROCKSHELL_GLOVES, quantity = 1, 13)
+            obj(Items.ROCKSHELL_PLATE, quantity = 1, 14)
+            obj(Items.ROCKSHELL_LEGS, quantity = 1, 15)
         }
     }
 
