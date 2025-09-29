@@ -100,12 +100,14 @@ class Cooking(private val defs: DefinitionSet) {
 
     private fun successfullyCooked(player: Player, level: Int, food: CookingFood, obj: CookingObj): Boolean {
         val startOffset = if (obj.isRange) RANGE_START_OFFSET else FIRE_START_OFFSET
-        val stopLevel = food.maxLevel + STOP_EXTRA_LEVELS
-
-        var burnStart = food.minLevel.toDouble() - startOffset
-        if (player.equipment.contains(Items.COOKING_GAUNTLETS) && food.gauntletBonus > 0) {
-            burnStart -= food.gauntletBonus
+        val baseStop = food.stopLevel + STOP_EXTRA_LEVELS
+        val stopLevel = if (player.equipment.contains(Items.COOKING_GAUNTLETS)) {
+            (food.gauntletStopLevel ?: food.stopLevel) + STOP_EXTRA_LEVELS
+        } else {
+            baseStop
         }
+
+        val burnStart = food.minLevel.toDouble() - startOffset
 
         val burnSpan = (stopLevel - burnStart).coerceAtLeast(1.0)
         val effectiveLevel = level.toDouble()
@@ -114,7 +116,8 @@ class Cooking(private val defs: DefinitionSet) {
         // two dozen levels below the requirement on fires and about thirty levels below
         // on ranges. Shifting the start of the curve by those amounts (and extending the
         // stop-burn level a few virtual levels beyond the documented cap) reproduces the
-        // published success rates for high-level fish such as sharks.
+        // published success rates for high-level fish such as sharks while letting food
+        // definitions specify alternate gauntlet-assisted burn caps.
         val chance = ((effectiveLevel - burnStart).coerceAtLeast(0.0) / burnSpan).coerceIn(0.0, 1.0)
         return RANDOM.nextDouble() <= chance
     }
