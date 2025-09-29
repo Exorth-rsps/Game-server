@@ -35,13 +35,14 @@ class Cooking(private val defs: DefinitionSet) {
             cookable = food.raw_item
         }
 
-        repeat(amount) {
-
-            if(!canCook(player, food, forceBurn)) {
-                return
+        var animationPlaying = false
+        for (i in 0 until amount) {
+            if (!canCook(player, food, forceBurn)) {
+                break
             }
 
             player.animate(obj.animation)
+            animationPlaying = true
             player.playSound(obj.sound, 1, 0)
 
             player.inventory.remove(cookable)
@@ -67,6 +68,9 @@ class Cooking(private val defs: DefinitionSet) {
                 player.filterableMessage("You accidentally burn some ${name}.")
             }
             task.wait(5)
+        }
+
+        if (animationPlaying) {
             player.animate(-1)
         }
     }
