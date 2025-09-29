@@ -14,8 +14,18 @@ import org.alter.api.cfg.Items
  * @param maxLevel          The level which food no longer will burn.
  * @param xp                The amount of xp gained when successfully cooking the food.
  * @param requireRange      Boolean whether or not this food can be cooked on fires.
+ * @param gauntletBonus     Additional burn-reduction levels granted by cooking gauntlets.
  */
-enum class CookingFood(val raw_item: Int, val cooked_item: Int, val burnt_item: Int, val xp: Double, val minLevel: Int, val maxLevel: Int, val requireRange: Boolean = true) {
+enum class CookingFood(
+    val raw_item: Int,
+    val cooked_item: Int,
+    val burnt_item: Int,
+    val xp: Double,
+    val minLevel: Int,
+    val maxLevel: Int,
+    val requireRange: Boolean = true,
+    val gauntletBonus: Int = 0
+) {
     SHRIMP(Items.RAW_SHRIMPS, Items.SHRIMPS, Items.BURNT_SHRIMP, 30.0, 1, 34, false),
     CHICKEN(Items.RAW_CHICKEN, Items.COOKED_CHICKEN, Items.BURNT_CHICKEN, 30.0, 1, 34, false),
     BEEF(Items.RAW_BEEF, Items.COOKED_MEAT, Items.BURNT_MEAT, 30.0, 1, 31, false),
@@ -29,18 +39,18 @@ enum class CookingFood(val raw_item: Int, val cooked_item: Int, val burnt_item: 
     PIKE(Items.RAW_PIKE, Items.PIKE, Items.BURNT_FISH_343, 80.0, 20, 64, false),
     ROAST_BEAST(Items.RAW_BEAST_MEAT, Items.ROAST_BEAST_MEAT, Items.BURNT_BEAST_MEAT, 82.5, 21, 99, false),
     SALMON(Items.RAW_SALMON, Items.SALMON, Items.BURNT_FISH_343, 90.0, 25, 58,false),
-    TUNA(Items.RAW_TUNA, Items.TUNA, Items.BURNT_FISH_367, 100.0, 30, 64, false),
+    TUNA(Items.RAW_TUNA, Items.TUNA, Items.BURNT_FISH_367, 100.0, 30, 64, false, gauntletBonus = 5),
     RAINBOW_FISH(Items.RAW_RAINBOW_FISH, Items.RAINBOW_FISH, Items.BURNT_RAINBOW_FISH, 110.0, 35, 63, false),
     STEW(Items.UNCOOKED_STEW, Items.STEW, Items.BURNT_STEW, 117.0, 25, 58, true),
     CAKE(Items.UNCOOKED_CAKE, Items.CAKE, Items.BURNT_CAKE, 180.0, 40, 99, true),
     MEAT_PIE(Items.UNCOOKED_MEAT_PIE, Items.MEAT_PIE, Items.BURNT_PIE, 110.0, 20, 99, true),
     LOBSTER(Items.RAW_LOBSTER, Items.LOBSTER, Items.BURNT_LOBSTER, 90.0, 40, 74, false),
     BASS(Items.RAW_BASS, Items.BASS, Items.BURNT_FISH_367, 130.0, 43, 80, false),
-    SWORDFISH(Items.RAW_SWORDFISH, Items.SWORDFISH, Items.BURNT_SWORDFISH, 140.0, 45, 86, false),
+    SWORDFISH(Items.RAW_SWORDFISH, Items.SWORDFISH, Items.BURNT_SWORDFISH, 140.0, 45, 86, false, gauntletBonus = 5),
     BAKED_POTATO(Items.POTATO, Items.BAKED_POTATO, Items.BURNT_POTATO, 15.0, 7, 50, false),
     MONKFISH(Items.RAW_MONKFISH, Items.MONKFISH, Items.BURNT_MONKFISH, 150.0, 62, 92, false),
     KARAMBWAN(Items.RAW_KARAMBWAN, Items.COOKED_KARAMBWAN, Items.BURNT_KARAMBWAN, 190.0, 30, 99, false),
-    SHARK(Items.RAW_SHARK, Items.SHARK, Items.BURNT_SHARK, 210.0, 80, 99, false),
+    SHARK(Items.RAW_SHARK, Items.SHARK, Items.BURNT_SHARK, 210.0, 80, 99, false, gauntletBonus = 5),
     SEA_TURTLE(Items.RAW_SEA_TURTLE, Items.SEA_TURTLE, Items.BURNT_SEA_TURTLE, 211.3, 82, 99, false),
     MANTA_RAY(Items.RAW_MANTA_RAY, Items.MANTA_RAY, Items.BURNT_MANTA_RAY, 216.3, 91, 99, false),
     DARK_CRAB(Items.RAW_DARK_CRAB, Items.DARK_CRAB, Items.BURNT_DARK_CRAB, 215.0, 90, 99, false),

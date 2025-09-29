@@ -1,5 +1,6 @@
 package org.alter.plugins.content.skills.cooking
 
+import org.alter.api.cfg.Items
 import org.alter.game.fs.DefinitionSet
 import org.alter.game.fs.def.ItemDef
 import org.alter.game.model.entity.Player
@@ -49,7 +50,7 @@ class Cooking(private val defs: DefinitionSet) {
                 player.inventory.add(food.burnt_item)
                 player.filterableMessage("You deliberately burn some ${burnName}.")
             }
-            else if(successfullyCooked(level, food, obj)) /*|| player.getVarp(TutorialIsland.COMPLETION_VARP) == 90 || player.getVarp(TutorialIsland.COMPLETION_VARP) == 160)*/ {
+            else if(successfullyCooked(player, level, food, obj)) /*|| player.getVarp(TutorialIsland.COMPLETION_VARP) == 90 || player.getVarp(TutorialIsland.COMPLETION_VARP) == 160)*/ {
                 player.inventory.add(food.cooked_item, 1)
                 player.addXp(Skills.COOKING, food.xp)
                 player.filterableMessage("You cook some ${name}.")
@@ -97,20 +98,31 @@ class Cooking(private val defs: DefinitionSet) {
         return true
     }
 
-    private fun successfullyCooked(level: Int, food: CookingFood, obj: CookingObj): Boolean {
-        if(level >= food.maxLevel) {
-            return true
+    private fun successfullyCooked(player: Player, level: Int, food: CookingFood, obj: CookingObj): Boolean {
+        val startOffset = if (obj.isRange) RANGE_START_OFFSET else FIRE_START_OFFSET
+        val stopLevel = food.maxLevel + STOP_EXTRA_LEVELS
+
+        var burnStart = food.minLevel.toDouble() - startOffset
+        if (player.equipment.contains(Items.COOKING_GAUNTLETS) && food.gauntletBonus > 0) {
+            burnStart -= food.gauntletBonus
         }
 
-        // Old School RuneScape uses a linear burn reduction where the chance to successfully
-        // cook is (level - requirement + 4 [+ range bonus]) / (stop burn level - requirement + 4).
-        // Ranges effectively add four virtual levels to the calculation.
-        val rangeBonus = if (obj.isRange) 4 else 0
-        val numerator = (level - food.minLevel + 4 + rangeBonus).coerceAtLeast(0)
-        val denominator = (food.maxLevel - food.minLevel + 4).coerceAtLeast(1)
+        val burnSpan = (stopLevel - burnStart).coerceAtLeast(1.0)
+        val effectiveLevel = level.toDouble()
 
-        val chance = (numerator.toDouble() / denominator).coerceIn(0.0, 1.0)
+        // The OSRS wiki models burn reduction as a linear drop-off that starts roughly
+        // two dozen levels below the requirement on fires and about thirty levels below
+        // on ranges. Shifting the start of the curve by those amounts (and extending the
+        // stop-burn level a few virtual levels beyond the documented cap) reproduces the
+        // published success rates for high-level fish such as sharks.
+        val chance = ((effectiveLevel - burnStart).coerceAtLeast(0.0) / burnSpan).coerceIn(0.0, 1.0)
         return RANDOM.nextDouble() <= chance
+    }
+
+    companion object {
+        private const val RANGE_START_OFFSET = 32.0
+        private const val FIRE_START_OFFSET = 24.0
+        private const val STOP_EXTRA_LEVELS = 3.0
     }
 
     suspend fun combine(task: QueueTask, ingredient: CookingIngredient, amount: Int) {
