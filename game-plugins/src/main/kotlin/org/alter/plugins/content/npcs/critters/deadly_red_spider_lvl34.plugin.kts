@@ -15,6 +15,7 @@ val droptable =
         table("main") {
             total(128)
             obj(Items.RED_SPIDERS_EGGS, quantityRange = 1..10, 30)
+            nothing(98)
         }
     }
 

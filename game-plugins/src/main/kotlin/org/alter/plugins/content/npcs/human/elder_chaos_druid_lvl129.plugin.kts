@@ -18,6 +18,7 @@ val droptable =
             obj(Items.ELDER_CHAOS_HOOD, quantity = 1, 1)
             obj(Items.ANCIENT_STAFF, quantity = 1, 3)
             obj(Items.ZURIELS_STAFF, quantity = 1, 1)
+            nothing(119)
         }
         table("main") {
             total(128)
@@ -32,6 +33,7 @@ val droptable =
             obj(Items.DEATH_RUNE, quantityRange = 10..15, 10)
             obj(Items.CHAOS_RUNE, quantityRange = 10..15, 10)
             obj(Items.LAW_RUNE, quantityRange = 10..15, 10)
+            nothing(18)
         }
     }
 

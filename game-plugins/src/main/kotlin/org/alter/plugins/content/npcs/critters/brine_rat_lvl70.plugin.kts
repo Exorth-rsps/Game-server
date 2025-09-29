@@ -18,6 +18,7 @@ val droptable =
             obj(Items.CHAOS_RUNE, quantityRange = 1..5, 9)
             obj(Items.DEATH_RUNE, quantityRange = 1..4, 9)
             obj(Items.BLOOD_RUNE, quantityRange = 1..4, 9)
+            nothing(101)
         }
     }
 

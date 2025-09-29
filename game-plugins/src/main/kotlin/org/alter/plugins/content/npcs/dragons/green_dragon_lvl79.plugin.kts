@@ -18,21 +18,25 @@ val droptable =
             obj(Items.GRIMY_GUAM_LEAF_NOTED, quantityRange = 3..8, 20)
             obj(Items.GRIMY_MARRENTILL_NOTED, quantityRange = 3..8, 24)
             obj(Items.GRIMY_HARRALANDER_NOTED, quantityRange = 3..8, 22)
+            nothing(50)
         }
         table("gems") {
             total(128)
             obj(Items.UNCUT_SAPPHIRE, quantity = 1, 90)
             obj(Items.UNCUT_EMERALD, quantity = 1, 80)
+            nothing(1)
         }
         table("second") {
             total(128)
             obj(Items.LIMPWURT_ROOT_NOTED, quantityRange = 2..6, 30)
             obj(Items.RED_SPIDERS_EGGS_NOTED, quantityRange = 2..6, 28)
+            nothing(70)
         }
         table("rare") {
             total(128)
             obj(Items.WHITE_BERRIES_NOTED, quantityRange = 2..6, 18)
             obj(Items.SNAPE_GRASS_NOTED, quantityRange = 2..6, 20)
+            nothing(90)
         }
 
 

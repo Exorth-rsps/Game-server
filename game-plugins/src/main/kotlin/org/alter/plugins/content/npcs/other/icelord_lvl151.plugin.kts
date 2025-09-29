@@ -20,6 +20,7 @@ val droptable =
             obj(Items.RUNE_BATTLEAXE, quantity = 1, 10)
             obj(Items.RUNE_WARHAMMER, quantity = 1, 10)
             obj(Items.RUNE_SCIMITAR, quantity = 1, 6)
+            nothing(77)
         }
         table("rare") {
             total(128)
@@ -28,6 +29,7 @@ val droptable =
             obj(Items.RUNE_PLATEBODY, quantity = 1, 4)
             obj(Items.RUNE_KITESHIELD, quantity = 1, 4)
             obj(Items.RUNE_FULL_HELM, quantity = 1, 4)
+            nothing(111)
         }
         table("gems") {
             total(128)
@@ -35,11 +37,13 @@ val droptable =
             obj(Items.UNCUT_RUBY, quantity = 1, 8)
             obj(Items.UNCUT_EMERALD, quantity = 1, 12)
             obj(Items.UNCUT_SAPPHIRE, quantity = 1, 15)
+            nothing(87)
         }
         table("herb-secondaries") {
             total(128)
             obj(Items.EYE_OF_NEWT, quantity = 1, 25)
             obj(Items.LIMPWURT_ROOT, quantity = 1, 25)
+            nothing(78)
         }
     }
 

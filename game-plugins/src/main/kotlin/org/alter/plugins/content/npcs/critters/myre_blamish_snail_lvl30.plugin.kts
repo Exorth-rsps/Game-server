@@ -17,6 +17,7 @@ val droptable =
             obj(Items.LOGS, quantityRange = 1..3, 20)
             obj(Items.BOW_STRING, quantityRange = 1..3, 22)
             obj(Items.COAL, quantityRange = 1..3, 27)
+            nothing(59)
         }
     }
 
