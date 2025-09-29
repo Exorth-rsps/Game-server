@@ -27,6 +27,7 @@ import java.text.DecimalFormat
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
+import org.alter.game.service.log.PublicChatLoggerService
 
 /**
  * The [Server] is responsible for starting any and all games.
@@ -92,6 +93,12 @@ class Server {
         /*
          * Create a game context for our configurations and services to run.
          */
+        val autoBanOn = gameProperties.getOrDefault("autoBanEnabled", false)
+        val autoBanMs = gameProperties.getOrDefault("autoBanIntervalMs", 1000).toLong()
+        val autoIPBanOn = gameProperties.getOrDefault("autoIPBanEnabled", false)
+
+        logger.info(" Auto-ban: enabled=$autoBanOn, ipBanEnabled=$autoIPBanOn, intervalMs=$autoBanMs")
+
         val gameContext = GameContext(
             initialLaunch = initialLaunch,
             name = gameProperties.get<String>("name")!!,
@@ -99,6 +106,7 @@ class Server {
             cycleTime = gameProperties.getOrDefault("cycle-time", 600),
             xpmultiplier = gameProperties.getOrDefault("xpmultiplier", 1.0),
             doublexp = gameProperties.getOrDefault("doublexp", false),
+            barrowsDegrade = gameProperties.getOrDefault("barrows-degrade", true),
 
             playerLimit = gameProperties.getOrDefault("max-players", 2048),
             home = Tile(
@@ -114,7 +122,10 @@ class Server {
                 GroundItem.DEFAULT_PUBLIC_SPAWN_CYCLES
             ),
             gItemDespawnDelay = gameProperties.getOrDefault("gitem-despawn-delay", GroundItem.DEFAULT_DESPAWN_CYCLES),
-            preloadMaps = gameProperties.getOrDefault("preload-maps", false)
+            preloadMaps = gameProperties.getOrDefault("preload-maps", false),
+            autoBanEnabled    = autoBanOn,
+            autoIPBanEnabled  = autoIPBanOn,
+            autoBanIntervalMs = autoBanMs
         )
 
         val devContext = DevContext(
@@ -198,6 +209,8 @@ class Server {
          * Inform the time it took to load up all non-network logic.
          */
         logger.info("${gameProperties.get<String>("name")!!} double xp is ${gameProperties.get<String>("doublexp")!!}")
+        logger.info("${gameProperties.get<String>("name")!!} barrows degrade is ${gameProperties.getOrDefault("barrows-degrade", true)}")
+        logger.info("Auto-ban: enabled=${gameContext.autoBanEnabled}, intervalMs=${gameContext.autoBanIntervalMs}")
         logger.info("${gameProperties.get<String>("name")!!} loaded up in ${stopwatch.elapsed(TimeUnit.MILLISECONDS)}ms.")
 
         /*

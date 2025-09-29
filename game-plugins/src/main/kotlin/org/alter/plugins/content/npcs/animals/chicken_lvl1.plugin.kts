@@ -11,15 +11,9 @@ val table = DropTableFactory
 val droptable =
     table.build {
         guaranteed {
-            obj(Items.BONES, quantity = 1)
+            obj(Items.FEATHER, quantityRange = 1..10)
             obj(Items.RAW_CHICKEN, quantity = 1)
-        }
-        main {
-            total(256)
-            nothing(slots = 32)
-            obj(Items.FEATHER, quantityRange = 1..5, slots = 8)
-            obj(Items.FEATHER, quantityRange = 5..15, slots = 2)
-            obj(Items.FEATHER, quantityRange = 12..25, slots = 1)
+            obj(Items.BONES, quantity = 1)
         }
     }
 

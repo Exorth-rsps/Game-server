@@ -90,7 +90,7 @@ on_button(OVERLAY_INTERFACE, 0) {
 
         // The item slot, and the option that was pressed
         val slot = player.getInteractingSlot()
-        val opt = player.getInteractingOption()
+        val opt = player.getInteractingOption() + 1
 
         // The item being traded
         val item = inventory[slot] ?: return@on_button
@@ -122,7 +122,7 @@ on_button(TRADE_INTERFACE, PLAYER_TRADE_CHILD) {
 
         // The item slot, and the option that was pressed
         val slot = player.getInteractingSlot()
-        val opt = player.getInteractingOption()
+        val opt = player.getInteractingOption() + 1
 
         // The item being traded
         val item = container[slot] ?: return@on_button

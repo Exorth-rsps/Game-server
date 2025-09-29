@@ -12,30 +12,17 @@ val droptable =
         guaranteed {
             obj(Items.BONES, quantity = 1)
         }
-        main {
-            total(512)
-            nothing(64)
-            obj(Items.COINS_995, quantity = 1, slots = 16)
-            obj(Items.BREAD, quantity = 1, slots = 16)
-            obj(Items.MITHRIL_MED_HELM, quantity = 1, slots = 2)
-            obj(Items.MITHRIL_CHAINBODY, quantity = 1, slots = 4)
-            obj(Items.MITHRIL_SWORD, quantity = 1, slots = 4)
-            obj(Items.MITHRIL_FULL_HELM, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_PLATELEGS, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_PLATESKIRT, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_PLATEBODY, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_2H_SWORD, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_KITESHIELD, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_SQ_SHIELD, quantity = 1, slots = 2)
-            obj(Items.MITHRIL_SCIMITAR, quantity = 1, slots = 1)
-            obj(Items.MITHRIL_BATTLEAXE, quantity = 1, slots = 1)
-        }
-        table("Herbs") {
-            total(256)
-            obj(Items.GRIMY_GUAM_LEAF, quantity = 1, slots = 4)
-            obj(Items.GRIMY_HARRALANDER, quantity = 1, slots = 2)
-            obj(Items.GRIMY_TARROMIN, quantity = 1, slots = 1)
-            nothing(slots = 64)
+        table("rare") {
+            total(128)
+            obj(Items.AMULET_OF_ACCURACY, quantity = 1, 8)
+            obj(Items.AMULET_OF_POWER, quantity = 1, 4)
+            obj(Items.AMULET_OF_MAGIC, quantity = 1, 7)
+            obj(Items.STEEL_SQ_SHIELD, quantity = 1, 14)
+            obj(Items.STEEL_SWORD, quantity = 1, 14)
+            obj(Items.STEEL_MED_HELM, quantity = 1, 14)
+            obj(Items.STEEL_PLATELEGS, quantity = 1, 14)
+            obj(Items.STEEL_CHAINBODY, quantity = 1, 14)
+            obj(Items.UNCUT_RED_TOPAZ, quantity = 1, 20)
         }
     }
 
@@ -54,8 +41,8 @@ on_npc_death(*ids) {
 ids.forEach {
     set_combat_def(it) {
         configs {
-            attackSpeed = 5
-            respawnDelay = 50
+            attackSpeed = 4
+            respawnDelay = 20
             poisonChance = 0.0
             venomChance = 0.0
         }

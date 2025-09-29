@@ -10,6 +10,7 @@ import org.alter.api.Skills
 import org.alter.api.cfg.Items
 
 import org.alter.api.ext.*
+import kotlin.random.Random
 
 /**
  * @author Tom <rspsmods@gmail.com>
@@ -28,7 +29,15 @@ object Woodcutting {
         }
 
         val logName = p.world.definitions.get(ItemDef::class.java, tree.log).name
-        val axe = AxeType.values.firstOrNull { p.getSkills().getBaseLevel(Skills.WOODCUTTING) >= it.level && (p.equipment.contains(it.item) || p.inventory.contains(it.item)) }!!
+        // Kies de beste beschikbare axe in inventory of equipment
+        val axe = AxeType.values
+            .filter { p.getSkills().getBaseLevel(Skills.WOODCUTTING) >= it.level
+                    && (p.equipment.contains(it.item) || p.inventory.contains(it.item)) }
+            .maxByOrNull { it.level }
+            ?: run {
+                p.message("You need an axe to chop down this tree.")
+                return
+            }
 
         p.filterableMessage("You swing your axe at the tree.")
         while (true) {
@@ -45,6 +54,13 @@ object Woodcutting {
                 p.filterableMessage("You get some ${logName.pluralSuffix(2)}.")
                 p.playSound(3600)
                 p.inventory.add(tree.log)
+                if (Random.nextInt(5) == 0) {
+                    val bonusItemId = Items.ANIMAINFUSED_BARK
+                    val maxAmount = ((level / 50) * 4).coerceAtLeast(1)
+                    val randomAmount = Random.nextInt(1, maxAmount + 1)
+                    p.inventory.add(bonusItemId, randomAmount)
+                    p.filterableMessage("You also get $randomAmount x anima-infused bark.")
+                }
                 p.addXp(Skills.WOODCUTTING, tree.xp)
 
                 if (p.world.random(tree.depleteChance) == 0) {
@@ -73,7 +89,11 @@ object Woodcutting {
             return false
         }
 
-        val axe = AxeType.values.firstOrNull { p.getSkills().getBaseLevel(Skills.WOODCUTTING) >= it.level && (p.equipment.contains(it.item) || p.inventory.contains(it.item)) }
+        // Kies de beste axe die je kunt gebruiken
+        val axe = AxeType.values
+            .filter { p.getSkills().getBaseLevel(Skills.WOODCUTTING) >= it.level
+                    && (p.equipment.contains(it.item) || p.inventory.contains(it.item)) }
+            .maxByOrNull { it.level }
         if (axe == null) {
             p.message("You need an axe to chop down this tree.")
             p.message("You do not have an axe which you have the woodcutting level to use.")

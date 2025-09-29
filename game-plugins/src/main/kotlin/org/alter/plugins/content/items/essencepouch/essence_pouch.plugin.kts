@@ -7,7 +7,8 @@ private val pouches = setOf(
         EssencePouch(id = Items.SMALL_POUCH,    levelReq = 1,   capacity = 3),
         EssencePouch(id = Items.MEDIUM_POUCH,   levelReq = 25,  capacity = 6),
         EssencePouch(id = Items.LARGE_POUCH,    levelReq = 50,  capacity = 9),
-        EssencePouch(id = Items.GIANT_POUCH,    levelReq = 75,  capacity = 12)
+        EssencePouch(id = Items.GIANT_POUCH,    levelReq = 75,  capacity = 12),
+        EssencePouch(id = Items.COLOSSAL_POUCH,    levelReq = 85,  capacity = 40)
 )
 
 /**
