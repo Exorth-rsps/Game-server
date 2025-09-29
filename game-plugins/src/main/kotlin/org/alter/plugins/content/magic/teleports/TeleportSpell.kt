@@ -8,6 +8,7 @@ enum class TeleportSpell(val spellName: String, val type: TeleportType, val endA
     /**
      * Standard.
      */
+
     LUMBRIDGE("Lumbridge Home Teleport", TeleportType.MODERN, Area(2963, 3377, 2968, 3380), 0.0),
     ENTRANA("Entrana Teleport", TeleportType.MODERN, Area(2825, 3343, 2828, 3345), 0.0),
     DRAYNOR("Draynor Teleport", TeleportType.MODERN, Area(3077, 3248, 3082, 3252), 0.0),
@@ -18,6 +19,7 @@ enum class TeleportSpell(val spellName: String, val type: TeleportType, val endA
     //GNOME_STRONGHOLD("Gnome Stronghold Teleport", TeleportType.MODERN, Area(2459, 3423, 2462, 3430), 0.0),
    // VARROCK("Varrock Teleport", TeleportType.MODERN, Area(3209, 3422, 3216, 3424), 0.0),
  //   KOUREND_CASTLE("Kourend Castle Teleport", TeleportType.MODERN, Area(1633, 3665, 1639, 3670), 0.0),
+
 //
 //    /**
 //     * Ancients.
