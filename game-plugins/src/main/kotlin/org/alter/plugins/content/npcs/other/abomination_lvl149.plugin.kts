@@ -64,7 +64,7 @@ ids.forEach {
 
         configs {
             attackSpeed = 5
-            respawnDelay = 3
+            respawnDelay = 300
             poisonChance = 0.0
             venomChance = 0.0
             followRange = 100
