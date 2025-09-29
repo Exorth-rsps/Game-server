@@ -620,7 +620,7 @@ object Items {
     const val LOCATING_CRYSTAL_614 = 614
     const val LOCATING_CRYSTAL_615 = 615
     const val BEADS_OF_THE_DEAD = 616
-    const val COINS = 617
+    const val COINS_617 = 617
     const val BONE_BEADS = 618
     const val PARAMAYA_TICKET = 619
     const val PARAMAYA_TICKET_620 = 620
@@ -992,7 +992,7 @@ object Items {
     const val MUDDY_KEY_NOTED = 992
     const val SINISTER_KEY = 993
     const val SINISTER_KEY_NOTED = 994
-    const val COINS_995 = 995
+    const val COINS = 995
     const val COINS_996 = 996
     const val COINS_997 = 997
     const val COINS_998 = 998
