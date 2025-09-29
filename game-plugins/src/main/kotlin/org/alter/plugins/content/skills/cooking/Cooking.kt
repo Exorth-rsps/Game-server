@@ -49,7 +49,7 @@ class Cooking(private val defs: DefinitionSet) {
                 player.inventory.add(food.burnt_item)
                 player.filterableMessage("You deliberately burn some ${burnName}.")
             }
-            else if(level.interpolate(minChance = 10, maxChance = 120, minLvl = food.minLevel, maxLvl = food.maxLevel, cap = 255)) /*|| player.getVarp(TutorialIsland.COMPLETION_VARP) == 90 || player.getVarp(TutorialIsland.COMPLETION_VARP) == 160)*/ {
+            else if(successfullyCooked(level, food, obj)) /*|| player.getVarp(TutorialIsland.COMPLETION_VARP) == 90 || player.getVarp(TutorialIsland.COMPLETION_VARP) == 160)*/ {
                 player.inventory.add(food.cooked_item, 1)
                 player.addXp(Skills.COOKING, food.xp)
                 player.filterableMessage("You cook some ${name}.")
@@ -95,6 +95,22 @@ class Cooking(private val defs: DefinitionSet) {
             return false
         }
         return true
+    }
+
+    private fun successfullyCooked(level: Int, food: CookingFood, obj: CookingObj): Boolean {
+        if(level >= food.maxLevel) {
+            return true
+        }
+
+        // Old School RuneScape uses a linear burn reduction where the chance to successfully
+        // cook is (level - requirement + 4 [+ range bonus]) / (stop burn level - requirement + 4).
+        // Ranges effectively add four virtual levels to the calculation.
+        val rangeBonus = if (obj.isRange) 4 else 0
+        val numerator = (level - food.minLevel + 4 + rangeBonus).coerceAtLeast(0)
+        val denominator = (food.maxLevel - food.minLevel + 4).coerceAtLeast(1)
+
+        val chance = (numerator.toDouble() / denominator).coerceIn(0.0, 1.0)
+        return RANDOM.nextDouble() <= chance
     }
 
     suspend fun combine(task: QueueTask, ingredient: CookingIngredient, amount: Int) {
