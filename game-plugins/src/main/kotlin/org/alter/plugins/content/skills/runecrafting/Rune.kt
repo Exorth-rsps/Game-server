@@ -25,7 +25,7 @@ enum class Rune(val id: Int, val essence: IntArray = intArrayOf(Items.RUNE_ESSEN
     LAW(id = Items.LAW_RUNE,        essence = intArrayOf(Items.RUNE_ESSENCE, Items.PURE_ESSENCE),                                     level = 54, xp = 9.5),
     DEATH(id = Items.DEATH_RUNE,    essence = intArrayOf(Items.RUNE_ESSENCE, Items.PURE_ESSENCE),                                     level = 65, xp = 10.0),
     BLOOD(id = Items.BLOOD_RUNE,    essence = intArrayOf(Items.DARK_ESSENCE_BLOCK, Items.RUNE_ESSENCE, Items.PURE_ESSENCE),           level = 77, xp = 23.8),
-    SOUL(id = Items.SOUL_RUNE,      essence = intArrayOf(Items.DARK_ESSENCE_BLOCK),                                                   level = 90, xp = 29.7),
+    SOUL(id = Items.SOUL_RUNE,      essence = intArrayOf(Items.DARK_ESSENCE_BLOCK, Items.RUNE_ESSENCE, Items.PURE_ESSENCE),           level = 90, xp = 29.7),
     WRATH(id = Items.WRATH_RUNE,    essence = intArrayOf(Items.RUNE_ESSENCE, Items.PURE_ESSENCE),                                     level = 95, xp = 38.0);
 
     /**
