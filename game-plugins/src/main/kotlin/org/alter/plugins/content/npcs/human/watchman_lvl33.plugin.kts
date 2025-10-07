@@ -23,6 +23,7 @@ val droptable =
             obj(Items.STEEL_PLATELEGS, quantity = 1, 14)
             obj(Items.STEEL_CHAINBODY, quantity = 1, 14)
             obj(Items.UNCUT_RED_TOPAZ, quantity = 1, 20)
+            nothing(20)
         }
     }
 

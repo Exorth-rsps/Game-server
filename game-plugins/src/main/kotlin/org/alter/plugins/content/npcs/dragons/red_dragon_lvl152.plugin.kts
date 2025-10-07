@@ -15,6 +15,7 @@ val droptable =
         table("rare") {
             total(128)
             obj(Items.DRACONIC_VISAGE, quantity = 1, 1)
+            nothing(127)
         }
         table("herbs-noted") {
             total(128)
@@ -25,22 +26,26 @@ val droptable =
             obj(Items.GRIMY_HARRALANDER_NOTED, quantityRange = 3..8, 22)
             obj(Items.GRIMY_DWARF_WEED_NOTED, quantityRange = 3..8, 10)
             obj(Items.GRIMY_TORSTOL_NOTED, quantityRange = 3..8, 9)
+            nothing(80)
         }
         table("gems") {
             total(128)
             obj(Items.UNCUT_SAPPHIRE, quantity = 1, 90)
             obj(Items.UNCUT_EMERALD, quantity = 1, 80)
+            nothing(90)
         }
         table("second") {
             total(128)
             obj(Items.UNCUT_DIAMOND, quantity = 1, 70)
             obj(Items.UNCUT_RUBY, quantity = 1, 75)
+            nothing(90)
         }
         table("main") {
             total(128)
             obj(Items.MITHRIL_LONGSWORD, quantity = 1, 45)
             obj(Items.ADAMANT_LONGSWORD, quantity = 1, 40)
             obj(Items.RUNE_LONGSWORD, quantity = 1, 28)
+            nothing(25)
         }
 
 

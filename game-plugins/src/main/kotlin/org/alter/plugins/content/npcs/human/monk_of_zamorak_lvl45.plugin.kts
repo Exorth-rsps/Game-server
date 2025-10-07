@@ -19,6 +19,7 @@ val droptable =
             obj(Items.UNICORN_HORN_DUST_NOTED, quantityRange = 1..5, 6)
             obj(Items.WHITE_BERRIES_NOTED, quantityRange = 1..5, 5)
             obj(Items.DRAGON_SCALE_DUST_NOTED, quantityRange = 1..5, 5)
+            nothing(94)
         }
     }
 

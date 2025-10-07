@@ -113,9 +113,9 @@ enum class Cage(val Cages: IntArray, private val levelRequired: Int, val xp: Dou
 object CageRewards {
 
 	val cage_steals = arrayOf(
-		CageItem(Items.COINS_995, amount = 20, chance = 65.0),
-		CageItem(Items.COINS_995, amount = 30, chance = 25.0),
-		CageItem(Items.COINS_995, amount = 40, chance = 10.0),
-		CageItem(Items.COINS_995, amount = 50, chance = 1.0)
+		CageItem(Items.COINS, amount = 20, chance = 65.0),
+		CageItem(Items.COINS, amount = 30, chance = 25.0),
+		CageItem(Items.COINS, amount = 40, chance = 10.0),
+		CageItem(Items.COINS, amount = 50, chance = 1.0)
 	)
 }

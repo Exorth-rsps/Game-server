@@ -17,6 +17,7 @@ val droptable =
             total(128)
             obj(Items.GORAK_CLAWS, quantity = 1, 1)
             obj(Items.RING_OF_LIFE, quantity = 1, 1)
+            nothing(126)
         }
         table("herbs") {
             total(128)
@@ -26,6 +27,7 @@ val droptable =
             obj(Items.GRIMY_HARRALANDER, quantityRange = 1..3, 25)
             obj(Items.GRIMY_RANARR_WEED, quantityRange = 1..3, 25)
             obj(Items.GRIMY_IRIT_LEAF, quantityRange = 1..3, 25)
+            nothing(1)
         }
         table("second") {
             total(128)
@@ -33,10 +35,12 @@ val droptable =
             obj(Items.GRIMY_KWUARM, quantityRange = 1..3, 25)
             obj(Items.GRIMY_CADANTINE, quantityRange = 1..3, 25)
             obj(Items.GRIMY_DWARF_WEED, quantityRange = 1..3, 25)
+            nothing(28)
         }
         table("coins") {
             total(128)
             obj(Items.COINS, quantityRange = 100..2215, 15)
+            nothing(113)
         }
 
         }

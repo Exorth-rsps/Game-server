@@ -115,17 +115,17 @@ enum class Chest(val Chests: IntArray, private val levelRequired: Int, val xp: D
 object ChestRewards {
 
 	val yanille_chest = arrayOf(
-		ChestItem(Items.COINS_995, amount = 2000, chance = 65.0),
-		ChestItem(Items.COINS_995, amount = 3000, chance = 25.0),
-		ChestItem(Items.COINS_995, amount = 4000, chance = 10.0),
+		ChestItem(Items.COINS, amount = 2000, chance = 65.0),
+		ChestItem(Items.COINS, amount = 3000, chance = 25.0),
+		ChestItem(Items.COINS, amount = 4000, chance = 10.0),
 		ChestItem(Items.HIGHWAYMAN_MASK, amount = 1, chance = 0.002),
 		ChestItem(Items.WIZARD_BOOTS, amount = 1, chance = 0.001),
 		ChestItem(Items.RANGER_BOOTS, amount = 1, chance = 0.001),
 	)
 	val legends_chest = arrayOf(
-		ChestItem(Items.COINS_995, amount = 2000, chance = 65.0),
-		ChestItem(Items.COINS_995, amount = 3000, chance = 25.0),
-		ChestItem(Items.COINS_995, amount = 4000, chance = 10.0),
+		ChestItem(Items.COINS, amount = 2000, chance = 65.0),
+		ChestItem(Items.COINS, amount = 3000, chance = 25.0),
+		ChestItem(Items.COINS, amount = 4000, chance = 10.0),
 		ChestItem(Items.HIGHWAYMAN_MASK, amount = 1, chance = 0.002),
 		ChestItem(Items.SANTA_HAT, amount = 1, chance = 0.001),
 		ChestItem(Items.ROBIN_HOOD_HAT, amount = 1, chance = 0.001),

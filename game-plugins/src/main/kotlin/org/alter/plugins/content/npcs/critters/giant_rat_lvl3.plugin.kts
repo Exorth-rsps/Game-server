@@ -18,6 +18,7 @@ val droptable =
             total(11)
             obj(Items.IRON_MED_HELM, quantity = 1, 1)
             obj(Items.IRON_CHAINBODY, quantity = 1, 1)
+            nothing(9)
         }
         table("rare") {
             total(128)
@@ -27,6 +28,7 @@ val droptable =
             obj(Items.IRON_PLATESKIRT, quantity = 1, 16)
             obj(Items.IRON_2H_SWORD, quantity = 1, 7)
             obj(Items.IRON_SCIMITAR, quantity = 1, 3)
+            nothing(66)
         }
     }
 

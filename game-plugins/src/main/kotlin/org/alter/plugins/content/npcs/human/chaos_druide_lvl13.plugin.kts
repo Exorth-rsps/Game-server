@@ -21,12 +21,14 @@ val droptable =
             obj(Items.GRIMY_AVANTOE_NOTED, quantityRange = 1..3, 12)
             obj(Items.GRIMY_IRIT_LEAF_NOTED, quantityRange = 1..3, 12)
             obj(Items.GRIMY_KWUARM_NOTED, quantityRange = 1..3, 8)
+            nothing(20)
         }
         table("second") {
             total(128)
             obj(Items.GRIMY_CADANTINE_NOTED, quantityRange = 1..2, 8)
             obj(Items.GRIMY_DWARF_WEED_NOTED, quantityRange = 1..2, 4)
             obj(Items.GRIMY_TORSTOL_NOTED, quantityRange = 1..2, 4)
+            nothing(112)
         }
     }
 

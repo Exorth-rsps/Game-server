@@ -24,6 +24,7 @@ val droptable =
         table("coins") {
             total(128)
             obj(Items.COINS, quantityRange = 1100..3500, 2)
+            nothing(20)
         }
         table("main") {
             total(128)
@@ -31,6 +32,7 @@ val droptable =
             obj(Items.GRIMY_MARRENTILL, quantityRange = 1..9, 18)
             obj(Items.GRIMY_TARROMIN, quantityRange = 1..9, 19)
             obj(Items.GRIMY_RANARR_WEED, quantityRange = 1..9, 17)
+            nothing(20)
         }
         table("second") {
             total(128)
@@ -43,6 +45,7 @@ val droptable =
             obj(Items.GRIMY_HARRALANDER, quantityRange = 1..5, 21)
             obj(Items.GRIMY_LANTADYME, quantityRange = 1..4, 22)
             obj(Items.GRIMY_TOADFLAX, quantityRange = 1..3, 24)
+            nothing(20)
         }
 
     }

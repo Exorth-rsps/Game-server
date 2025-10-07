@@ -71,13 +71,13 @@ on_interface_open(INTERFACE_ID) {
 // Soft Leather
 on_button(interfaceId = 324, component = 148) {
     val inventory = player.inventory
-    if (inventory.getItemCount(Items.COINS_995) < softLeatherPrice) {
+    if (inventory.getItemCount(Items.COINS) < softLeatherPrice) {
         player.message("You haven't got enough coins to pay for soft leather.")
     } else if (inventory.getItemCount(Items.COWHIDE) < 1) {
         player.message("You don't have any cowhides to tan.")
     } else {
         inventory.remove(Items.COWHIDE, 1)
-        inventory.remove(Items.COINS_995, softLeatherPrice)
+        inventory.remove(Items.COINS, softLeatherPrice)
         inventory.add(Items.LEATHER)
     }
 }
@@ -87,14 +87,14 @@ on_button(interfaceId = 324, component = 140) {
     val inventory = player.inventory
     val amount = 5
 
-    if (inventory.getItemCount(Items.COINS_995) < amount * softLeatherPrice) {
+    if (inventory.getItemCount(Items.COINS) < amount * softLeatherPrice) {
         player.message("You haven't got enough coins to pay for soft leather.")
     } else if (inventory.getItemCount(Items.COWHIDE) < amount) {
         player.message("You don't have enough cowhides to tan.")
     } else {
-        val actualAmount = minOf(amount, inventory.getItemCount(Items.COWHIDE), inventory.getItemCount(Items.COINS_995) / softLeatherPrice)
+        val actualAmount = minOf(amount, inventory.getItemCount(Items.COWHIDE), inventory.getItemCount(Items.COINS) / softLeatherPrice)
         inventory.remove(Items.COWHIDE, actualAmount)
-        inventory.remove(Items.COINS_995, actualAmount * softLeatherPrice)
+        inventory.remove(Items.COINS, actualAmount * softLeatherPrice)
         inventory.add(Items.LEATHER, actualAmount)
     }
 }
@@ -102,13 +102,13 @@ on_button(interfaceId = 324, component = 140) {
 // Hard Leather
 on_button(interfaceId = 324, component = 149) {
     val inventory = player.inventory
-    if (inventory.getItemCount(Items.COINS_995) < hardLeatherPrice) {
+    if (inventory.getItemCount(Items.COINS) < hardLeatherPrice) {
         player.message("You haven't got enough coins to pay for hard leather.")
     } else if (inventory.getItemCount(Items.COWHIDE) < 1) {
         player.message("You don't have any cowhides to tan.")
     } else {
         inventory.remove(Items.COWHIDE, 1)
-        inventory.remove(Items.COINS_995, hardLeatherPrice)
+        inventory.remove(Items.COINS, hardLeatherPrice)
         inventory.add(Items.HARD_LEATHER)
     }
 }
@@ -118,14 +118,14 @@ on_button(interfaceId = 324, component = 141) {
     val inventory = player.inventory
     val amount = 5
 
-    if (inventory.getItemCount(Items.COINS_995) < amount * hardLeatherPrice) {
+    if (inventory.getItemCount(Items.COINS) < amount * hardLeatherPrice) {
         player.message("You haven't got enough coins to pay for hard leather.")
     } else if (inventory.getItemCount(Items.COWHIDE) < amount) {
         player.message("You don't have enough cowhides to tan.")
     } else {
-        val actualAmount = minOf(amount, inventory.getItemCount(Items.COWHIDE), inventory.getItemCount(Items.COINS_995) / hardLeatherPrice)
+        val actualAmount = minOf(amount, inventory.getItemCount(Items.COWHIDE), inventory.getItemCount(Items.COINS) / hardLeatherPrice)
         inventory.remove(Items.COWHIDE, actualAmount)
-        inventory.remove(Items.COINS_995, actualAmount * hardLeatherPrice)
+        inventory.remove(Items.COINS, actualAmount * hardLeatherPrice)
         inventory.add(Items.HARD_LEATHER, actualAmount)
     }
 }
@@ -133,13 +133,13 @@ on_button(interfaceId = 324, component = 141) {
 // Snake-Hide Norm
 on_button(interfaceId = 324, component = 150) {
     val inventory = player.inventory
-    if (inventory.getItemCount(Items.COINS_995) < snakeSkinPrice) {
+    if (inventory.getItemCount(Items.COINS) < snakeSkinPrice) {
         player.message("You haven't got enough coins to pay for snake skin.")
     } else if (inventory.getItemCount(Items.SNAKE_HIDE) < 1) {
         player.message("You don't have any snake hides to tan.")
     } else {
         inventory.remove(Items.SNAKE_HIDE, 1)
-        inventory.remove(Items.COINS_995, snakeSkinPrice)
+        inventory.remove(Items.COINS, snakeSkinPrice)
         inventory.add(Items.SNAKESKIN)
     }
 }
@@ -149,14 +149,14 @@ on_button(interfaceId = 324, component = 142) {
     val inventory = player.inventory
     val amount = 5
 
-    if (inventory.getItemCount(Items.COINS_995) < amount * snakeSkinPrice) {
+    if (inventory.getItemCount(Items.COINS) < amount * snakeSkinPrice) {
         player.message("You haven't got enough coins to pay for snake skin.")
     } else if (inventory.getItemCount(Items.SNAKE_HIDE) < amount) {
         player.message("You don't have enough snake hides to tan.")
     } else {
-        val actualAmount = minOf(amount, inventory.getItemCount(Items.SNAKE_HIDE), inventory.getItemCount(Items.COINS_995) / snakeSkinPrice)
+        val actualAmount = minOf(amount, inventory.getItemCount(Items.SNAKE_HIDE), inventory.getItemCount(Items.COINS) / snakeSkinPrice)
         inventory.remove(Items.SNAKE_HIDE, actualAmount)
-        inventory.remove(Items.COINS_995, actualAmount * snakeSkinPrice)
+        inventory.remove(Items.COINS, actualAmount * snakeSkinPrice)
         inventory.add(Items.SNAKESKIN, actualAmount)
     }
 }
@@ -164,13 +164,13 @@ on_button(interfaceId = 324, component = 142) {
 // Snake-Hide Temple Trekking
 on_button(interfaceId = 324, component = 151) {
     val inventory = player.inventory
-    if (inventory.getItemCount(Items.COINS_995) < templeTrekkingSnakeSkinPrice) {
+    if (inventory.getItemCount(Items.COINS) < templeTrekkingSnakeSkinPrice) {
         player.message("You haven't got enough coins to pay for snake skin.")
     } else if (inventory.getItemCount(Items.SNAKE_HIDE_7801) < 1) {
         player.message("You don't have any snake hides to tan.")
     } else {
         inventory.remove(Items.SNAKE_HIDE_7801, 1)
-        inventory.remove(Items.COINS_995, templeTrekkingSnakeSkinPrice)
+        inventory.remove(Items.COINS, templeTrekkingSnakeSkinPrice)
         inventory.add(Items.SNAKESKIN)
     }
 }
@@ -180,14 +180,14 @@ on_button(interfaceId = 324, component = 143) {
     val inventory = player.inventory
     val amount = 5
 
-    if (inventory.getItemCount(Items.COINS_995) < amount * templeTrekkingSnakeSkinPrice) {
+    if (inventory.getItemCount(Items.COINS) < amount * templeTrekkingSnakeSkinPrice) {
         player.message("You haven't got enough coins to pay for snake skin.")
     } else if (inventory.getItemCount(Items.SNAKE_HIDE_7801) < amount) {
         player.message("You don't have enough snake hides to tan.")
     } else {
-        val actualAmount = minOf(amount, inventory.getItemCount(Items.SNAKE_HIDE_7801), inventory.getItemCount(Items.COINS_995) / templeTrekkingSnakeSkinPrice)
+        val actualAmount = minOf(amount, inventory.getItemCount(Items.SNAKE_HIDE_7801), inventory.getItemCount(Items.COINS) / templeTrekkingSnakeSkinPrice)
         inventory.remove(Items.SNAKE_HIDE_7801, actualAmount)
-        inventory.remove(Items.COINS_995, actualAmount * templeTrekkingSnakeSkinPrice)
+        inventory.remove(Items.COINS, actualAmount * templeTrekkingSnakeSkinPrice)
         inventory.add(Items.SNAKESKIN, actualAmount)
     }
 }
@@ -195,13 +195,13 @@ on_button(interfaceId = 324, component = 143) {
 // Green D'Hide
 on_button(interfaceId = 324, component = 152) {
     val inventory = player.inventory
-    if (inventory.getItemCount(Items.COINS_995) < greenDhidePrice) {
+    if (inventory.getItemCount(Items.COINS) < greenDhidePrice) {
         player.message("You haven't got enough coins to pay for green d'hide.")
     } else if (inventory.getItemCount(Items.GREEN_DRAGONHIDE) < 1) {
         player.message("You don't have any green dragonhides to tan.")
     } else {
         inventory.remove(Items.GREEN_DRAGONHIDE, 1)
-        inventory.remove(Items.COINS_995, greenDhidePrice)
+        inventory.remove(Items.COINS, greenDhidePrice)
         inventory.add(Items.GREEN_DRAGON_LEATHER)
     }
 }
@@ -210,14 +210,14 @@ on_button(interfaceId = 324, component = 144) {
     val inventory = player.inventory
     val amount = 5
 
-    if (inventory.getItemCount(Items.COINS_995) < amount * greenDhidePrice) {
+    if (inventory.getItemCount(Items.COINS) < amount * greenDhidePrice) {
         player.message("You haven't got enough coins to pay for green d'hide.")
     } else if (inventory.getItemCount(Items.GREEN_DRAGONHIDE) < amount) {
         player.message("You don't have enough green dragonhides to tan.")
     } else {
-        val actualAmount = minOf(amount, inventory.getItemCount(Items.GREEN_DRAGONHIDE), inventory.getItemCount(Items.COINS_995) / greenDhidePrice)
+        val actualAmount = minOf(amount, inventory.getItemCount(Items.GREEN_DRAGONHIDE), inventory.getItemCount(Items.COINS) / greenDhidePrice)
         inventory.remove(Items.GREEN_DRAGONHIDE, actualAmount)
-        inventory.remove(Items.COINS_995, actualAmount * greenDhidePrice)
+        inventory.remove(Items.COINS, actualAmount * greenDhidePrice)
         inventory.add(Items.GREEN_DRAGON_LEATHER, actualAmount)
     }
 }
@@ -225,13 +225,13 @@ on_button(interfaceId = 324, component = 144) {
 // Blue D'Hide
 on_button(interfaceId = 324, component = 153) {
     val inventory = player.inventory
-    if (inventory.getItemCount(Items.COINS_995) < blueDhidePrice) {
+    if (inventory.getItemCount(Items.COINS) < blueDhidePrice) {
         player.message("You haven't got enough coins to pay for blue d'hide.")
     } else if (inventory.getItemCount(Items.BLUE_DRAGONHIDE) < 1) {
         player.message("You don't have any blue dragonhides to tan.")
     } else {
         inventory.remove(Items.BLUE_DRAGONHIDE, 1)
-        inventory.remove(Items.COINS_995, blueDhidePrice)
+        inventory.remove(Items.COINS, blueDhidePrice)
         inventory.add(Items.BLUE_DRAGON_LEATHER)
     }
 }
@@ -240,14 +240,14 @@ on_button(interfaceId = 324, component = 145) {
     val inventory = player.inventory
     val amount = 5
 
-    if (inventory.getItemCount(Items.COINS_995) < amount * blueDhidePrice) {
+    if (inventory.getItemCount(Items.COINS) < amount * blueDhidePrice) {
         player.message("You haven't got enough coins to pay for blue d'hide.")
     } else if (inventory.getItemCount(Items.BLUE_DRAGONHIDE) < amount) {
         player.message("You don't have enough blue dragonhides to tan.")
     } else {
-        val actualAmount = minOf(amount, inventory.getItemCount(Items.BLUE_DRAGONHIDE), inventory.getItemCount(Items.COINS_995) / blueDhidePrice)
+        val actualAmount = minOf(amount, inventory.getItemCount(Items.BLUE_DRAGONHIDE), inventory.getItemCount(Items.COINS) / blueDhidePrice)
         inventory.remove(Items.BLUE_DRAGONHIDE, actualAmount)
-        inventory.remove(Items.COINS_995, actualAmount * blueDhidePrice)
+        inventory.remove(Items.COINS, actualAmount * blueDhidePrice)
         inventory.add(Items.BLUE_DRAGON_LEATHER, actualAmount)
     }
 }
@@ -255,13 +255,13 @@ on_button(interfaceId = 324, component = 145) {
 // Red D'Hide
 on_button(interfaceId = 324, component = 154) {
     val inventory = player.inventory
-    if (inventory.getItemCount(Items.COINS_995) < redDhidePrice) {
+    if (inventory.getItemCount(Items.COINS) < redDhidePrice) {
         player.message("You haven't got enough coins to pay for red d'hide.")
     } else if (inventory.getItemCount(Items.RED_DRAGONHIDE) < 1) {
         player.message("You don't have any red dragonhides to tan.")
     } else {
         inventory.remove(Items.RED_DRAGONHIDE, 1)
-        inventory.remove(Items.COINS_995, redDhidePrice)
+        inventory.remove(Items.COINS, redDhidePrice)
         inventory.add(Items.RED_DRAGON_LEATHER)
     }
 }
@@ -270,14 +270,14 @@ on_button(interfaceId = 324, component = 146) {
     val inventory = player.inventory
     val amount = 5
 
-    if (inventory.getItemCount(Items.COINS_995) < amount * redDhidePrice) {
+    if (inventory.getItemCount(Items.COINS) < amount * redDhidePrice) {
         player.message("You haven't got enough coins to pay for red d'hide.")
     } else if (inventory.getItemCount(Items.RED_DRAGONHIDE) < amount) {
         player.message("You don't have enough red dragonhides to tan.")
     } else {
-        val actualAmount = minOf(amount, inventory.getItemCount(Items.RED_DRAGONHIDE), inventory.getItemCount(Items.COINS_995) / redDhidePrice)
+        val actualAmount = minOf(amount, inventory.getItemCount(Items.RED_DRAGONHIDE), inventory.getItemCount(Items.COINS) / redDhidePrice)
         inventory.remove(Items.RED_DRAGONHIDE, actualAmount)
-        inventory.remove(Items.COINS_995, actualAmount * redDhidePrice)
+        inventory.remove(Items.COINS, actualAmount * redDhidePrice)
         inventory.add(Items.RED_DRAGON_LEATHER, actualAmount)
     }
 }
@@ -285,13 +285,13 @@ on_button(interfaceId = 324, component = 146) {
 // Black D'Hide
 on_button(interfaceId = 324, component = 155) {
     val inventory = player.inventory
-    if (inventory.getItemCount(Items.COINS_995) < blackDhidePrice) {
+    if (inventory.getItemCount(Items.COINS) < blackDhidePrice) {
         player.message("You haven't got enough coins to pay for black d'hide.")
     } else if (inventory.getItemCount(Items.BLACK_DRAGONHIDE) < 1) {
         player.message("You don't have any black dragonhides to tan.")
     } else {
         inventory.remove(Items.BLACK_DRAGONHIDE, 1)
-        inventory.remove(Items.COINS_995, blackDhidePrice)
+        inventory.remove(Items.COINS, blackDhidePrice)
         inventory.add(Items.BLACK_DRAGON_LEATHER)
     }
 }
@@ -300,14 +300,14 @@ on_button(interfaceId = 324, component = 147) {
     val inventory = player.inventory
     val amount = 5
 
-    if (inventory.getItemCount(Items.COINS_995) < amount * blackDhidePrice) {
+    if (inventory.getItemCount(Items.COINS) < amount * blackDhidePrice) {
         player.message("You haven't got enough coins to pay for black d'hide.")
     } else if (inventory.getItemCount(Items.BLACK_DRAGONHIDE) < amount) {
         player.message("You don't have enough black dragonhides to tan.")
     } else {
-        val actualAmount = minOf(amount, inventory.getItemCount(Items.BLACK_DRAGONHIDE), inventory.getItemCount(Items.COINS_995) / blackDhidePrice)
+        val actualAmount = minOf(amount, inventory.getItemCount(Items.BLACK_DRAGONHIDE), inventory.getItemCount(Items.COINS) / blackDhidePrice)
         inventory.remove(Items.BLACK_DRAGONHIDE, actualAmount)
-        inventory.remove(Items.COINS_995, actualAmount * blackDhidePrice)
+        inventory.remove(Items.COINS, actualAmount * blackDhidePrice)
         inventory.add(Items.BLACK_DRAGON_LEATHER, actualAmount)
     }
 }

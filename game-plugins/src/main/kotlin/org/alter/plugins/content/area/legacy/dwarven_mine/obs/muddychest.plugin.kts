@@ -106,7 +106,7 @@ object ChestRewards {
     val muddy_chest = arrayOf(
         ChestItem(Items.STEEL_BAR_NOTED, amount = 15, chance = 65.0),
         ChestItem(Items.MITHRIL_BAR_NOTED, amount = 10, chance = 25.0),
-        ChestItem(Items.COINS_995,        amount = 2000, chance = 10.0),
+        ChestItem(Items.COINS,        amount = 2000, chance = 10.0),
         ChestItem(Items.RUNE_PICKAXE,     amount = 1,    chance = 0.002),
         ChestItem(Items.DRAGON_PICKAXE,   amount = 1,    chance = 0.001),
         ChestItem(Items.RUNITE_BAR_NOTED, amount = 15,   chance = 0.001)

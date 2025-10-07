@@ -14,6 +14,7 @@ val droptable =
             obj(Items.BRONZE_BOOTS, quantity = 1)
             obj(Items.NATURE_RUNE, quantityRange = 5..7)
             obj(Items.FIRE_RUNE, quantityRange = 15..20)
+            nothing(125)
         }
         table("herbs") {
             total(128)
@@ -23,6 +24,7 @@ val droptable =
             obj(Items.GRIMY_RANARR_WEED, quantity = 1, 15)
             obj(Items.GRIMY_IRIT_LEAF, quantity = 1, 15)
             obj(Items.GRIMY_AVANTOE, quantity = 1, 15)
+            nothing(38)
         }
         table("second") {
             total(128)
@@ -32,10 +34,12 @@ val droptable =
             obj(Items.LIMPWURT_ROOT, quantity = 1, 15)
             obj(Items.EYE_OF_NEWT, quantity = 1, 15)
             obj(Items.RED_SPIDERS_EGGS, quantity = 1, 15)
+            nothing(38)
         }
         table("coins") {
             total(128)
             obj(Items.COINS, quantityRange = 25..50, 6)
+            nothing(122)
         }
     }
 

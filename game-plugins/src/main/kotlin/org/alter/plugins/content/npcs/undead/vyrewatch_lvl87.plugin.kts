@@ -15,10 +15,12 @@ val droptable =
             obj(Items.ADAMANT_PLATELEGS, quantity = 1, 17)
             obj(Items.RUNE_PLATELEGS, quantity = 1, 13)
             obj(Items.RUNE_FULL_HELM, quantity = 1, 12)
+            nothing(20)
         }
         table("coins") {
             total(128)
             obj(Items.COINS, quantity = 3500, 3)
+            nothing(20)
         }
         guaranteed {
             obj(Items.COINS, quantityRange = 2200..4500)
@@ -34,6 +36,7 @@ val droptable =
             obj(Items.KWUARM_SEED, quantityRange = 1..6, 19)
             obj(Items.SNAPDRAGON_SEED, quantityRange = 1..6, 20)
             obj(Items.CADANTINE_SEED, quantityRange = 1..4, 21)
+            nothing(20)
         }
         table("rare") {
             total(128)
@@ -42,6 +45,7 @@ val droptable =
             obj(Items.LANTADYME_SEED, quantityRange = 1..4, 24)
             obj(Items.TOADFLAX_SEED, quantityRange = 1..4, 25)
             obj(Items.HARRALANDER_SEED, quantityRange = 1..7, 26)
+            nothing(20)
         }
 
     }

@@ -17,7 +17,7 @@ suspend fun QueueTask.bartenderDialogue() {
             chatPlayer("A glass of your finest ale please.")
             chatNpc("No problemo. That'll be 2 coins.")
             if (player.inventory.hasFreeSpace()) {
-                if (player.inventory.remove(Items.COINS_995, 2).hasSucceeded()) {
+                if (player.inventory.remove(Items.COINS, 2).hasSucceeded()) {
                     player.inventory.add(Items.BEER)
                     itemMessageBox("The bartender hands you a fine ale.", Items.BEER)
                 } else {
